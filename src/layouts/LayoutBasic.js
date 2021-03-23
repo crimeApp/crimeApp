@@ -1,22 +1,41 @@
 import React from 'react';
 import { Route, Switch } from "react-router-dom";
-import { Layout } from 'antd';
+
+import { Container } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid';
+
+import MenuTop from '../components/Menu/MenuTop';
+
+const useStyles = makeStyles((theme) => ({
+    root: {
+      flexGrow: 1,
+    },
+    paper: {
+      padding: theme.spacing(2),
+      textAlign: 'center',
+      color: theme.palette.text.secondary,
+    },
+  }));
 
 export default function LayoutBasic(props){
     const { routes } = props;
-    const { Header, Content, Footer } = Layout;
+
+    const classes = useStyles();
 
     return (
-        <Layout>
+        <Container>
             <h2>User Menu</h2>
-            <Layout>
-                <Header>Header...</Header>
-                <Content>
+            <MenuTop/>
+            <Container className="layout-basic">
+                
+                <Container className="layout-basic-content">
                     <LoadRoutes routes={routes}/>
-                </Content>
-                <Footer>Footer</Footer>
-            </Layout>
-        </Layout>
+                </Container>
+
+                <Grid  className="layout-basic-footer">Footer</Grid>
+            </Container>
+        </Container>
     );
 }
 

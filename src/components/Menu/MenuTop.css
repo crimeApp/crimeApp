@@ -1,0 +1,10 @@
+@import '../../css/index.css';
+
+.menu-top {
+    background-color: #ffffff;
+}
+
+.img {
+    height: 20%;
+    width: auto;
+}
