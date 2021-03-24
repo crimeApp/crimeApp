@@ -3,10 +3,10 @@ import React, { useState, useEffect, Fragment } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
 import Grid from '@material-ui/core/Grid';
 
-import MenuIcon from '@material-ui/icons/Menu';
+
+import MenuList from './MenuList';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -26,13 +26,7 @@ const useStyles = makeStyles((theme) => ({
 
   appbar: {
     backgroundColor: 'white',
-  },
-
- /*  Buscar forma de alinear MenuIcon al final del Menu
-  toolbar: {
-    alignItems: 'flex-end',
-    alignContent: 'flex-end',
-  }, */
+  }
  
 }));
 
@@ -67,9 +61,7 @@ export default function MenuTop() {
 
                       <img alt="CrimeApp" src={require('../../assets/CrimeApp-mobile.png').default}/>
                       
-                      <IconButton edge="end" className={classes.menuButton} aria-label="menu">
-                          <MenuIcon/>
-                      </IconButton>
+                      <MenuList className={classes.menuButton}/>
                       </Grid>
                     </Fragment> : 
                     <Fragment>
