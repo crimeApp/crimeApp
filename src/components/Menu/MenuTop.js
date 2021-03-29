@@ -3,18 +3,20 @@ import React, { useState, useEffect, Fragment } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
+import Grid from '@material-ui/core/Grid';
+
+
+import MenuList from './MenuList';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     margin: theme.spacing(0, 0, 0, 0),
   },
+
   menuButton: {
     color: 'black',
     width: 'auto',
-    alignSelf: 'flex-end',
   },
 
   title: {
@@ -24,13 +26,7 @@ const useStyles = makeStyles((theme) => ({
 
   appbar: {
     backgroundColor: 'white',
-  },
-
- /*  Buscar forma de alinear MenuIcon al final del Menu
-  toolbar: {
-    alignItems: 'flex-end',
-    alignContent: 'flex-end',
-  }, */
+  }
  
 }));
 
@@ -54,15 +50,19 @@ export default function MenuTop() {
     <div className={classes.root}>
       <AppBar position="fixed" m={0} className={classes.appbar}>
         <Toolbar className={classes.toolbar}>
-                { width < breakpoint ? 
+                
+                 { width < breakpoint ? 
                     <Fragment>
-                      
+                      <Grid 
+                        container
+                        direction="row"
+                        justify="space-between"
+                        alignItems="center">
+
                       <img alt="CrimeApp" src={require('../../assets/CrimeApp-mobile.png').default}/>
                       
-                      <IconButton color="black" edge="end" className={classes.menuButton} aria-label="menu">
-                          <MenuIcon/>
-                      </IconButton>
-
+                      <MenuList className={classes.menuButton}/>
+                      </Grid>
                     </Fragment> : 
                     <Fragment>
 
@@ -70,6 +70,7 @@ export default function MenuTop() {
                      
                     </Fragment>
                 }
+                
         </Toolbar>
       </AppBar>
     </div>
