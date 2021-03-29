@@ -1,10 +1,28 @@
 @import '../../css/index.css';
 
-.menu-top {
-    background-color: #ffffff;
-}
-
 .img {
     height: 20%;
     width: auto;
+}
+
+.menuButton {
+    color: 'black';
+    width: 'auto';
+}
+
+.title {
+    flex-grow: 1;
+    color: 'black';
+}
+
+.appbar {
+    background-color: 'white';
+}
+
+.list {
+    width: 250;
+}
+
+.fullList {
+    width: 'auto',
 }

@@ -1,4 +1,9 @@
-import React, { useState, useEffect, Fragment } from 'react';
+import React from 'react';
+
+import {
+  BrowserView,
+  MobileView
+} from "react-device-detect";
 
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -34,45 +39,42 @@ const useStyles = makeStyles((theme) => ({
  * Menu admin y para usuario, responsive. 
  */
 
-
-
 export default function MenuTop() {
   const classes = useStyles();
 
-   const [width, setWidth] = useState(window.innerWidth);
-   const breakpoint = 620;
- 
-   useEffect(() => {
-     window.addEventListener("resize", () => setWidth(window.innerWidth));
-   }, []);
-
+   
   return (
     <div className={classes.root}>
       <AppBar position="fixed" m={0} className={classes.appbar}>
-        <Toolbar className={classes.toolbar}>
-                
-                 { width < breakpoint ? 
-                    <Fragment>
-                      <Grid 
-                        container
-                        direction="row"
-                        justify="space-between"
-                        alignItems="center">
+        
+        <BrowserView>
+          <Toolbar>
+              <img alt="CrimeApp" src={require('../../assets/CrimeApp.png').default}/>
+          </Toolbar>  
+        </BrowserView>
 
-                      <img alt="CrimeApp" src={require('../../assets/CrimeApp-mobile.png').default}/>
-                      
-                      <MenuList className={classes.menuButton}/>
-                      </Grid>
-                    </Fragment> : 
-                    <Fragment>
+        <MobileView>
+          
+              <Toolbar>
+                <Grid
+                  container
+                  direction="row"
+                  justify="space-between"
+                  alignItems="center">
 
-                      <img alt="CrimeApp" src={require('../../assets/CrimeApp.png').default}/>
-                     
-                    </Fragment>
-                }
-                
-        </Toolbar>
+                  <img alt="CrimeApp" src={require('../../assets/CrimeApp-mobile.png').default} />
+
+                  <MenuList className={classes.menuButton} />
+                </Grid>
+              </Toolbar>
+
+          </MobileView>
       </AppBar>
     </div>
   );
 }
+
+
+        
+          
+          

@@ -1,10 +1,14 @@
 import React, { useState }from 'react';
 
 import Button from '@material-ui/core/Button';
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
 
 import MenuIcon from '@material-ui/icons/Menu';
+
+import traslate from "../../assets/traslate/es.json";
+import { Drawer } from '@material-ui/core';
 
 export default function MenuList() {
   const [clicked, setClicked] = useState(null);
@@ -17,23 +21,33 @@ export default function MenuList() {
     setClicked(null);
   };
 
+  const list = (clicked) => (
+    <div>
+      <List className='list'>
+        {[`${traslate["MENU"]["COMMENTS"]}`, `${traslate["MENU"]["COMMENTS"]}`].map((text) => (
+          <ListItem button key={text}>
+            <ListItemText primary={text} />
+          </ListItem>
+        ))}
+      </List>
+    </div>
+  );
+
   return (
     <div>
-      <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
+      <Button className='' aria-haspopup="true" onClick={handleClick}>
             <MenuIcon/>
       </Button>
 
-      <Menu
+      <Drawer
         id="simple-menu"
         anchorEl={clicked}
         keepMounted
         open={Boolean(clicked)}
         onClose={handleClose}
       >
-        <MenuItem onClick={handleClose}>Hacer denuncia</MenuItem>
-        <MenuItem onClick={handleClose}>Ver reportes</MenuItem>
-        <MenuItem onClick={handleClose}>Dejar un comentario</MenuItem>
-      </Menu>
+        {list(clicked)}
+      </Drawer>
     </div>
   );
 }
