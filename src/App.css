@@ -1,9 +1,18 @@
 @import './index.css';
 
-.body{
-    width: max-content;
-    height: auto;
-    background-color: whitesmoke;
-}
+body, html, app {
+    font-family: "Poppins", sans-serif !important;
+    background-color: var(--white) !important;
+    width: auto;
+    height: 100%;
+  } 
+  
+  input, label, p, span {
+    font-family: "Poppins", sans-serif !important;
+    font-size: var(--font-size-small); 
+  }
+
+
+
 
 

@@ -3,5 +3,29 @@
          "COMMENTS": "Dejar un comentario", 
          "REPORTS": "Ver reportes"
          
-        }
+    },
+    "FORM": {
+        "TITLE": "DenunciaYa",
+        "SUBTITLE": "Completa los siguiente campos para notificar a las autoridades de lo sucedido.",
+        "NAME": "Nombre",
+        "NAME-PLACEHOLDER": "Ingrese su nombre.",
+        "THEFT": "Tipo de robo, huerto, agresión.",
+        "THEFT-PLACEHOLDER": "Describa cómo fue el robo, hurto o agresión.",
+        "DNI": "DNI",
+        "DNI-PLACEHOLDER": "Ingrese su DNI.",
+        "THIEFINFO": "Información del Agresor",
+        "THIEFINFO-PLACEHOLDER": "Describa los rasgos fisicos que recuerde.",
+        "LOCATION": "Ubicación"
+    },
+    "CONFIRMATION-DIALOG": {
+        "TITLE":"Gracias por completar el formulario!", 
+        "TEXT": "Todos los datos ya han sido guardados por requerimientos legales si quiere que la denuncia sea tratada legalmente.",
+        "BUTTON-TEXT": "Volver a Inicio"
+    }, 
+
+    "BUTTONCONTROL":{
+        "NEXT": "Siguiente",
+        "BACK": "Atras",
+        "SAVE": "Guardar"
+    }
 }

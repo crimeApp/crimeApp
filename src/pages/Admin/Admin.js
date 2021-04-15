@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import PastCrime from '../../components/Form/PastCrime';
+import RecentCrime from '../../components/Form/RecentCrime';
 
 export default function AdminHome(){
     return(
-        <div>
-            <h1>Admin</h1>
-        </div>
+        <Fragment>
+                <RecentCrime/>
+        </Fragment>
     )
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Route, Switch } from "react-router-dom";
 
 import { Container } from '@material-ui/core';
@@ -27,17 +27,14 @@ export default function LayoutAdmin(props){
 
 
     return (
-        <Container maxWidth="auto">
+        <Fragment>
             <MenuTop/>
-            <Container className="layout-admin">
-                
-                <Container className="layout-admin-content">
-                    <LoadRoutes routes={routes}/>
-                </Container>
 
-                <Grid item xs={12} className="layout-admin-footer">Footer</Grid>
-            </Container>
-        </Container>
+            <Fragment> 
+                    <LoadRoutes routes={routes}/>
+            </Fragment>
+
+        </Fragment>
     );
 }
 
