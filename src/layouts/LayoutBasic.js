@@ -18,8 +18,7 @@ export default function LayoutBasic(props){
                 <Container className="layout-basic-content">
                     <LoadRoutes routes={routes}/>
                 </Container>
-
-                <Grid  className="layout-basic-footer">Footer</Grid>
+                
             </Container>
         </Container>
     );

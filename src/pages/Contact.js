@@ -1,9 +1,11 @@
 import React from 'react';
 
+import CostumizedSwitch from "../components/Switch/Switch";
+
 export default function Contact (){
     return(
         <div>
-            <h1>Contactos</h1>
+            <CostumizedSwitch labelText={'Conoce al atacante?'}/>
         </div>
     )
 }
