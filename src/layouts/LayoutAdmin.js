@@ -23,8 +23,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function LayoutAdmin(props){
     const { routes } = props;
-    //const classes = useStyles();
-
 
     return (
         <Container maxWidth="auto">
@@ -35,7 +33,6 @@ export default function LayoutAdmin(props){
                     <LoadRoutes routes={routes}/>
                 </Container>
 
-                <Grid item xs={12} className="layout-admin-footer">Footer</Grid>
             </Container>
         </Container>
     );
