@@ -1,11 +1,13 @@
 import React from 'react';
+import traslate from "../assets/traslate/es.json";
+import CostumSelect from "../components/Select/Select";
 
-import CostumizedSwitch from "../components/Switch/Switch";
+const options = ["Mangoes", "Apples", "Oranges"];
 
 export default function Contact (){
     return(
         <div>
-            <CostumizedSwitch labelText={'Conoce al atacante?'}/>
+            <CostumSelect label={'Conoce al atacante?'} options={options} placeholder={traslate["SELECT"]["PLACEHOLDER"]}/>
         </div>
     )
 }
