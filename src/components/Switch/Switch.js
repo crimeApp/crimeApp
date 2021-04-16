@@ -7,12 +7,17 @@ import Switch from '@material-ui/core/Switch';
 import "./Switch.css";
 
 const CustomSwitch = withStyles((theme) => ({
+  container: {
+    flexGrow: 1,
+  },
+
   root: {
     width: 42,
     height: 26,
     padding: 0,
     margin: theme.spacing(1),
   },
+
   switchBase: {
     padding: 1,
     '&$checked': {
@@ -29,6 +34,7 @@ const CustomSwitch = withStyles((theme) => ({
       border: '6px solid #fff',
     },
   },
+
   thumb: {
     width: 24,
     height: 24,
@@ -47,6 +53,7 @@ const CustomSwitch = withStyles((theme) => ({
   },
   label: {
     color: '#1B1B25', 
+    padding: theme.spacing(1),
     fontWeight: 'bolder',
     fontFamily: 'Poppins'
   },
@@ -81,7 +88,7 @@ export default function CostumizedSwitch(props) {
 
   return (
     <Fragment>
-      <FormGroup aria-label="position" row >
+      <FormGroup aria-label="position" row>
         <FormControlLabel
             className="MuiFormControlLabel-label"
             label={`${labelText}`}
