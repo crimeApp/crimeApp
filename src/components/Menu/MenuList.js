@@ -24,7 +24,7 @@ export default function MenuList() {
   const list = (clicked) => (
     <div>
       <List className='list'>
-        {[`${traslate["MENU"]["COMMENTS"]}`, `${traslate["MENU"]["COMMENTS"]}`].map((text) => (
+        {[`${traslate["MENU"]["COMMENTS"]}`, `${traslate["MENU"]["REPORTS"]}`].map((text) => (
           <ListItem button key={text}>
             <ListItemText primary={text} />
           </ListItem>
