@@ -1,25 +1,27 @@
-import { React, useState } from 'react';
+import { React } from 'react';
 import './Select.css';
 
-const Select = ({ label, placeholder, options }) => {
-    
-    const [selectedOption, setSelectedOption] = useState('');
-
-    const onOptionClicked = value => () => {
-        setSelectedOption(value);
-        console.log(selectedOption);
-    };
-
+const Select = ({ label, options, value, handleChange }) => {
     return (
         <div className='select-container'>
-            <label className='select-label'>{label}</label>
-            <select className='select-content select-option'>
-                    <option value={placeholder}>{placeholder}</option>
-                {options.map(option => (
-                    <option onClick={onOptionClicked(option)} key={Math.random()}>
-                        {option}
-                    </option>
-                ))}
+            <label id="label" className='select-label'>
+                {label}
+            </label>
+            <select 
+                labelId="label" 
+                id="select"
+                value={value} 
+                className='select-content select-option' 
+                onChange={handleChange}>
+                
+                {options.map((option) =>
+                        <option 
+                            key={option.text}
+                            value={option.text}>
+                            {option.text}
+                        </option>
+                )}
+
             </select>
         </div >
     )
