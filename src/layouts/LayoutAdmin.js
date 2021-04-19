@@ -25,16 +25,12 @@ export default function LayoutAdmin(props){
     const { routes } = props;
 
     return (
-        <Container maxWidth="auto">
+        <>
             <MenuTop/>
-            <Container className="layout-admin">
-                
-                <Container className="layout-admin-content">
-                    <LoadRoutes routes={routes}/>
-                </Container>
-
+            <Container className="layout-admin-content">
+                <LoadRoutes routes={routes}/>
             </Container>
-        </Container>
+        </>
     );
 }
 
