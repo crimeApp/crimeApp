@@ -25,13 +25,13 @@ export default function InputSlider({ label }) {
   };
 
   return (
-    <>
+    <div className="slider-container">
       <label id="input-slider">
         {label}
       </label>
 
       <Grid container spacing={2} alignItems="center">
-        <Grid item xs={12} sm={6}>
+        <Grid item xs>
           <Slider
             value={typeof value === 'number' ? value : 0}
             onChange={handleSliderChange}
@@ -55,6 +55,6 @@ export default function InputSlider({ label }) {
           />
         </Grid>
       </Grid>
-    </>
+    </div>
   );
 }

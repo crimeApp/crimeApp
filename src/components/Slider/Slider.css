@@ -1,8 +1,12 @@
+.slider-container{
+    max-width: 300px;
+    width: 100%;
+}
+
 label{
     font-weight: bold;
     color: black;
 }
-
 
 .MuiSlider-rail, .MuiSlider-track {
     height: 5px !important;
