@@ -1,9 +1,11 @@
+@import './index.css';
+
 .slider-container{
     max-width: 300px;
     width: 100%;
 }
 
-label{
+.slider-container label{
     font-weight: bold;
     color: black;
 }
