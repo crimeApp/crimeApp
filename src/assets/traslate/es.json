@@ -1,7 +1,10 @@
 {
     "MENU": {
          "COMMENTS": "Dejar un comentario", 
-         "REPORTS": "Ver reportes"
+         "REPORTS": "Ver reportes."
          
-        }
+        },
+    "SELECT": {
+        "PLACEHOLDER": "Seleccione una de las opciones."
+    }
 }

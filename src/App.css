@@ -1,9 +1,21 @@
 @import './index.css';
 
-.body{
-    width: max-content;
-    height: auto;
-    background-color: whitesmoke;
+body, html {
+    font-family: "Poppins", sans-serif !important;
+    background-color: var(--white) !important;
+    margin: 0px;
+} 
+    
+input, label {
+font-family: "Poppins", sans-serif !important;
+font-size: var(--font-size-small); 
 }
 
-
+h1, h2, h3, h4, h5, h6, p, ul, li { color: var(--secondary-color); margin: 5px; }
+h1 { font-size: var(--font-size-extra-big); font-weight: var(--weight-black) !important; }
+h2 { font-size: var(--font-size-big); font-weight: var(--weight-semi-bold) !important; }
+h3 { font-size: var(--font-size-extra-large); font-weight: var(--weight-bold) !important; }
+h4 { font-size: var(--font-size-large); font-weight: var(--weight-extra-bold) !important; }
+h5 { font-size: var(--font-size-normal); font-weight: var(--weight-bold) !important; }
+h6 { font-size: var(--font-size-normal); font-weight: var(--weight-bold) !important; }
+p, li { font-size: var(--font-size-normal); }
