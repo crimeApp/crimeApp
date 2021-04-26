@@ -1,20 +1,14 @@
 import React from 'react';
 import { Route, Switch } from "react-router-dom";
-
+import './Test.css';
 import { Container } from '@material-ui/core';
-//import Grid from '@material-ui/core/Grid';
 
-import MenuTop from '../components/Menu/MenuTop';
-
-export default function LayoutBasic(props){
+export default function TestComponent(props){
     const { routes } = props;
 
     return (
         <>
-            
-            
-            <Container className="layout-basic-content">
-                <MenuTop/>
+            <Container className="layout-test-content">
                 <LoadRoutes routes={routes}/>
             </Container>
         </>

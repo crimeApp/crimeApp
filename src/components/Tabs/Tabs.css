@@ -1,20 +1,20 @@
-@import '../../css/index.css';
+@import '../../index.css';
 
 .tab{
 	display: flex;
 	flex-direction: column;
 	height: auto;
-	min-height: 350px;
+	min-height: var(--s-width);
 	width: fit-content;
-	min-width: 300px;
-	max-width: 600px;
+	min-width: var(--s-width);
+	max-width: var(--xl-width);
 	padding:0;
-	border-radius:5px;
-	border: solid 0.5px lightgray;
-	box-shadow: 0 2px 3px rgba(0,0,0,.3);
+	border-radius: var(--border-small);
+    border: solid 0.5px var(--lightgray);
+    background-color: var(--real-white);
 }
 
-ol, .tab-list {  
+.tab-ol, .tab-list {  
 	padding-left: 0;
 	width: fit-content;
 	justify-items: center;
@@ -25,18 +25,18 @@ ol, .tab-list {
 display: inline-block;
 list-style: none;
 
-font-size: 20px;
+font-size: var(--font-size-large);
 background:transparent;
-border:none;
+border: none;
 outline:none;
-padding:10px 20px ;
+padding: 10px 20px;
 cursor:pointer;
-color:rgba(0,0,0,.4);
+color: var(--black);
 }
 
 .tab-list-active {
-border-bottom: 3px solid #4ce5d1;
-color:black;
+border-bottom: 3px solid var(--violet);
+color:var(--black);
 }
 
 .tab-content{

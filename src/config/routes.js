@@ -12,6 +12,10 @@ import Contact from '../pages/Contact';
 //Other
 import Error404 from '../pages/Error404';
 
+//Tests
+import TestComponent from '../pages/Tests/TestComponent';
+import TestTabs from '../pages/Tests/TestTabs';
+
 const routes = [
     {
         path: "/admin",
@@ -44,6 +48,18 @@ const routes = [
             {
                 path: "/contact",
                 component: Contact, 
+                exact: true
+            }
+        ]
+    },
+    {
+        path: "/test",
+        component: TestComponent,
+        exact: false, 
+        routes: [
+            {
+                path: "/test/tabs",
+                component: TestTabs,
                 exact: true
             }
         ]

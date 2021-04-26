@@ -1,63 +1,31 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React, { useState } from 'react';
 import Tab from './Tab';
 
+import { ButtonGroup } from '@material-ui/core';
 import "./Tabs.css";
 
-class Tabs extends Component {
-  static propTypes = {
-    children: PropTypes.instanceOf(Array).isRequired,
-  }
-
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      activeTab: this.props.children[0].props.label,
-    };
-  }
-
-  onClickTabItem = (tab) => {
-    this.setState({ activeTab: tab });
-  }
-
-  render() {
-    const {
-      onClickTabItem,
-      props: {
-        children,
-      },
-      state: {
-        activeTab,
-      }
-    } = this;
+export default function Tabs({ labels}) {
+  
+  const [active, setActive] = useState(labels[0]);
 
     return (
       <div className="tab">
-        <ol className="tab-list">
-          {children.map((child) => {
-            const { label } = child.props;
-
-            return (
-              <Tab
-                activeTab={activeTab}
-                key={label}
-                label={label}
-                onClick={onClickTabItem}
-              />
-            );
-          })}
-        </ol>
+        <ButtonGroup className="tab-list tab-ol">
+        {labels.map(label => (
+            <Tab
+              key={label}
+              active={active === label}
+              onClick={() => setActive(label)}
+            >
+              {label}
+            </Tab>
+          ))}
+        </ButtonGroup>
 
         <div className="tab-content">
-          {children.map((child) => {
-            if (child.props.label !== activeTab) return undefined;
-            return child.props.children;
-          })}
+          <p> Your payment selection: {active} </p>
         </div>
+
       </div>
     );
-  }
 }
-
-export default Tabs;
