@@ -13,8 +13,7 @@ import Contact from '../pages/Contact';
 import Error404 from '../pages/Error404';
 
 //Tests
-import TestComponent from '../pages/Tests/TestComponent';
-import TestTabs from '../pages/Tests/TestTabs';
+import TestTabs from '../pages/TestTabs';
 
 const routes = [
     {
@@ -49,16 +48,9 @@ const routes = [
                 path: "/contact",
                 component: Contact, 
                 exact: true
-            }
-        ]
-    },
-    {
-        path: "/test",
-        component: TestComponent,
-        exact: false, 
-        routes: [
+            },
             {
-                path: "/test/tabs",
+                path: "/test",
                 component: TestTabs,
                 exact: true
             }

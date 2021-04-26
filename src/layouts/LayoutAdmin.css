@@ -15,7 +15,8 @@
     padding: 9px 25px 25px 25px;
 }
 
-.layout-admin-content {
+.MuiContainer-root .layout-admin-content .MuiContainer-maxWidthLg{
+    margin-top: 100px;
     min-height: calc(100vh - 65px);
     padding: 90px 25px 25px 25px;
 }

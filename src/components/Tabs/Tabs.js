@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import Tab from './Tab';
-
-import { ButtonGroup } from '@material-ui/core';
+import { ButtonGroup, Tab } from '@material-ui/core';
 import "./Tabs.css";
 
-export default function Tabs({ labels}) {
+export default function CustomTabs(props) {
+  const { labels } = props;
   
-  const [active, setActive] = useState(labels[0]);
+  const [active, setActive] = useState(null);
 
     return (
       <div className="tab">
@@ -16,6 +15,7 @@ export default function Tabs({ labels}) {
               key={label}
               active={active === label}
               onClick={() => setActive(label)}
+              className={active? `tab-list-active tab-list-item` : `tab-list-item`}
             >
               {label}
             </Tab>

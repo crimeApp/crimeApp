@@ -5,16 +5,19 @@ import { Container } from '@material-ui/core';
 
 import MenuTop from '../components/Menu/MenuTop';
 
+import './LayoutAdmin.css';
+
 export default function LayoutAdmin(props){
     const { routes } = props;
 
     return (
         <>
-            
-            <Container className="layout-admin-content">
             <MenuTop/>
+            <Container className="layout-admin-content">
+            
                 <LoadRoutes routes={routes}>
                 </LoadRoutes>
+
             </Container>
         </>
     );

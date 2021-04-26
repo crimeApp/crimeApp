@@ -2,8 +2,7 @@ import React from 'react';
 import { Route, Switch } from "react-router-dom";
 
 import { Container } from '@material-ui/core';
-//import Grid from '@material-ui/core/Grid';
-
+import "./LayoutBasic.css";
 import MenuTop from '../components/Menu/MenuTop';
 
 export default function LayoutBasic(props){
@@ -11,10 +10,9 @@ export default function LayoutBasic(props){
 
     return (
         <>
-            
-            
+            <MenuTop/>
             <Container className="layout-basic-content">
-                <MenuTop/>
+                
                 <LoadRoutes routes={routes}/>
             </Container>
         </>
