@@ -1,4 +1,5 @@
 import { React } from 'react';
+import { Grid } from '@material-ui/core';
 import './Select.css';
 
 /* 
@@ -14,7 +15,7 @@ icon por si tiene iconos
 */ 
 const Select = ({ label, options, value, handleChange }) => {
     return (
-        <div className='select-container'>
+        <Grid className='select-container'>
             <label id="label" className='select-label'>
                 {label}
             </label>
@@ -34,7 +35,7 @@ const Select = ({ label, options, value, handleChange }) => {
                 )}
 
             </select>
-        </div >
+        </Grid>
     )
 }
 
