@@ -1,8 +1,6 @@
 import { React, Fragment, useState } from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import FormGroup from '@material-ui/core/FormGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Switch from '@material-ui/core/Switch';
+import { FormGroup, FormControlLabel,  Switch } from '@material-ui/core';
 
 import "./Switch.css";
 
