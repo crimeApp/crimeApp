@@ -10,6 +10,15 @@
   /* BOX SHADOW */
 --box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.50);
 
+/* SIZES */
+--smallest-size: 14px;
+--small: 16px;
+--normal-size: 18px;
+--medium: 20px;
+--big: 22px;
+--large: 26px;
+--extra-large: 30px;
+
 /* TIPOGRAFY SIZE */
 --font-size-little: x-small; /*14px;*/
 --font-size-small: small; /*16px;*/
@@ -37,14 +46,26 @@
 --weight-bold: 700;
 --weight-extra-bold: 800;
 --weight-black: 900;
+
+/* LABELS HEIGHT SIZE */
+--label-smallest-size: 15px;
+--label-small: 25px;
+--label-normal-size: 35px;
+--label-medium: 45px;
+--label-big: 55px;
+--label-large: 65px;
+--label-extra-large: 75px;
 }
 
 /* WIDTH SIZE */
-.s { width: 200px; } 
-.m { width: 300px; } 
-.l { width: 400px; } 
-.xl { width: 500px; } 
+.xs { width: 200px; } 
+.s { width: 300px; } 
+.m { width: 400px; } 
+.l {width: 500px; }
+.xl { width: 600px; } 
 .expand { width: 100%; }
+
+
 
 /* BORDERS RADIUS */ 
 .border-small { border-radius: var(--border-small) !important; } 

@@ -1,12 +1,10 @@
-import { React, useState } from 'react';
-import Grid from '@material-ui/core/Grid';
-import Slider from '@material-ui/core/Slider';
-import Input from '@material-ui/core/Input';
+import React from 'react';
+import { Grid, Slider, Input } from '@material-ui/core';
 
 import "./Slider.css";
 
-export default function InputSlider({ label }) {
-  const [value, setValue] = useState(30);
+//Código a usar cuando se usa el elemento
+/* const [value, setValue] = useState(30);
 
   const handleSliderChange = (newValue) => {
     setValue(newValue);
@@ -22,7 +20,9 @@ export default function InputSlider({ label }) {
     } else if (value > 100) {
       setValue(100);
     }
-  };
+  }; */
+
+export default function InputSlider({ label, value, handleBlur, handleInputChange, handleSliderChange }) {
 
   return (
     <>
