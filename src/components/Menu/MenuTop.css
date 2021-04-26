@@ -1,4 +1,4 @@
-@import '../../css/index.css';
+@import '../../index.css';
 
 .img {
     height: 20%;
@@ -6,23 +6,18 @@
 }
 
 .menuButton {
-    color: 'black';
-    width: 'auto';
+    color: var(--black);
+    width: auto;
 }
 
 .title {
     flex-grow: 1;
-    color: 'black';
+    color: var(--black);
 }
 
 .appbar {
-    background-color: 'white';
+    background-color: var(--white);
 }
-
-.list {
-    width: 250;
-}
-
 .fullList {
-    width: 'auto',
+    width: 'auto';
 }

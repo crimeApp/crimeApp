@@ -1,0 +1,34 @@
+@import'../../index.css';
+
+.select-container{
+    width: auto;
+    height: fit-content;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.select-label{
+    color: var(--black);
+    font-weight: var(--weight-bold);
+    font-size: var(--font-size-normal);
+    height: var(--label-normal-size);
+}
+
+.select-content{
+    justify-content: center;
+    border-radius: var(--border-normal);
+    min-width: fit-content;
+    height: var(--label-normal-size);
+    outline: 0px;
+    border: none;
+    border-color: transparent;
+    background-color: var(--light-gray);
+}
+
+.select-option{
+    color: var(--gray);
+    font-weight: var(--font-size-normal);
+    font-size: var(--font-size-small);
+}
