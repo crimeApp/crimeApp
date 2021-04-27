@@ -1,35 +1,16 @@
-import { React, useState, useEffect } from 'react';
-import traslate from "../assets/traslate/es.json";
-import CostumSelect from "../components/Select/Select";
+import React  from 'react';
+import DropCard from "../components/DropCard/DropCard";
 
-const options = [
-    {id: 1, text: `${traslate["SELECT"]["PLACEHOLDER"]}`},
-    {id: 2, text: 'Mango'},
-    {id: 3, text: "Apples"},
-    {id: 4, text: "Oranges"}
+ const data = [
+    { id: 1, title: "John Doe", date: "12/12/12", info: "Random text" },
+    { id: 2, title: "John Doe", date: "12/12/12", info: "Random text" }
   ];
 
 export default function Contact (){
 
-    const [selectedOption, setSelectedOption] = useState("");
-    
-    const handleChange = (event) => {
-        setSelectedOption(event.target.value);
-    };
-
-    useEffect(() => {
-        console.log("Value of Selected Option is: ", selectedOption);
-    }, [selectedOption]); 
-
     return(
         <div>
-            <CostumSelect 
-                label={'Conoce al atacante?'} 
-                options={options} 
-                value={selectedOption} 
-                handleChange={handleChange} />
-
-            <p>Opcion elegida: {selectedOption}</p>
+            <DropCard cards={data} />
         </div>
     )
 }
