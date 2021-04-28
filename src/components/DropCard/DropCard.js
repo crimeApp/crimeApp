@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-
+import traslate from "../../assets/traslate/es.json";
 import {
     isMobile
   } from "react-device-detect";
@@ -9,27 +8,7 @@ import { Accordion, AccordionDetails, AccordionSummary, Typography, Divider, Acc
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import "./DropCard.css";
 
-const useStyles = makeStyles((theme) => ({
-    details: {
-        alignItems: 'center',
-    },
-    column: {
-        flexBasis: '33.33%',
-    },
-
-    heading: {
-        fontSize: theme.typography.pxToRem(15),
-        flexBasis: '33.33%',
-        flexShrink: 0,
-    },
-    secondaryHeading: {
-        fontSize: theme.typography.pxToRem(15),
-        color: theme.palette.text.secondary,
-    },
-}));
-
 export default function DropCard({ cards }) {
-    const classes = useStyles();
     const [expanded, setExpanded] = useState(false);
 
     const handleChange = (panel) => (isExpanded) => {
@@ -47,26 +26,29 @@ export default function DropCard({ cards }) {
                         aria-controls={`panel${card.id}bh-content`}
                         id={`panel${card.id}bh-header`}
                     >
-                        <div className={classes.column}>
-                            <Typography className={classes.heading}>{card.title}</Typography>
+                        <div className="card-column">
+                            <h1 className={`card-heading${isMobile? '-mobile' : ''}`}>{card.title}</h1>
                         </div>
-                        <div className={classes.column}>
-                            <Typography className={classes.secondaryHeading}>{card.date}</Typography>
+                        <div className="card-column">
+                            <h2 className={`card-date${isMobile? '-mobile' : ''}`}>{card.date}</h2>
                         </div>
                     </AccordionSummary>
-                    <AccordionDetails className={classes.details}>
-                        <div className={classes.column}>
-                            <Typography className={classes.heading}>{card.info}</Typography>
+                    <AccordionDetails className={`card-details${isMobile? '-mobile' : ''}`}>
+                        <div className="card-column">
+                            <h3>{card.info}</h3>
                         </div>
-                        <div className={classes.column}>
-                            <Typography className={classes.heading}>{card.info}</Typography>
+                        <div className="card-column">
+                            <h3>{card.info}</h3>
                         </div>
                     </AccordionDetails>
                     <Divider />
                     <AccordionActions>
-                        <Button size="small">Cancel</Button>
+                        <Button size="small">
+                            {traslate["BUTTON"]["CANCEL"]}
+                        </Button>
+
                         <Button size="small" color="primary">
-                            Save
+                            {traslate["BUTTON"]["CONFIRM"]}
                         </Button>
                     </AccordionActions>
                 </Accordion>

@@ -4,6 +4,10 @@
          "REPORTS": "Ver reportes."
          
         },
+    "BUTTON": {
+        "CONFIRM": "Confirmar",
+        "CANCEL": "Cancelar"
+    },
     "SELECT": {
         "PLACEHOLDER": "Seleccione una de las opciones."
     }

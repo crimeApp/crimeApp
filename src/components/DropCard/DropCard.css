@@ -4,4 +4,39 @@
     width: 100%;
 }
 
+.card-column{
+   flex-basis: '33.33%';
+   padding-left: 10%;
+}
+
+.card-heading{
+    font-size: var(--font-size-large);
+    flex-basis: '33.33%';
+    flex-shrink: 0;
+}
+
+.card-heading-mobile{
+    font-size: var(--font-size-normal);
+    flex-basis: '33.33%';
+    flex-shrink: 0;
+}
+
+.card-date{
+    font-size: var(--font-size-large);
+    color: var(--gray);
+}
+
+.card-date-mobile{
+    font-size: var(--font-size-normal);
+    color: var(--gray);
+}
+
+.card-details{
+    font-size: var(--font-size-normal);
+}
+
+.card-details-mobile{
+    font-size: var(--font-size-small);
+}
+
 
