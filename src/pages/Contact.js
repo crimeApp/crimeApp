@@ -1,6 +1,7 @@
 import { React, useState, useEffect } from 'react';
 import traslate from "../assets/traslate/es.json";
-import CostumSelect from "../components/Select/Select";
+import CustomButton from "../components/Button";
+/* import CostumSelect from "../components/Select/Select";
 
 const options = [
     {id: 1, text: `${traslate["SELECT"]["PLACEHOLDER"]}`},
@@ -9,7 +10,7 @@ const options = [
     {id: 4, text: "Oranges"}
   ];
 
-export default function Contact (){
+
 
     const [selectedOption, setSelectedOption] = useState("");
     
@@ -19,17 +20,27 @@ export default function Contact (){
 
     useEffect(() => {
         console.log("Value of Selected Option is: ", selectedOption);
-    }, [selectedOption]); 
+    }, [selectedOption]);  */
 
+    //select component
+
+    /* <CostumSelect 
+            label={'Conoce al atacante?'} 
+            options={options} 
+            value={selectedOption} 
+            handleChange={handleChange} />
+
+        <p>Opcion elegida: {selectedOption}</p> */
+export default function Contact (){
     return(
         <div>
-            <CostumSelect 
-                label={'Conoce al atacante?'} 
-                options={options} 
-                value={selectedOption} 
-                handleChange={handleChange} />
+            <CustomButton 
+                color="#5063BB"
+                textColor="#F6FAFD" 
+                width="450"
+                size="m" 
+                shape="round">Hola</CustomButton>
 
-            <p>Opcion elegida: {selectedOption}</p>
         </div>
     )
 }
