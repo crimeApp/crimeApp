@@ -1,14 +1,8 @@
 import React, { useState }from 'react';
-
-import Button from '@material-ui/core/Button';
-import { Drawer } from '@material-ui/core';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-
-import MenuIcon from '@material-ui/icons/Menu';
-
 import traslate from "../../assets/traslate/es.json";
+import { Drawer, Button, List, ListItem, ListItemText } from '@material-ui/core';
+import MenuIcon from '@material-ui/icons/Menu';
+import "./MenuTop.css";
 
 export default function MenuList() {
   const [clicked, setClicked] = useState(null);
@@ -24,7 +18,7 @@ export default function MenuList() {
   const list = (clicked) => (
     <div>
       <List className='list'>
-        {[`${traslate["MENU"]["COMMENTS"]}`, `${traslate["MENU"]["COMMENTS"]}`].map((text) => (
+        {[`${traslate["MENU"]["COMMENTS"]}`, `${traslate["MENU"]["REPORTS"]}`].map((text) => (
           <ListItem button key={text}>
             <ListItemText primary={text} />
           </ListItem>

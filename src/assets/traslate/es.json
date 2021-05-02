@@ -1,7 +1,7 @@
 {
     "MENU": {
          "COMMENTS": "Dejar un comentario", 
-         "REPORTS": "Ver reportes"
+         "REPORTS": "Ver reportes."
          
     },
     "FORM": {
@@ -27,5 +27,9 @@
         "NEXT": "Siguiente",
         "BACK": "Atras",
         "SAVE": "Guardar"
+    }
+        },
+    "SELECT": {
+        "PLACEHOLDER": "Seleccione una de las opciones."
     }
 }
