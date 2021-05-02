@@ -2,15 +2,10 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import './Button.css';
 
-//Tamaño: s = 10px , m = 20px, l = 30px | default m
-//Proporcion de ancho en 1 de alto | defauld: ancho columna
-//shape = square, round | dafault: round
-//color = #******
-
 const CustomButton = ({ text, color, textColor, width, size, shape}) => {
 
     color = color ?? '#FFFFFF'; 
-    textColor = textColor ?? '#';
+    textColor = textColor ?? '#FFFFFF';
 
     switch (size) {
         case 's':
@@ -27,7 +22,7 @@ const CustomButton = ({ text, color, textColor, width, size, shape}) => {
             break;
     }
 
-    width = width ? String((Number(width) * size) + 'px') : '100%';
+    width = width ? String(width + 'px') : '100%';
 
     switch (shape) {
         case 'square':
@@ -40,19 +35,17 @@ const CustomButton = ({ text, color, textColor, width, size, shape}) => {
 
  
     const styleButton = {
-        '--primary-color': color,
-        '--height': String(size + 'px'),
-        '--width': width,
-        '--font-size': String((size / 32) + 'EM'),
-        '--border-radius': String(shape + 'px'),
-        '--text-color': textColor
-
+        'background': color,
+        'height': String(size + 'px'),
+        'width': width,
+        'border-radius': String(shape + 'px'),
+        'color': textColor,
     }
 
     const history = useHistory();
     const navigateTo = () => history.push('/something');
     return (
-        <button style={styleButton} onClick= {navigateTo}>
+        <button  style={styleButton} >
             {text}
         </button>
     )

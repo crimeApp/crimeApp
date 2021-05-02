@@ -1,2 +1,8 @@
 @import '../../index.css';
 
+button {
+    border: none;
+    outline: none;
+    font-weight: var(--weight-bold);
+    font-size: var(--font-size-normal);
+}

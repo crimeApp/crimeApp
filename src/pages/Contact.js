@@ -1,5 +1,5 @@
 import { React, useState, useEffect } from 'react';
-import traslate from "../assets/traslate/es.json";
+//import traslate from "../assets/traslate/es.json";
 import CustomButton from "../components/Button";
 /* import CostumSelect from "../components/Select/Select";
 
@@ -31,15 +31,16 @@ const options = [
             handleChange={handleChange} />
 
         <p>Opcion elegida: {selectedOption}</p> */
+
 export default function Contact (){
     return(
         <div>
             <CustomButton 
+                text={'hola'}
                 color="#5063BB"
                 textColor="#F6FAFD" 
-                width="450"
-                size="m" 
-                shape="round">Hola</CustomButton>
+                width="400"
+                shape="square"/>
 
         </div>
     )
