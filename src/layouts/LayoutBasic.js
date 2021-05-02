@@ -10,17 +10,13 @@ export default function LayoutBasic(props){
     const { routes } = props;
 
     return (
-        <Container>
-            <h2>User Menu</h2>
+        <>
             <MenuTop/>
-            <Container className="layout-basic">
                 
-                <Container className="layout-basic-content">
-                    <LoadRoutes routes={routes}/>
-                </Container>
-                
+            <Container className="layout-basic-content">
+                <LoadRoutes routes={routes}/>
             </Container>
-        </Container>
+        </>
     );
 }
 
