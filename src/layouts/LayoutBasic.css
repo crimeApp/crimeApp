@@ -1,6 +1,15 @@
 @import '../App.css';
 
+.layout-basic-header{
+    position: sticky;
+    top: 0;
+    bottom: 20px;
+    padding: 35px 10px;
+    background-color: whitesmoke;
+}
 
-.layout-basic-content{
-    margin-top: 15%;
+.layout-basic-content {
+    height: 100%;
+    width: 100%;
+    padding: 15px 25px;
 }

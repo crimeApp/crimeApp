@@ -1,4 +1,7 @@
-import React  from 'react';
+import { React, useState, useEffect } from 'react';
+import traslate from "../assets/traslate/es.json";
+import CostumSelect from "../components/Select/Select";
+import LayoutBasic from '../layouts/LayoutBasic';
 import DropCard from "../components/DropCard/DropCard";
 
  const data = [
@@ -9,8 +12,15 @@ import DropCard from "../components/DropCard/DropCard";
 export default function Contact (){
 
     return(
-        <div>
+        <>
+            <CostumSelect 
+                label={'Conoce al atacante?'} 
+                options={options} 
+                value={selectedOption} 
+                handleChange={handleChange} />
+
+            <p>Opcion elegida: {selectedOption}</p>
             <DropCard cards={data} />
-        </div>
+        </>
     )
 }
