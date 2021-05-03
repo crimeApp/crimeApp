@@ -1,6 +1,7 @@
 import { React, useState, useEffect } from 'react';
 import traslate from "../assets/traslate/es.json";
 import CostumSelect from "../components/Select/Select";
+import LayoutBasic from '../layouts/LayoutBasic';
 
 const options = [
     {id: 1, text: `${traslate["SELECT"]["PLACEHOLDER"]}`},
@@ -22,7 +23,7 @@ export default function Contact (){
     }, [selectedOption]); 
 
     return(
-        <div>
+        <>
             <CostumSelect 
                 label={'Conoce al atacante?'} 
                 options={options} 
@@ -30,6 +31,6 @@ export default function Contact (){
                 handleChange={handleChange} />
 
             <p>Opcion elegida: {selectedOption}</p>
-        </div>
+        </>
     )
 }
