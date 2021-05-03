@@ -9,7 +9,7 @@
 }
 
 .layout-basic-content {
-    height: 100%;
-    width: 100%;
+    height: fit-content;
+    width: auto;
     padding: 15px 25px;
 }
