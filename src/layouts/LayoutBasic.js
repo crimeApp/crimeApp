@@ -1,37 +1,20 @@
 import React from 'react';
-import { Route, Switch } from "react-router-dom";
-
 import { Container } from '@material-ui/core';
-//import Grid from '@material-ui/core/Grid';
-
 import MenuTop from '../components/Menu/MenuTop';
+import './LayoutBasic.css';
 
-export default function LayoutBasic(props){
-    const { routes } = props;
+export default function LayoutBasic({ children }){
 
     return (
-        <Container>
-            <h2>User Menu</h2>
-            <MenuTop/>
-            <Container className="layout-basic">
-                
-                <Container className="layout-basic-content">
-                    <LoadRoutes routes={routes}/>
-                </Container>
-                
-            </Container>
-        </Container>
+        <>
+            <div className="layout-basic-header">
+                <MenuTop/>
+            </div>
+            
+            <div className="layout-basic-content">
+                    {children}
+            </div>
+            
+        </>
     );
-}
-
-function LoadRoutes({ routes }){
-    return <Switch>
-                {routes.map((route, index) => (
-                            <Route
-                                key={index}
-                                path={route.path}
-                                exact={route.exact}
-                                component={route.component}/> 
-                ))}
-            </Switch>;
 }

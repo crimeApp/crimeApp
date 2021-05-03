@@ -1,23 +1,98 @@
 @import '../../index.css';
 
-.img {
-    height: 20%;
-    width: auto;
+.MuiSvgIcon-root {
+    color: #00acc1;
 }
 
-.menuButton {
-    color: var(--black);
-    width: auto;
+.app-title{
+    color: #00acc1;
 }
 
-.title {
-    flex-grow: 1;
-    color: var(--black);
+nav {
+  height: 60px;
+  width: 100%;
+  background: rgb(240,240,240);
+  display: flex;
+  flex: row;
+  align-items: center;
 }
 
-.appbar {
-    background-color: var(--white);
+.menu-open i {
+    color: #00acc1;
+    font-size: 36px;
+    padding-left: 10px;
 }
-.fullList {
-    width: 'auto';
+
+.menu-close i {
+    color: #00acc1;
+    font-size: 36px;
+    padding: 10px;
+}
+
+.side-nav {
+  position: relative;
+  transition: transform .35s ease-out;
+  background: rgb(240,240,240);
+  height: 100%;
+  width: 90%;
+  max-width: 200px;
+  box-shadow: 0 5px 6px 4px rgba(0,0,0,.2);
+  transform: translateX(-102%);
+  will-change: transform;
+  
+  display: flex;
+  flex-direction: column;
+}
+
+.side-nav-container {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 60%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.side-nav-container:before {
+    transition: opacity 0.3s cubic-bezier(0,0,0.3,1);
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,.4);
+    will-change: opacity;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.side-nav-animatable, .side-nav  {
+    transition: transform .33s cubic-bexier(0,0,.3,.1);
+}
+  
+.side-nav-animatable.side-nav-visible .side-nav {
+    transition: transform 0.33s cubic-bezier(0,0,0.3,1);
+}
+
+.side-nav-animatable, .side-nav {
+  transition: transform .33s cubic-bexier(0,0,.3,.1);
+}
+
+.side-nav-animatable, .side-nav-visible .side-nav {
+  transition: transform 0.33s cubic-bezier(0,0,0.3,1);
+ }
+
+.side-nav-visible, .side-nav{
+  pointer-events: auto;
+  transform: none;
+}
+
+.side-nav-visible:before {
+  opacity: 1;
+}
+
+.side-nav-items li{
 }
