@@ -1,30 +1,19 @@
 import React from 'react';
-import { Route, Switch } from "react-router-dom";
-import { Container } from '@material-ui/core';
 import MenuTop from '../components/Menu/MenuTop';
+import "./LayoutAdmin.css";
 
-export default function LayoutAdmin(props){
-    const { routes } = props;
+export default function LayoutAdmin({ children }){
 
     return (
         <>
-        <MenuTop/>
+        <div className="layout-admin-header">
+            <MenuTop/>
+        </div>
             
-        <Container className="layout-admin-content">
-            <LoadRoutes routes={routes}/>
-        </Container>
-    </>
-    );
-}
+        <div className="layout-admin-content">
+            {children}
+        </div>
 
-function LoadRoutes({ routes }){
-    return <Switch>
-                {routes.map((route, index) => (
-                            <Route
-                                key={index}
-                                path={route.path}
-                                exact={route.exact}
-                                component={route.component}/> 
-                ))}
-            </Switch>;
+        </>
+    );
 }
