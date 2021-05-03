@@ -1,59 +1,47 @@
 @import '../../index.css';
 
-.form-wrap{
-    height: auto;
-    margin-top: 5%;
-    max-height: max-content;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    border: 1px;
-    border-style: solid;
-    border-radius: 40px;
-    border-color: black;
-}
-
-.form-wrap-mobile{
-    height: auto;
-    margin-top: 5%;
-    max-height: max-content;
+.form {
     width: fit-content;
+    height: auto;
     display: flex;
+}
+
+.form-header {
+    width: 100%;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    text-align: justify;
+}
+
+.form-progress {
+    width: 80%;
+    align-self: center;
+    display: block;
     justify-content: center;
 }
 
-.MuiButton-root{
-    background-color:  #5063BB;
-    color: #FFFFFF;
-    border-radius: 12px;
-    border: none;
-    height: 35px;
-    width: 123px;
-    font-size: 16px;
-    font-family: "Poppins", sans-serif !important;
+.form-content{
+    height: auto;
+    width: 100%;
+    align-self: center;
+    display: block;
+    padding-left: 30px;
+    padding-right: 30px;
+    justify-content: center;
+    padding-bottom: 0px;
 }
 
-#recentcrime-title{
-    justify-self: flex-start;
-    align-self: start;
+.form-controls {
+    width: 100%;
+    display: inline-block;
+    padding-top: 40px;
+    padding-bottom: 10px;
+    align-items: center;
+    justify-content: center;
 }
 
-#recentcrime-subtitle{
-    justify-self: flex-start;
-    align-self: start;
-    padding: 1%;
-}
-
-.form{
-    width:50%;
-    margin:0 auto;
-}
-
-.form-input{
-    margin: 2%;
-}
-
-.form-button{
-    align-self: flex-end;
+.form-controls > .MuiButton-root .MuiButton-base {
+    padding-left: 10px;
+    padding-right: 10px;
 }
 

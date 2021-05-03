@@ -4,7 +4,7 @@ import LinearProgress from '@material-ui/core/LinearProgress';
 import Box from '@material-ui/core/Box';
 
  
-export default function ProgressStepper(props) {
+export default function FormStepper(props) {
 
   return (
     <Box display="flex" alignItems="center">
@@ -15,7 +15,7 @@ export default function ProgressStepper(props) {
   );
 }
 
-ProgressStepper.propTypes = {
+FormStepper.propTypes = {
   /**
    * The value of the progress indicator for the determinate and buffer variants.
    * Value between 0 and 100.

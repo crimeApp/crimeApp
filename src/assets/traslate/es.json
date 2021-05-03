@@ -6,7 +6,8 @@
     },
     "FORM": {
         "TITLE": "DenunciaYa",
-        "SUBTITLE": "Completa los siguiente campos para notificar a las autoridades de lo sucedido.",
+        "TITLE-PASTCRIME": "Siniestros Antiguos",
+        "SUBTITLE": "Toda la informacion que se registre quedara completamente anonima. El objetivo es tener datos para analizar la delincuencia en Cordoba.",
         "NAME": "Nombre",
         "NAME-PLACEHOLDER": "Ingrese su nombre.",
         "THEFT": "Tipo de robo, huerto, agresión.",
@@ -27,8 +28,7 @@
         "NEXT": "Siguiente",
         "BACK": "Atras",
         "SAVE": "Guardar"
-    }
-        },
+    },
     "SELECT": {
         "PLACEHOLDER": "Seleccione una de las opciones."
     }

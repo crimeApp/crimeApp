@@ -1,113 +1,176 @@
-import React, { Fragment, useState } from 'react';
+import React, { useState } from "react";
 
-import Grid from '@material-ui/core/Grid';
-import Card from '@material-ui/core/Card';
-import CardHeader from '@material-ui/core/CardHeader';
-import CardContent from '@material-ui/core/CardContent';
-import Collapse from '@material-ui/core/Collapse';
-import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import {
+  Grid,
+  Card,
+  Button,
+  Stepper,
+  Step,
+  StepButton,
+  Typography,
+} from "@material-ui/core";
 
-import Input from '../Input/input';
+import PersonalDetails from "./StepsPastCrime/PersonalDetails";
+import TheftInfo from "./StepsPastCrime/TheftInfo";
+import TheftDetails from "./StepsPastCrime/TheftDetails";
 
 import traslate from "../../assets/traslate/es.json";
 
-import ProgressStepper from './FormStepper';
-
-import {
-  BrowserView,
-  MobileView
-} from "react-device-detect"; 
-
+import "./Form.css";
 
 export default function PastCrime() {
-
-  const [expanded, setExpanded] = useState(false);
-  const [step, setStep] = useState(1);
-  const [error, setError] = useState(false);
+  //const [error, setError] = useState(false);
+  const [activeStep, setActiveStep] = useState(0);
+  const [completed, setCompleted] = useState({});
+  const steps = getSteps();
 
   const [persona, setPersona] = useState({
-    name: '',
-    surname: '',
-    year: 0
-  })
+    name: "",
+    surname: "",
+    year: 0,
+  });
 
-
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
-
-  const handleNext = () => {
-    setStep((step) => step + 1);
-  };
-
-  const handleBack = () => {
-    setStep((step) => step - 1);
-  };
-
-  const handleChange = (event) => {
-    setPersona({
-      ...persona,
-      [event.target.name]: event.target.value
-    })
+  function getSteps() {
+    return [
+      "Información del siniestro",
+      "Información Personal",
+      "Detalles del siniestro",
+    ];
   }
 
-  const handleSubmit = event => {
+  function getStepContent(step) {
+    switch (step) {
+      case 0:
+        return <TheftInfo persona={persona} />;
+      case 1:
+        return <PersonalDetails persona={persona} />;
+      case 2:
+        return <TheftDetails persona={persona} />;
+      default:
+        return "Unknown step";
+    }
+  }
+
+  /*   const handleChange = (event) => {
+    setPersona({
+      ...persona,
+      [event.target.name]: event.target.value,
+    });
+  };
+
+  const handleSubmit = (event) => {
     event.preventDefault();
 
     let { name, DNI, typeoftheft, theftinfo } = persona;
 
-
     // validacion
-    if (name.trim() === '' || DNI.trim() === '' || typeoftheft.trim() === '' || theftinfo.trim() === '') {
+    if (
+      name.trim() === "" ||
+      DNI.trim() === "" ||
+      typeoftheft.trim() === "" ||
+      theftinfo.trim() === ""
+    ) {
       setError(true);
       return;
     }
 
     setError(false);
+  }; */
 
+  const totalSteps = () => {
+    return steps.length;
+  };
 
-  }
+  const completedSteps = () => {
+    return Object.keys(completed).length;
+  };
+
+  const isLastStep = () => {
+    return activeStep === totalSteps() - 1;
+  };
+
+  const allStepsCompleted = () => {
+    return completedSteps() === totalSteps();
+  };
+
+  const handleNext = () => {
+    const newActiveStep =
+      isLastStep() && !allStepsCompleted()
+        ? // It's the last step, but not all steps have been completed,
+          // find the first step that has been completed
+          steps.findIndex((step, i) => !(i in completed))
+        : activeStep + 1;
+    setActiveStep(newActiveStep);
+  };
+
+  const handleBack = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep - 1);
+  };
+
+  const handleStep = (step) => () => {
+    setActiveStep(step);
+  };
+
+  const handleComplete = () => {
+    const newCompleted = completed;
+    newCompleted[activeStep] = true;
+    setCompleted(newCompleted);
+    handleNext();
+  };
+
+  const handleReset = () => {
+    setActiveStep(0);
+    setCompleted({});
+  };
 
   return (
-    <Fragment>
-      
+    <Card variant="outlined" className="form">
+      <Grid container direction="column" justify="start" alignItems="center">
+        <Grid item className="form-header">
+          <h2 id="recentcrime-title">{traslate["FORM"]["TITLE-PASTCRIME"]}</h2>
 
-      <Card variant="outlined" className='MuiCard-root'>
-        <CardHeader title={traslate["FORM"]["TITLE"]}/>
-      
-      <CardContent>
-        <Grid
-            container
-            direction="row"
-            justify="space-between"
-            alignItems="center">
-        <Typography variant="body2" color="textSecondary" component="p">
-            {traslate["FORM"]["SUBTITLE"]}
-        </Typography>
-
-        <ProgressStepper value={step * 50}/>
-
-        <IconButton
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
-          aria-label="show more"
-          > 
-          <ExpandMoreIcon />
-        </IconButton>
+          <h4 id="recentcrime-subtitle">{traslate["FORM"]["SUBTITLE"]}</h4>
         </Grid>
 
-        </CardContent>
+        <Grid item className="form-progress">
+          <Stepper nonLinear activeStep={activeStep}>
+            {steps.map((label, index) => (
+              <Step key={label}>
+                <StepButton
+                  onClick={handleStep(index)}
+                  completed={completed[index]}
+                >
+                  {label}
+                </StepButton>
+              </Step>
+            ))}
+          </Stepper>
+        </Grid>
 
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
-          <Input title={traslate["FORM"]["SUBTITLE"]} />
-        </CardContent>
-      </Collapse>
+          <Grid item className="form-content">
+            {getStepContent(activeStep)}
+          </Grid>
+
+          <Grid item className="form-controls">
+            <Grid container direction="row" justify="center" alignItems="center" spacing={4}>
+              <Grid item> 
+              <Button 
+                disabled={activeStep === 0} 
+                variant="contained"
+                color="primary"
+                onClick={handleBack}>Back</Button>
+              </Grid>
+
+              <Grid item> 
+              <Button 
+                onClick={handleBack} 
+                variant="contained"
+                color="primary">Next</Button>
+              </Grid>
+            </Grid>
+        
+          </Grid>
+      </Grid>
     </Card>
-
-
-      </Fragment>
-    );
+  );
 }

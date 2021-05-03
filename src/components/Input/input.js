@@ -4,7 +4,7 @@ import './input.css';
 const Input = ({ title, placeholder, value, name, callback }) => {
 
     return (
-        <div className='col-md col-lg-4 container-input'>
+        <div className='col-md container-input'>
             <div className='input-label'>
                 <h5>{title}</h5>
             </div>
