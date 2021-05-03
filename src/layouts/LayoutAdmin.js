@@ -1,49 +1,19 @@
-import React, { Fragment } from 'react';
-import { Route, Switch } from "react-router-dom";
-
-import { Container } from '@material-ui/core';
-
-//import { makeStyles } from '@material-ui/core/styles';
-//import Paper from '@material-ui/core/Paper';
-//import Grid from '@material-ui/core/Grid';
-
+import React from 'react';
 import MenuTop from '../components/Menu/MenuTop';
+import "./LayoutAdmin.css";
 
-/* 
-const useStyles = makeStyles((theme) => ({
-    root: {
-      flexGrow: 1,
-    },
-    paper: {
-      padding: theme.spacing(1),
-      textAlign: 'center',
-      color: theme.palette.text.secondary,
-    },
-  })); */
-
-export default function LayoutAdmin(props){
-    const { routes } = props;
+export default function LayoutAdmin({ children }){
 
     return (
-        <Fragment>
+        <>
+        <div className="layout-admin-header">
             <MenuTop/>
+        </div>
+            
+        <div className="layout-admin-content">
+            {children}
+        </div>
 
-            <Fragment> 
-                    <LoadRoutes routes={routes}/>
-            </Fragment>
-
-        </Fragment>
+        </>
     );
-}
-
-function LoadRoutes({ routes }){
-    return <Switch>
-                {routes.map((route, index) => (
-                            <Route
-                                key={index}
-                                path={route.path}
-                                exact={route.exact}
-                                component={route.component}/> 
-                ))}
-            </Switch>;
 }

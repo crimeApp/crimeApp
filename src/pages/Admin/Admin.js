@@ -4,8 +4,9 @@ import RecentCrime from '../../components/Form/RecentCrime';
 
 export default function AdminHome(){
     return(
-        <Fragment>
-                <RecentCrime/>
-        </Fragment>
+        <>  
+        <h1>Hola</h1>
+       
+        </>
     )
 }
