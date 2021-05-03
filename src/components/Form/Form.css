@@ -9,26 +9,25 @@
 .form-header {
     width: 100%;
     padding-left: 10px;
+    padding-right: 10px;
     padding-bottom: 10px;
     text-align: justify;
 }
 
 .form-progress {
-    width: 80%;
+    width: 100%;
     align-self: center;
-    display: block;
+    display: inline-block;
     justify-content: center;
 }
 
 .form-content{
     height: auto;
     width: 100%;
+    max-width: 700px;
     align-self: center;
-    display: block;
-    padding-left: 30px;
-    padding-right: 30px;
-    justify-content: center;
-    padding-bottom: 0px;
+    display: inline-block;
+    align-content: center;
 }
 
 .form-controls {
