@@ -10,33 +10,24 @@
 	max-width: var(--xl-width);
 	padding:0;
 	border-radius: var(--border-small);
-    border: solid 0.5px var(--lightgray);
-    background-color: var(--real-white);
+    border: solid 2px var(--light-gray);
+    background-color: var(--white);
 }
 
 .tab-ol, .tab-list {  
 	padding-left: 0;
-	width: fit-content;
 	justify-items: center;
 	align-items: center;
 }
   
 .tab-list-item {
-display: inline-block;
-list-style: none;
-
-font-size: var(--font-size-large);
-background:transparent;
-border: none;
-outline:none;
-padding: 10px 20px;
-cursor:pointer;
-color: var(--black);
+	font-size: var(--font-size-large);
+	color: var(--black);
 }
 
 .tab-list-active {
-border-bottom: 3px solid var(--violet);
-color:var(--black);
+	border-bottom: 3px solid var(--violet);
+	color:var(--black);
 }
 
 .tab-content{

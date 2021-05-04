@@ -1,36 +1,12 @@
-import { React, useState, useEffect } from 'react';
-import traslate from "../assets/traslate/es.json";
-import CostumSelect from "../components/Select/Select";
-import LayoutBasic from '../layouts/LayoutBasic';
-
-const options = [
-    {id: 1, text: `${traslate["SELECT"]["PLACEHOLDER"]}`},
-    {id: 2, text: 'Mango'},
-    {id: 3, text: "Apples"},
-    {id: 4, text: "Oranges"}
-  ];
+import React from 'react';
+import Grid from '@material-ui/core/Grid';
+import TabPanel from '../components/Tab/TabPanel';
 
 export default function Contact (){
-
-    const [selectedOption, setSelectedOption] = useState("");
-    
-    const handleChange = (event) => {
-        setSelectedOption(event.target.value);
-    };
-
-    useEffect(() => {
-        console.log("Value of Selected Option is: ", selectedOption);
-    }, [selectedOption]); 
-
+    const tabs = ['Hola', 'esto', 'es', 'una', 'prueba.'];
     return(
-        <>
-            <CostumSelect 
-                label={'Conoce al atacante?'} 
-                options={options} 
-                value={selectedOption} 
-                handleChange={handleChange} />
-
-            <p>Opcion elegida: {selectedOption}</p>
-        </>
+        <Grid container direction="column">
+             <TabPanel tabs={tabs}/>
+        </Grid>
     )
 }
