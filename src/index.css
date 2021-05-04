@@ -3,7 +3,7 @@ body, html {
   height: 100%;
   margin: 0;
   font-family: "Poppins", sans-serif !important;
-  background-color: var(--white) !important;
+  background-color: var(--light-gray) !important;
   } 
       
   input, label {
@@ -21,6 +21,7 @@ body, html {
   p, li { font-size: var(--font-size-normal); }
 
 :root {
+  --real-white: #FFFFFF;
   --white: #F6FAFD;
   --light-gray: #EBEBF3;
   --green: #42B75E;
