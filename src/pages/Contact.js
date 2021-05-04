@@ -1,26 +1,25 @@
-import { React, useState, useEffect } from 'react';
-import traslate from "../assets/traslate/es.json";
-import CostumSelect from "../components/Select/Select";
-import LayoutBasic from '../layouts/LayoutBasic';
-import DropCard from "../components/DropCard/DropCard";
+import React from 'react';
 
- const data = [
-    { id: 1, title: "John Doe", date: "12/12/12", info: "Random text" },
-    { id: 2, title: "John Doe", date: "12/12/12", info: "Random text" }
-  ];
+import Grid from '@material-ui/core/Grid';
+import DropCard from '../components/DropCard/DropCard';
 
+const cards = [
+    { id: 1, date: "12/12/12", title: "This is a title", info: "This is info"},
+
+    { id: 2, date: "12/12/12", title: "This is a title", info: "This is info"},
+]
 export default function Contact (){
 
     return(
-        <>
-            <CostumSelect 
-                label={'Conoce al atacante?'} 
-                options={options} 
-                value={selectedOption} 
-                handleChange={handleChange} />
+        <Grid container
+            direction="column"
+            justify="center"
+            spacing={3} >
 
-            <p>Opcion elegida: {selectedOption}</p>
-            <DropCard cards={data} />
-        </>
+            {cards.map((card) => (
+                <Grid item > <DropCard key={card.id} card={card}/> </Grid>
+            ))}
+
+        </Grid>
     )
 }

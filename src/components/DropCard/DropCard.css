@@ -1,6 +1,6 @@
 @import '../../index.css';
 
-.mobile{
+.drop-card-mobile{
     width: 100%;
 }
 
@@ -9,33 +9,33 @@
    padding-left: 10%;
 }
 
-.card-heading{
+.dropcard-header{
     font-size: var(--font-size-large);
     flex-basis: '33.33%';
     flex-shrink: 0;
 }
 
-.card-heading-mobile{
+.dropcard-header-mobile{
     font-size: var(--font-size-normal);
     flex-basis: '33.33%';
     flex-shrink: 0;
 }
 
-.card-date{
+.dropcard-date{
     font-size: var(--font-size-large);
-    color: var(--gray);
+    color: var(--violet) !important;
 }
 
-.card-date-mobile{
+.dropcard-date-mobile{
     font-size: var(--font-size-normal);
-    color: var(--gray);
+    color: var(--violet) !important;
 }
 
-.card-details{
+.dropcard-details{
     font-size: var(--font-size-normal);
 }
 
-.card-details-mobile{
+.dropcard-details-mobile{
     font-size: var(--font-size-small);
 }
 

@@ -4,9 +4,11 @@
          "REPORTS": "Ver reportes."
          
         },
-    "BUTTON": {
+    "COMMON": {
         "CONFIRM": "Confirmar",
-        "CANCEL": "Cancelar"
+        "CANCEL": "Cancelar", 
+        "NEXT": "Siguiente", 
+        "BACK": "Atrás"
     },
     "SELECT": {
         "PLACEHOLDER": "Seleccione una de las opciones."

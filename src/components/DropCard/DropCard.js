@@ -4,11 +4,11 @@ import {
     isMobile
   } from "react-device-detect";
 
-import { Accordion, AccordionDetails, AccordionSummary, Typography, Divider, AccordionActions, Button } from '@material-ui/core';
+import { Accordion, AccordionDetails, AccordionSummary, Divider, AccordionActions, Button, Grid } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import "./DropCard.css";
 
-export default function DropCard({ cards }) {
+export default function DropCard({ card }) {
     const [expanded, setExpanded] = useState(false);
 
     const handleChange = (panel) => (isExpanded) => {
@@ -16,44 +16,42 @@ export default function DropCard({ cards }) {
     };
 
     return (
-        <>
-            {cards.map((card) => (
-                <Accordion expanded={expanded === `panel${card.id}`}
+        <Grid container>
+            <Accordion expanded={expanded === `panel${card.id}`}
                     onChange={handleChange(`panel${card.id}`)}
                     className={isMobile? '' : 'l'}>
                     <AccordionSummary
-                        expandIcon={<ExpandMoreIcon />}
+                        expandIcon={<ExpandMoreIcon color="primary"/>}
                         aria-controls={`panel${card.id}bh-content`}
                         id={`panel${card.id}bh-header`}
                     >
-                        <div className="card-column">
-                            <h1 className={`card-heading${isMobile? '-mobile' : ''}`}>{card.title}</h1>
+                        <div className="dropcard-column">
+                            <h3 className={`dropcard-header${isMobile? '-mobile' : ''}`}>{card.title}</h3>
                         </div>
-                        <div className="card-column">
-                            <h2 className={`card-date${isMobile? '-mobile' : ''}`}>{card.date}</h2>
+                        <div className="dropcard-column">
+                            <h4 className={`dropcard-date${isMobile? '-mobile' : ''}`}>{card.date}</h4>
                         </div>
                     </AccordionSummary>
-                    <AccordionDetails className={`card-details${isMobile? '-mobile' : ''}`}>
-                        <div className="card-column">
-                            <h3>{card.info}</h3>
+
+                    <AccordionDetails className={`dropcard-details${isMobile? '-mobile' : ''}`}>
+                        <div className="dropcard-column">
+                            <h5>{card.info}</h5>
                         </div>
-                        <div className="card-column">
-                            <h3>{card.info}</h3>
+                        <div className="dropcard-column">
+                            <h5>{card.info}</h5>
                         </div>
                     </AccordionDetails>
                     <Divider />
                     <AccordionActions>
-                        <Button size="small">
-                            {traslate["BUTTON"]["CANCEL"]}
+                        <Button size="small" variant="contained">
+                            {traslate["COMMON"]["CANCEL"]}
                         </Button>
 
-                        <Button size="small" color="primary">
-                            {traslate["BUTTON"]["CONFIRM"]}
+                        <Button size="small" color="primary" variant="contained">
+                            {traslate["COMMON"]["CONFIRM"]}
                         </Button>
                     </AccordionActions>
                 </Accordion>
-
-            ))}
-        </>
+        </Grid>
     );
 }
