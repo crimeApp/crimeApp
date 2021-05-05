@@ -11,23 +11,18 @@ export default function LayoutAdmin({ children }) {
     <Grid
       container
       direction="column"
-      justify="flex-start"
-      alignItems="stretch"
+      justify="space-around"
+      alignItems="flex-start"
       className="layout-admin"
     >
-      <div className="layout-admin-header">
-        <MenuTop />
-      </div>
-
-      <Grid container direction="row" justify="flex-start" alignItems="stretch">
-        <Grid item className="layout-admin-sidebar">
-          <SideBar />
-        </Grid>
-
-        <Grid item className="layout-admin-content">
-          {children}
-        </Grid>
+      <Grid item className="layout-admin-header">
+        <SideBar />
       </Grid>
+
+      <Grid item className="layout-admin-content">
+        {children}
+      </Grid>
+        
     </Grid>
   );
 }

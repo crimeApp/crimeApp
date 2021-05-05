@@ -1,13 +1,5 @@
 @import '../../index.css';
 
-.MuiSvgIcon-root {
-    color: #00acc1;
-}
-
-.app-title{
-    color: #00acc1;
-}
-
 nav {
   height: 60px;
   width: 100%;

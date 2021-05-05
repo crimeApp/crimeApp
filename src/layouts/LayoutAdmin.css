@@ -14,13 +14,16 @@
 }
 
 .layout-admin-sidebar {
-    width: 100px;
+    width: auto;
+    height: 100%;
     left: 0;
-    top: 0;
-    padding-top: 15px;
+    top: 100;
+    padding-top: 100px;
+
 }
 
 .layout-admin-content {
     width: auto;
-    padding: 15px 25px;
+    height: 100%;
+    padding: 15px 100px;
 }
