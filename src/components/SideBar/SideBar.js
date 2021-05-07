@@ -68,9 +68,12 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "flex-end",
-    padding: theme.spacing(0, ),
+    padding: theme.spacing(3),
     // necessary for content to be below app bar
     ...theme.mixins.toolbar,
+  },
+  listitem: {
+    paddingTop: theme.spacing(3)
   }
 }));
 
@@ -104,19 +107,19 @@ export default function MiniDrawer() {
         <div className={classes.toolbar} />
         <Divider />
         <List spacing={4}>
-          <ListItem button>
+          <ListItem button className={classes.listitem}>
             <Link to="/account">
               <PersonIcon color="primary" />
             </Link>
           </ListItem>
 
-          <ListItem button>
+          <ListItem button className={classes.listitem}>
             <Link to="/map">
               <MapIcon color="primary" />
             </Link>
           </ListItem>
 
-          <ListItem button>
+          <ListItem button className={classes.listitem}>
             <Link to="/reports">
               <BarChartIcon color="primary" />
             </Link>
