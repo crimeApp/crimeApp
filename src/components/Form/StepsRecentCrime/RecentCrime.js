@@ -3,7 +3,6 @@ import React, { Fragment, useState } from 'react';
 
 import Input from '../Input/input';
 
-import traslate from "../../assets/traslate/es.json";
 
 import Grid from '@material-ui/core/Grid';
 import Divider from '@material-ui/core/Divider';

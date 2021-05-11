@@ -44,3 +44,19 @@
     padding-right: 10px;
 }
 
+.form-dialog {
+    width: 100%;
+    min-width: 250px;
+    max-width: 600px;
+    padding: 1%;
+    text-align: justify;
+}
+
+#submit {
+    margin-bottom: 2%;
+}
+
+.error-message {
+    color: red;
+}
+
