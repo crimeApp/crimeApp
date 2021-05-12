@@ -1,7 +1,7 @@
 import React from "react";
 import "./input.css";
 
-const Input = ({ label, children, required, classname, type, ...otherProps }) => {
+const Input = ({ label, children, error, type, ...otherProps }) => {
   return (
     <div className="col-md container-input">
       <div className="input-label">
@@ -9,7 +9,7 @@ const Input = ({ label, children, required, classname, type, ...otherProps }) =>
       </div>
       <div className="col">
         <div className="row">
-          <input className={`input-content ${classname}`} type={type} {...otherProps} />
+          <input className={error? `input-content error` : 'input-content'} type={type} {...otherProps} />
         </div>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useForm, useStep } from "react-hooks-helper";
 import traslate from "../../assets/traslate/es.json";
 import FormWrapper from "./FormWrapper";
@@ -28,18 +28,10 @@ const steps = [
 
 export default function PastCrime() {
   const [formData, setForm] = useForm(defaultData);
-  const [errors, setErrors] = useState({});
   const { step, navigation } = useStep({ initialStep: 0, steps });
   const { id } = step;
-  
-  useEffect(() => {
-    if (Object.keys(errors).length === 0) {
-      
-    }
-  }, [errors]);
- 
 
-  const props = { formData, setForm, navigation, errors, setErrors };
+  const props = { formData, setForm, navigation };
 
   switch (id) {
     case "names":

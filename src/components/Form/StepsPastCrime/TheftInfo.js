@@ -1,54 +1,58 @@
-import React from "react";
+import React, { useState } from "react";
 import traslate from "../../../assets/traslate/es.json";
-import { validateTheftInfo } from './ValidationRules';
 import Input from "../../../components/Input/input";
-import {
-  Grid,
-  Button
-} from "@material-ui/core";
+import { Grid, Button } from "@material-ui/core";
 
 import "../../Form/Form.css";
 
-export default function TheftInfo({ setForm, formData, navigation, errors, setErrors }) {
+export default function TheftInfo({ setForm, formData, navigation }) {
   const { typeoftheft, theftinfo } = formData;
 
   const { previous, next } = navigation;
 
-  const handleNext = (event) =>{
-    if (event) event.preventDefault();
-    setErrors(validateTheftInfo(formData)); 
-    console.log(errors);
-    next();
-  }
+  const [errors, setErrors] = useState({error: false, errorMessage: ''});
+
+  const validateTheftInfo = () => {
+    if (theftinfo !== "" && typeoftheft !== "") {
+      next();
+    }else {
+      setErrors({error:true, errorMessage: "Complete las casillas"});
+    }  
+  };
+
+  const handleNext = (event) => {
+    validateTheftInfo();
+    
+  };
 
   return (
     <>
-    <Grid item>
-    <Input
-        classname={errors.tyopeoftheft?'error-message': ''}
-        type={'text'}
-        label={traslate.FORM.THEFT}
-        placeholder={traslate.FORM["THEFT-PLACEHOLDER"]}
-        name="typeoftheft"
-        value={typeoftheft}
-        onChange={setForm}
-      />
-      {errors.typeoftheft && <p className="error-message">{errors.typeoftheft}</p>}
-    </Grid>
+      <Grid item>
+        <Input
+          error={errors.error}
+          type={"text"}
+          label={traslate.FORM.THEFT}
+          placeholder={traslate.FORM["THEFT-PLACEHOLDER"]}
+          name="typeoftheft"
+          value={typeoftheft}
+          onChange={setForm}
+        />
+      </Grid>
 
-    <Grid item>
-      <Input
-        classname={errors.theftinfo?'error-message': ''}
-        type={'text'}
-        label={traslate.FORM.THIEFINFO}
-        placeholder={traslate.FORM["THIEFINFO-PLACEHOLDER"]}
-        name="theftinfo"
-        value={theftinfo}
-        onChange={setForm}
-      />
-       {errors.theftinfo && <p className="error-message">{errors.theftinfo}</p>}
-    </Grid>
-      
+      <Grid item>
+        <Input
+          error={errors.error}
+          type={"text"}
+          label={traslate.FORM.THIEFINFO}
+          placeholder={traslate.FORM["THIEFINFO-PLACEHOLDER"]}
+          name="theftinfo"
+          value={theftinfo}
+          onChange={setForm}
+        />
+        {errors.error && (
+          <p className="error-message">{errors.errorMessage}</p>
+        )}
+      </Grid>
 
       <Grid item className="form-controls">
         <Grid
@@ -70,7 +74,12 @@ export default function TheftInfo({ setForm, formData, navigation, errors, setEr
           </Grid>
 
           <Grid item>
-            <Button variant="contained" color="primary" onClick={handleNext}>
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={handleNext}
+              type="submit"
+            >
               {traslate["BUTTONCONTROL"]["NEXT"]}
             </Button>
           </Grid>

@@ -1,34 +1,62 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react'
 
-const useForm = (callback, validate) => {
+const SignUpForm = () => {
+  // we use the help of useRef to test if it's the first render
+  const firstRender = useRef(true)
 
-    const [values, setValues] = useState({});
-    const [errors, setErrors] = useState({});
-    const [isSubmitting, setIsSubmitting] = useState(false);
+  // set a state variable which can be used to disable the save/submit button
+  // we set it to true so that the form is disabled on first render
+  const [disable, setDisabled] = useState(true)
   
-    useEffect(() => {
-      if (Object.keys(errors).length === 0 && isSubmitting) {
-        callback();
-      }
-    }, [errors]);
+  // we can also set error messages to display to the user
+  const [nameError, setNameError] = useState(null)
   
-    const handleSubmit = (event) => {
-      if (event) event.preventDefault();
-      setErrors(validate(values));
-      setIsSubmitting(true);
-    };
+  // set initial state value(s) for example:
+  const [nameLabel, setNameLabel] = useState('')
   
-    const handleChange = (event) => {
-      event.persist();
-      setValues(values => ({ ...values, [event.target.name]: event.target.value }));
-    };
+  // for every change in our state this will be fired
+  // we add validation here and disable the save button if required
+  useEffect(() => {
   
-    return {
-      handleChange,
-      handleSubmit,
-      values,
-      errors,
+    // we want to skip validation on first render
+    if (firstRender.current) {
+      firstRender.current = false
+      return
     }
-  };
+
+    // here we can disable/enable the save button by wrapping the setState function
+    // in a call to the validation function which returns true/false
+    setDisabled(formValidation())
+    
+  }, [name, ...]) // any state variable(s) included in here will trigger the effect to run
   
-  export default useForm;
+  // here we run any validation, returning true/false
+  const formValidation = () => {
+    if (name === "") {
+      setNameError('Name cant be blank!')
+      return true
+    } else {
+      setNameError(null)
+      return false
+    }
+  }
+  
+  const handleSave = () => {
+   // ...
+  }
+
+  return (
+    <form onSubmit={ handleSave } >
+      <input
+        type      = "text"
+        name      = "nameLabel"
+        value     = { nameLabel }
+        onChange  = { e => setNameLabel(e.target.value) }
+      />
+      { nameError && <p>{nameError}</p> }
+      <button type="submit" disabled={disable} >Save</button>
+    </form>
+  )
+}
+
+export default SignUpForm;
