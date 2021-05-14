@@ -1,4 +1,4 @@
-@import '../App.css';
+@import '../index.css';
 
 .layout-basic-header{
     position: sticky;
@@ -9,7 +9,21 @@
 }
 
 .layout-basic-content {
-    height: fit-content;
-    width: auto;
+    height: 100%;
+    width: 100%;
     padding: 15px 25px;
+}
+
+@media (max-width: 750px) {
+    .layout-basic-header{
+        position: sticky;
+        top: 0;
+        bottom: 10px;
+        padding: 35px 10px;
+    }
+
+    .layout-basic-content {
+        height: 100%;
+        padding: 0px;
+    }
 }

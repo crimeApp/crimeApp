@@ -1,105 +1,145 @@
-body, html {
+body,
+html {
   width: 100%;
   height: 100%;
+  overflow-x: hidden;
   margin: 0;
   font-family: "Poppins", sans-serif !important;
   background-color: var(--light-gray) !important;
-  } 
-      
-  input, label {
-  font-family: "Poppins", sans-serif !important;
-  font-size: var(--font-size-small); 
-  }
-  
-  p, ul, li { 
-    font-size: var(--font-size-normal); 
-    font-weight: var(--weight-regular);
-    font-family: "Poppins", sans-serif !important;
-    color: var(--black);
- }
+}
 
- h1, h2, h3, h4, h5, h6 {
+@media (max-width: 750px) {
+  .body,
+  html {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    margin: 0;
+    font-family: "Poppins", sans-serif !important;
+    background-color: var(--card-background);
+  }
+}
+
+input,
+label {
+  font-family: "Poppins", sans-serif !important;
+  font-size: var(--font-size-small);
+}
+
+p,
+ul,
+li {
+  font-size: var(--font-size-normal);
+  font-weight: var(--weight-regular);
+  font-family: "Poppins", sans-serif !important;
+  color: var(--black);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: var(--weight-bold);
   font-family: "Poppins", sans-serif !important;
- }
-
+}
 
 :root {
-  --white: #F6FAFD;
-  --background-color: #E5E5E5;
-  --light-gray: #EBEBF3;
-  --card-background: #FFFFFF;
-  --grey: #C6CEDA;
-  --green: #42B75E;
-  --cyan: #A4ECEB;
-  --violet: #5063BB;
+  --white: #f6fafd;
+  --background-color: #e5e5e5;
+  --light-gray: #ebebf3;
+  --card-background: #ffffff;
+  --grey: #c6ceda;
+  --green: #42b75e;
+  --cyan: #a4eceb;
+  --violet: #5063bb;
   --gray: #626284;
-  --black: #1B1B25; 
+  --black: #1b1b25;
 
   /* BOX SHADOW */
---box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.50);
+  --box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.5);
 
-/* SIZES */
---smallest-size: 14px;
---small: 16px;
---normal-size: 18px;
---medium: 20px;
---big: 22px;
---large: 26px;
---extra-large: 30px;
+  /* SIZES */
+  --smallest-size: 14px;
+  --small: 16px;
+  --normal-size: 18px;
+  --medium: 20px;
+  --big: 22px;
+  --large: 26px;
+  --extra-large: 30px;
 
-/* TIPOGRAFY SIZE */
---font-size-little: x-small; /*14px;*/
---font-size-small: small; /*16px;*/
---font-size-normal: medium; /*18px;*/
---font-size-large: large; /*20px;*/
---font-size-extra-large: larger; /*22px;*/
---font-size-big: x-large; /*26px;*/
---font-size-extra-big: xx-large ; /*30px;*/
+  /* TIPOGRAFY SIZE */
+  --font-size-little: x-small; /*14px;*/
+  --font-size-small: small; /*16px;*/
+  --font-size-normal: medium; /*18px;*/
+  --font-size-large: large; /*20px;*/
+  --font-size-extra-large: larger; /*22px;*/
+  --font-size-big: x-large; /*26px;*/
+  --font-size-extra-big: xx-large; /*30px;*/
 
-/* MARGIN */
---margin-top:25px;
---margin-bottom:26px;
+  /* MARGIN */
+  --margin-top: 25px;
+  --margin-bottom: 26px;
 
-/* BORDER */
---border-small: 5px;
---border-normal: 15px;
---border-big: 30px;
---border-circle: 1000px;
+  /* BORDER */
+  --border-small: 5px;
+  --border-normal: 15px;
+  --border-big: 30px;
+  --border-circle: 1000px;
 
-/* TIPOGRAFY WEIGHT */
---weight-light: 300;
---weight-regular: 400;
---weight-medium: 500;
---weight-semi-bold: 600;
---weight-bold: 700;
---weight-extra-bold: 800;
---weight-black: 900;
+  /* TIPOGRAFY WEIGHT */
+  --weight-light: 300;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semi-bold: 600;
+  --weight-bold: 700;
+  --weight-extra-bold: 800;
+  --weight-black: 900;
 
-/* LABELS HEIGHT SIZE */
---height-smallest-size: 15px;
---height-small: 25px;
---height-normal-size: 35px;
---height-medium: 45px;
---height-big: 55px;
---height-large: 65px;
---height-extra-large: 75px;
+  /* LABELS HEIGHT SIZE */
+  --height-smallest-size: 15px;
+  --height-small: 25px;
+  --height-normal-size: 35px;
+  --height-medium: 45px;
+  --height-big: 55px;
+  --height-large: 65px;
+  --height-extra-large: 75px;
 }
 
 /* WIDTH SIZE */
-.xs { width: 200px; } 
-.s { width: 300px; } 
-.m { width: 400px; } 
-.l {width: 500px; }
-.xl { width: 600px; } 
-.expand { width: 100%; }
+.xs {
+  width: 200px;
+}
+.s {
+  width: 300px;
+}
+.m {
+  width: 400px;
+}
+.l {
+  width: 500px;
+}
+.xl {
+  width: 600px;
+}
+.expand {
+  width: 100%;
+}
 
 /* SPACING FOR LABELS */
-.xs { padding: 2px; } 
-.s { padding: 4px; } 
-.m { padding: 6px; } 
-.l {padding: 8px; }
-.xl { padding: 10px; } 
-
-
-
+.xs {
+  padding: 2px;
+}
+.s {
+  padding: 4px;
+}
+.m {
+  padding: 6px;
+}
+.l {
+  padding: 8px;
+}
+.xl {
+  padding: 10px;
+}

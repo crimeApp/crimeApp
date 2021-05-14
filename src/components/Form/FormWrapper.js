@@ -6,14 +6,16 @@ import { Grid } from "@material-ui/core";
 export default function FormWrapper({ title, subtitle, children, isMobile }) {
   return (
     <Grid
-      className={`form-wrap ${isMobile? "xs" : "m"}`}
+      className="form-wrap"
       container
       direction="column"
-      justify="flex-start"
+      justify={"flex-start"}
       alignItems="center"
     >
-      <Grid item className="form-titles">
-        <h2>{title}</h2>
+      <Grid item>
+        <h2>{title}</h2></Grid>
+
+        <Grid item >
         <h4>{subtitle}</h4>
       </Grid>
 

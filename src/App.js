@@ -13,7 +13,7 @@ import Contact from "./pages/Contact";
 //import SignIn from './pages/Admin';
 //import SignUp from './pages/SignUp';
 
-import './App.css';
+import './index.css';
 import LayoutAdmin from "./layouts/LayoutAdmin";
 import LayoutBasic from './layouts/LayoutBasic';
 
