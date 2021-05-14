@@ -4,12 +4,12 @@ import LinearProgress from '@material-ui/core/LinearProgress';
 import Box from '@material-ui/core/Box';
 
  
-export default function FormStepper(props) {
+export default function FormStepper({value}) {
 
   return (
     <Box display="flex" alignItems="center">
       <Box width="100%" mr={1}>
-        <LinearProgress variant="determinate" {...props} />
+        <LinearProgress variant="determinate" value={value} />
       </Box>
     </Box>
   );

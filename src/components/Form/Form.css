@@ -1,40 +1,35 @@
 @import '../../index.css';
 
-.form {
-    width: fit-content;
-    height: auto;
-    display: flex;
+.form-wrap{
+    max-width: 800px;
+    min-height: fit-content;
+    padding: 5%;
+    margin: 5%;
+    border-radius: var(--border-big);
+    border: 1px var(--grey) solid;
+    background-color: var(--card-background);
 }
 
-.form-header {
-    width: 100%;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-bottom: 10px;
-    text-align: justify;
+.form-wrap-mobile{
+    background-color: var(--card-background);
 }
 
-.form-progress {
-    width: 100%;
-    align-self: center;
-    display: inline-block;
-    justify-content: center;
+.form-titles{
+    padding: 2%;
 }
 
 .form-content{
-    height: auto;
     width: 100%;
-    max-width: 700px;
-    align-self: center;
-    display: inline-block;
-    align-content: center;
+    min-width: fit-content;
+    display: flex;
+    flex-direction: column;
 }
 
 .form-controls {
     width: 100%;
     display: inline-block;
     padding-top: 40px;
-    padding-bottom: 10px;
+    padding-bottom: 20px;
     align-items: center;
     justify-content: center;
 }
@@ -42,14 +37,6 @@
 .form-controls > .MuiButton-root .MuiButton-base {
     padding-left: 10px;
     padding-right: 10px;
-}
-
-.form-dialog {
-    width: 100%;
-    min-width: 250px;
-    max-width: 600px;
-    padding: 1%;
-    text-align: justify;
 }
 
 #submit {

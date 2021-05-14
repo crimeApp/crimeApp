@@ -1,27 +1,30 @@
 @import '../../index.css';
 
-.container-input{
-    width: 100%;
-    height: 50%;
+.input-container{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
 .input-label{
     color: var(--black);
-    font-size: medium;
-    font-weight: bold;
+    font-size: var(--font-size-normal);
+    font-weight: var(--weight-bold);
+    height: var(--label-normal-size);
 }
 
 .input-content {
-    font-weight: normal;
-    font-size: medium;
+    height: var(--height-small);
+    font-weight: var(--weight-regular);
+    font-size: var(--font-size-normal);
+    border-radius: var(--border-normal);
+    outline: 0px;
+    border: none;
     padding-left: 3%;
     text-align: justify;
     color: var(--black);
     border-color: transparent;
-    width: 80%;
-    min-width: 200px;
-    background:  #C6CEDA;
-    border-radius: 60px;
+    background:  var(--grey);
 }
 
 input:focus{

@@ -1,5 +1,4 @@
 import { React } from 'react';
-import { Grid } from '@material-ui/core';
 import './Select.css';
 
 /* 
@@ -13,29 +12,30 @@ color o type para tener varias versiones en uno solo
 label, placeholder, text, error, text_error para mostrar en pantalla
 icon por si tiene iconos
 */ 
-const Select = ({ label, options, value, handleChange }) => {
+const Select = ({ label, options, value, handleChange, error, size, spacing  }) => {
     return (
-        <Grid className='select-container'>
-            <label id="label" className='select-label'>
+        <div className={`select-container ${size}`}>
+            <label id="label" className={`select-label ${spacing}`}>
                 {label}
             </label>
             <select 
                 labelId="label" 
                 id="select"
                 value={value} 
-                className='select-content select-option m' 
+                className={`select-content ${error? 'error' : ''}`}
                 onChange={handleChange}>
                 
                 {options.map((option) =>
                         <option 
-                            key={option.text}
-                            value={option.text}>
-                            {option.text}
+                            className='select-option'
+                            key={option}
+                            value={option}>
+                            {option}
                         </option>
                 )}
 
             </select>
-        </Grid>
+        </div>
     )
 }
 

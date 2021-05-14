@@ -1,17 +1,11 @@
 import React from "react";
 import "./input.css";
 
-const Input = ({ label, children, error, type, ...otherProps }) => {
+const Input = ({ label, children, error, type, size, spacing }) => {
   return (
-    <div className="col-md container-input">
-      <div className="input-label">
-        <h5>{label}</h5>
-      </div>
-      <div className="col">
-        <div className="row">
-          <input className={error? `input-content error` : 'input-content'} type={type} {...otherProps} />
-        </div>
-      </div>
+    <div className={`input-container ${size}`}>
+       <label className={`input-label ${spacing}`}>{label}</label>
+      <input className={`input-content ${error? 'error' : ''}`} type={type}  />
     </div>
   );
 };

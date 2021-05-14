@@ -1,34 +1,38 @@
 @import'../../index.css';
 
 .select-container{
-    width: auto;
-    height: fit-content;
-    flex-grow: 1;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    flex-grow: 1;
 }
 
 .select-label{
     color: var(--black);
-    font-weight: var(--weight-bold);
     font-size: var(--font-size-normal);
+    font-weight: var(--weight-bold);
     height: var(--label-normal-size);
 }
 
 .select-content{
-    justify-content: center;
+    height: var(--height-small);
+    font-weight: var(--weight-regular);
+    font-size: var(--font-size-normal);
     border-radius: var(--border-normal);
-    min-width: fit-content;
-    height: var(--label-normal-size);
     outline: 0px;
     border: none;
+    padding-left: 3%;
+    text-align: justify;
+    color: var(--black);
     border-color: transparent;
-    background-color: var(--light-gray);
+    background:  var(--grey);
 }
 
 .select-option{
-    color: var(--gray);
-    font-weight: var(--font-size-normal);
-    font-size: var(--font-size-small);
+    color: var(--black);
+    font-weight: var(--weight-regular);
+    font-size: var(--font-size-normal);
+}
+
+.error {
+    border: red 1px solid;
 }

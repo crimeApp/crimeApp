@@ -9,7 +9,7 @@ import {
 
 import "../../Form/Form.css";
 
-export default function TheftDetails({ setForm, formData, navigation }) {
+export default function TheftDetails({ setForm, formData, navigation, isMobile }) {
   const { name } = formData;
   const { previous, next } = navigation;
 
@@ -17,6 +17,7 @@ export default function TheftDetails({ setForm, formData, navigation }) {
     <>
     <Grid item>
       <Input
+        size={isMobile? "s" : "m"}
         title={traslate.FORM.NAME}
         placeholder={traslate.FORM["NAME-PLACEHOLDER"]}
         name="name"

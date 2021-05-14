@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { useForm, useStep } from "react-hooks-helper";
+import { isMobile } from "react-device-detect";
 import traslate from "../../assets/traslate/es.json";
 import FormWrapper from "./FormWrapper";
 import PersonalDetails from "./StepsPastCrime/PersonalDetails";
@@ -31,12 +32,13 @@ export default function PastCrime() {
   const { step, navigation } = useStep({ initialStep: 0, steps });
   const { id } = step;
 
-  const props = { formData, setForm, navigation };
+  const props = { formData, setForm, navigation, isMobile };
 
   switch (id) {
     case "names":
       return (
         <FormWrapper
+          isMobile={isMobile}
           title={traslate["FORM"]["TITLE-PASTCRIME"]}
           subtitle={traslate["FORM"]["SUBTITLE"]}
         >

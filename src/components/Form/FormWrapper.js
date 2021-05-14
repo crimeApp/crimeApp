@@ -1,22 +1,27 @@
 import React from "react";
 import "./Form.css";
+import FormStepper from "./FormStepper";
+import { Grid } from "@material-ui/core";
 
-import { Grid, Card } from "@material-ui/core";
-
-export default function PastCrime({ title, subtitle, children }) {
+export default function FormWrapper({ title, subtitle, children, isMobile }) {
   return (
-    <Card variant="outlined" className="form">
-      <Grid container direction="column" justify="center" alignItems="center">
-        <Grid item className="form-header">
-          <h2 id="recentcrime-title">{title}</h2>
-
-          <h4 id="recentcrime-subtitle">{subtitle}</h4>
-        </Grid>
-
-        <Grid item className="form-progress"></Grid>
-
-        <Grid item className="form-content">{children}</Grid>
+    <Grid
+      className={`form-wrap ${isMobile? "xs" : "m"}`}
+      container
+      direction="column"
+      justify="flex-start"
+      alignItems="center"
+    >
+      <Grid item className="form-titles">
+        <h2>{title}</h2>
+        <h4>{subtitle}</h4>
       </Grid>
-    </Card>
+
+      <Grid item>
+        <FormStepper value={10} />
+      </Grid>
+
+      <Grid item >{children}</Grid>
+    </Grid>
   );
 }

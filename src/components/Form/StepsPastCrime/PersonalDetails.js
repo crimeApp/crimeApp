@@ -5,7 +5,7 @@ import { Grid, Button } from "@material-ui/core";
 
 import "../../Form/Form.css";
 
-export default function PersonalDetails({ setForm, formData, navigation }) {
+export default function PersonalDetails({ setForm, formData, navigation, isMobile }) {
   const { name, DNI } = formData;
 
   const { previous, next } = navigation;
@@ -40,6 +40,7 @@ export default function PersonalDetails({ setForm, formData, navigation }) {
     <>
       <Grid item>
         <Input
+          size={isMobile? "s" : "m"}
           error={errors.error}
           type='text'
           label={traslate.FORM.NAME}
@@ -51,6 +52,7 @@ export default function PersonalDetails({ setForm, formData, navigation }) {
       </Grid>
       <Grid item>
         <Input
+          size={isMobile? "s" : "m"}
           error={errors.DNI}
           type='number'
           label={traslate.FORM.DNI}
