@@ -10,21 +10,10 @@ import AdminSignIn from "./pages/Admin/SignIn";
 import Home from "./pages/Home";
 import UserSignIn from "./pages/User/SignIn";
 import Contact from "./pages/Contact";
-//import Error404 from "./pages/Error404";
-//import SignIn from './pages/Admin';
-//import SignUp from './pages/SignUp';
 
 import "./App.css";
 import LayoutAdmin from "./layouts/LayoutAdmin";
 import LayoutBasic from "./layouts/LayoutBasic";
-
-/*  <ul>
-        <li><Link to="/one">One</Link></li>
-        <li><Link to="/two">Two</Link></li>
-        <li><Link to="/three">Three</Link></li>
-        <li><Link to="/four">Four</Link></li>
-      </ul>
-*/
 
 function App() {
   return (
