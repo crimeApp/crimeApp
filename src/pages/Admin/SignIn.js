@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function SignIn(){
+export default function AdminSignIn(){
     return(
         <div>
             <h1>Estamos en SignIn</h1>

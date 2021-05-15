@@ -2,8 +2,9 @@ import React from 'react';
 
 export default function AdminHome(){
     return(
-        <div>
-           
-        </div>
+        <>  
+        <h1>Hola</h1>
+       
+        </>
     )
 }

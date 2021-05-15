@@ -1,8 +1,13 @@
+@import'../../index.css';
+
 label{
-    font-weight: bold;
-    color: black;
+    font-weight: var(--weight-medium);
+    color: var(--black);
 }
 
+.input-slider {
+    max-width: 60px !important;
+}
 
 .MuiSlider-rail, .MuiSlider-track {
     height: 5px !important;
