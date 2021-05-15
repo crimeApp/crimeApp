@@ -1,19 +1,19 @@
-@import'../../index.css';
+@import '../../index.css';
 
-.select-container{
+.input-container{
     display: flex;
     flex-direction: column;
     flex-grow: 1;
 }
 
-.select-label{
+.input-label{
     color: var(--black);
     font-size: var(--font-size-normal);
     font-weight: var(--weight-bold);
     height: var(--label-normal-size);
 }
 
-.select-content{
+.input-content {
     height: var(--height-small);
     font-weight: var(--weight-regular);
     font-size: var(--font-size-normal);
@@ -27,12 +27,13 @@
     background:  var(--grey);
 }
 
-.select-option{
-    color: var(--black);
-    font-weight: var(--weight-regular);
-    font-size: var(--font-size-normal);
+input:focus{
+    outline: none;
 }
 
 .error {
     border: red 1px solid;
 }
+
+
+

@@ -1,48 +1,60 @@
 import React from "react";
 import {
-  BrowserRouter,
-  Route, 
+  BrowserRouter as Router,
+  Route,
   Switch
-} from "react-router-dom";
+} from 'react-router-dom';
 
-import AdminHome from "./pages/Admin/Admin";
-import AdminSignIn from "./pages/Admin/SignIn";
-import Home from "./pages/Home";
-import UserSignIn from "./pages/User/SignIn";
+import AdminHome from './pages/Admin/Admin';
+import AdminSignIn from './pages/Admin/SignIn';
+import Home from './pages/Home';
+import UserSignIn from './pages/User/SignIn';
 import Contact from "./pages/Contact";
 
-import "./App.css";
+import './index.css';
 import LayoutAdmin from "./layouts/LayoutAdmin";
-import LayoutBasic from "./layouts/LayoutBasic";
+import LayoutBasic from './layouts/LayoutBasic';
+
 
 function App() {
+
   return (
-    <BrowserRouter>
+    <Router>
+        <Switch>
+          <LayoutBasic>
+            <Route
+              path="/"
+              exact={true}
+              component={Home} />
 
-      <Switch>
-        <RouteWrapper path="/admin" component={AdminHome} layout={LayoutAdmin} />
-        <RouteWrapper path="/admin/login" component={AdminSignIn} layout={LayoutAdmin} />
-        <RouteWrapper path="/" component={Home} layout={LayoutBasic} />
-        <RouteWrapper path="/login" component={UserSignIn} layout={LayoutBasic} />
-        <RouteWrapper path="/contact" component={Contact} layout={LayoutBasic} />
-      </Switch>
+            <Route
+              path="/contact"
+              exact={true}
+              component={Contact} />
 
-    </BrowserRouter>
-  );
-}
+            <Route
+              path="/login"
+              exact={true}
+              component={UserSignIn} />
+          </LayoutBasic>
+          
+          <LayoutAdmin>
+            <Route
+              path="/admin"
+              exact={true}
+              component={AdminHome}
+            />
 
-function RouteWrapper({
-  component: Component, 
-  layout: Layout, 
-  ...rest
-}) {
-  return (
-    <Route {...rest} render={(props) =>
-      <Layout {...props}>
-        <Component {...props} />
-      </Layout>
-    } />
+            <Route
+              path="/admin/login"
+              exact={true}
+              component={AdminSignIn} />
+          </LayoutAdmin>
+          
+        </Switch>
+    </Router>
   );
 }
 
 export default App;
+

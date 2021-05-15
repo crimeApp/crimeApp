@@ -1,7 +1,13 @@
 import React from 'react';
+import PastCrime from '../components/Form/PastCrime';
+
+
+
 export default function Contact (){
 
     return(
-       <div></div>
-    );
+        <>
+            <PastCrime/>
+        </>
+    )
 }

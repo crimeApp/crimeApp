@@ -1,0 +1,32 @@
+.MuiDialog-paper{
+    border-radius: 50px;
+    color: #FFFFFF;
+}
+
+.MuiDialogTitle-root{
+    color: black;
+    font-weight: bolder;
+    font-size: 30px;
+}
+
+#alert-dialog-description{
+    color: #626284;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.MuiButton-root{
+    background-color:  #5063BB;
+    color: #FFFFFF;
+    border-radius: 12px;
+    border: none;
+    height: 40px;
+    width: 160px;
+    font-size: 16px;
+    font-family: "Poppins", sans-serif !important;
+    align-self: center;
+}
+
+.MuiButton-label{
+    width: 150px;
+}

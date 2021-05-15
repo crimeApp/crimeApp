@@ -12,6 +12,37 @@
     },
     "SELECT": {
         "PLACEHOLDER": "Seleccione una de las opciones."
-    }
+    },
+  
+    "FORM": {
+        "TITLE": "DenunciaYa",
+        "TITLE-PASTCRIME": "Siniestros Antiguos",
+        "SUBTITLE": "Toda la informacion que se registre quedara completamente anonima. El objetivo es tener datos para analizar la delincuencia en Cordoba.",
+        
+        "THEFTINFO": {
+            "THEFT": "Tipo de robo, huerto, agresión.",
+            "TIMEFRACTION": "Ingrese franja horaria",
+            "DATE": "Ingrese fecha"
+        },
+
+        "PERSONALINFO": {
+            "NAME": "Nombre",
+            "NAME-PLACEHOLDER": "Ingrese su nombre.",
+            "DNI": "DNI",
+            "DNI-PLACEHOLDER": "Ingrese su DNI."
+        },
+        
+        "THEFTDETAILS": {
+            "THIEFINFO": "Información del Agresor",
+            "THIEFINFO-PLACEHOLDER": "Describa los rasgos fisicos que recuerde.",
+            "LOCATION": "Ubicación"
+        }
+       
+    },
+    "CONFIRMATION-DIALOG": {
+        "TITLE":"Gracias por completar el formulario!", 
+        "TEXT": "Todos los datos ya han sido guardados por requerimientos legales si quiere que la denuncia sea tratada legalmente.",
+        "BUTTON-TEXT": "Volver a Inicio"
+    }, 
 }
 
