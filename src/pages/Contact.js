@@ -9,7 +9,6 @@ export default function Contact() {
   const handleSliderChange = (newValue) => {
     setValue(newValue);
   };
-
   const handleInputChange = (event) => {
     setValue(event.target.value === "" ? "" : Number(event.target.value));
   };
