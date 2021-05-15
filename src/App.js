@@ -44,7 +44,8 @@ function App() {
               exact={true}
               component={AdminHome}
             />
-
+          </LayoutAdmin>
+          <LayoutAdmin>
             <Route
               path="/admin/login"
               exact={true}
