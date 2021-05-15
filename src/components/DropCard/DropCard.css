@@ -1,0 +1,42 @@
+@import '../../index.css';
+
+.drop-card-mobile{
+    width: 100%;
+}
+
+.card-column{
+   flex-basis: '33.33%';
+   padding-left: 10%;
+}
+
+.dropcard-header{
+    font-size: var(--font-size-large);
+    flex-basis: '33.33%';
+    flex-shrink: 0;
+}
+
+.dropcard-header-mobile{
+    font-size: var(--font-size-normal);
+    flex-basis: '33.33%';
+    flex-shrink: 0;
+}
+
+.dropcard-date{
+    font-size: var(--font-size-large);
+    color: var(--violet) !important;
+}
+
+.dropcard-date-mobile{
+    font-size: var(--font-size-normal);
+    color: var(--violet) !important;
+}
+
+.dropcard-details{
+    font-size: var(--font-size-normal);
+}
+
+.dropcard-details-mobile{
+    font-size: var(--font-size-small);
+}
+
+

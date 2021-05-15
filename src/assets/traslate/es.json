@@ -1,10 +1,17 @@
 {
-  "MENU": {
-    "COMMENTS": "Dejar un comentario",
-    "REPORTS": "Ver reportes.",
-    "TITLE": "DenunciaYa"
-  },
-  "SELECT": {
-    "PLACEHOLDER": "Seleccione una de las opciones."
-  }
+    "MENU": {
+         "COMMENTS": "Dejar un comentario", 
+         "REPORTS": "Ver reportes.",
+         "TITLE": "DenunciaYa"
+        },
+    "COMMON": {
+        "CONFIRM": "Confirmar",
+        "CANCEL": "Cancelar", 
+        "NEXT": "Siguiente", 
+        "BACK": "Atrás"
+    },
+    "SELECT": {
+        "PLACEHOLDER": "Seleccione una de las opciones."
+    }
 }
+
