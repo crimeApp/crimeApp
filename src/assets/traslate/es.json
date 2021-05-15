@@ -1,10 +1,10 @@
 {
-    "MENU": {
-         "COMMENTS": "Dejar un comentario", 
-         "REPORTS": "Ver reportes."
-         
-        },
-    "SELECT": {
-        "PLACEHOLDER": "Seleccione una de las opciones."
-    }
+  "MENU": {
+    "COMMENTS": "Dejar un comentario",
+    "REPORTS": "Ver reportes.",
+    "TITLE": "DenunciaYa"
+  },
+  "SELECT": {
+    "PLACEHOLDER": "Seleccione una de las opciones."
+  }
 }
