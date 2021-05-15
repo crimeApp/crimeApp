@@ -30,16 +30,17 @@ export default function InputSlider({ label, value, handleBlur, handleInputChang
         {label}
       </label>
 
-      <Grid container spacing={2} alignItems="center">
-        <Grid item xs={12} sm={6}>
+      <Grid container direction="row" spacing={1} alignItems="center">
+        <Grid item xs={6} sm={3}>
           <Slider
+            className="m"
             value={typeof value === 'number' ? value : 0}
             onChange={handleSliderChange}
             aria-labelledby="input-slider"
           />
         </Grid>
 
-        <Grid item>
+        <Grid item className="input-slider">
           <Input
             value={value}
             margin="dense"
