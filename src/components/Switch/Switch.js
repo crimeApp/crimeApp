@@ -37,6 +37,7 @@ const CustomSwitch = withStyles((theme) => ({
     width: 24,
     height: 24,
   },
+  
   track: {
     borderRadius: 26 / 2,
     border: `1px solid ${theme.palette.grey[400]}`,

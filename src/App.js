@@ -10,8 +10,6 @@ import AdminSignIn from './pages/Admin/SignIn';
 import Home from './pages/Home';
 import UserSignIn from './pages/User/SignIn';
 import Contact from "./pages/Contact";
-//import SignIn from './pages/Admin';
-//import SignUp from './pages/SignUp';
 
 import './index.css';
 import LayoutAdmin from "./layouts/LayoutAdmin";
@@ -53,14 +51,10 @@ function App() {
               component={AdminSignIn} />
           </LayoutAdmin>
           
-
-          {/* <Route
-            path="/newuser"
-            exact={true}
-            component={SignUp} /> */}
         </Switch>
     </Router>
   );
 }
 
 export default App;
+

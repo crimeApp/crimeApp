@@ -1,0 +1,6 @@
+@import '../../index.css';
+
+.sidebar {
+    background-color: var(--real-white);
+    width: 400px;
+}
