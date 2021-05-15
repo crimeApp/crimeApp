@@ -1,8 +1,8 @@
 {
     "MENU": {
          "COMMENTS": "Dejar un comentario", 
-         "REPORTS": "Ver reportes."
-         
+         "REPORTS": "Ver reportes.",
+         "TITLE": "DenunciaYa"
         },
     "COMMON": {
         "CONFIRM": "Confirmar",
@@ -14,3 +14,4 @@
         "PLACEHOLDER": "Seleccione una de las opciones."
     }
 }
+
