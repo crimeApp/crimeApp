@@ -88,7 +88,7 @@ export default function TheftInfo({ setForm, formData, navigation, isMobile }) {
               color="primary"
               onClick={previous}
             >
-              {traslate["BUTTONCONTROL"]["BACK"]}
+              {traslate["COMMON"]["BACK"]}
             </Button>
           </Grid>
 
@@ -99,7 +99,7 @@ export default function TheftInfo({ setForm, formData, navigation, isMobile }) {
               onClick={handleNext}
               type="submit"
             >
-              {traslate["BUTTONCONTROL"]["NEXT"]}
+              {traslate["COMMON"]["NEXT"]}
             </Button>
           </Grid>
         </Grid>

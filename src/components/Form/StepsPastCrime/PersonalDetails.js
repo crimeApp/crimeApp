@@ -74,13 +74,13 @@ export default function PersonalDetails({ setForm, formData, navigation, isMobil
         >
           <Grid item>
             <Button variant="contained" color="primary" onClick={previous}>
-              {traslate["BUTTONCONTROL"]["BACK"]}
+              {traslate["COMMON"]["BACK"]}
             </Button>
           </Grid>
 
           <Grid item>
             <Button variant="contained" color="primary" onClick={handleNext}>
-              {traslate["BUTTONCONTROL"]["NEXT"]}
+              {traslate["COMMON"]["NEXT"]}
             </Button>
           </Grid>
         </Grid>

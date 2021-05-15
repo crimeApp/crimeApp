@@ -13,6 +13,10 @@ export default function TheftDetails({ setForm, formData, navigation, isMobile }
   const { name } = formData;
   const { previous, next } = navigation;
 
+  const handleNext = (event) => {
+   
+  };
+
   return (
     <>
     <Grid item>
@@ -28,32 +32,35 @@ export default function TheftDetails({ setForm, formData, navigation, isMobile }
 
 
     <Grid item className="form-controls">
-          <Grid
-            container
-            direction="row"
-            justify="center"
-            alignItems="center"
-            spacing={4}
-          >
-            <Grid item>
-              <Button
-                variant="contained"
-                color="primary"
-                onClick={previous}
-              >
-                {traslate["BUTTONCONTROL"]["BACK"]}
-              </Button>
-            </Grid>
-
-            <Grid item>
-                <Button
-                  variant="contained"
-                  color="primary"
-                  onClick={next}>
-                  {traslate["BUTTONCONTROL"]["SAVE"]}
-                </Button>
-            </Grid>
+    <Grid
+          container
+          direction="row"
+          justify="center"
+          alignItems="center"
+          spacing={4}
+        >
+          <Grid item>
+            <Button
+              disabled
+              variant="contained"
+              color="primary"
+              onClick={previous}
+            >
+              {traslate["COMMON"]["BACK"]}
+            </Button>
           </Grid>
+
+          <Grid item>
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={handleNext}
+              type="submit"
+            >
+              {traslate["COMMON"]["NEXT"]}
+            </Button>
+          </Grid>
+        </Grid>
         </Grid>
     </>
   );
