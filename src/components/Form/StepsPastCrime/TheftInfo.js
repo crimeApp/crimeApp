@@ -30,7 +30,7 @@ export default function TheftInfo({ setForm, formData, navigation, isMobile }) {
   const timefractions = ["Maniana", "Tarde", "Noche"];
 
   return (
-    <Grid container direction="column" justify="center" alignItems="center" spacing={`${isMobile? `1` : `3`}`}>
+    <Grid container direction="column" justify="center" alignItems="center">
       <Grid item>
         <Select
           size={isMobile? "xs" : "m"}
