@@ -1,18 +1,15 @@
-import React from "react";
+/* import React from "react";
 import { Grid, Button, Card } from "@material-ui/core";
 import "./Form.css";
 
-const Review = ({ setForm, formData, navigation }) => {
-  const { name, DNI, typoftheft, theftdetails } = formData;
-
-  const { next, go } = navigation;
+const Review = () => {
 
   return (
     <Card variant="outlined">
       <Grid container direction="column" alignItems="center">
         <Grid item>
           <h3>Review your data</h3>
-        </Grid>
+        </Grid>{}
 
         <Grid item>Name</Grid>
 
@@ -44,3 +41,4 @@ const Review = ({ setForm, formData, navigation }) => {
 };
 
 export default Review;
+ */

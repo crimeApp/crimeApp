@@ -14,6 +14,7 @@ import Contact from "./pages/Contact";
 import './index.css';
 import LayoutAdmin from "./layouts/LayoutAdmin";
 import LayoutBasic from './layouts/LayoutBasic';
+import PastCrimePage from "./pages/Form/PastCrimePage.tsx";
 
 
 function App() {
@@ -26,6 +27,10 @@ function App() {
               path="/"
               exact={true}
               component={Home} />
+            <Route
+              path="/past-crime-form"
+              exact={true}
+              component={PastCrimePage} />
 
             <Route
               path="/contact"

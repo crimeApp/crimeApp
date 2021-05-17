@@ -1,4 +1,4 @@
-import React from "react";
+/* import React from "react";
 import { Button, Card, Grid } from "@material-ui/core";
 import traslate from "../../assets/traslate/es.json";
 import "./Form.css";
@@ -31,3 +31,4 @@ const Submit = ({ navigation }) => {
 };
 
 export default Submit;
+ */

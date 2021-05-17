@@ -2,21 +2,22 @@
 
 .form-wrap {
     width: 100%;
-    max-width: 600px;
     border-radius: var(--border-big);
-    border: 1px var(--grey) solid;
     background-color: var(--card-background);
-    padding: 3%;
+}
+
+.form-background {
+    margin-top: 10vh;
+    margin-bottom: 10vh;
 }
 
 @media (max-width: 750px) {
-    .form-wrap {
+    .form-background {
+        background-color: var(--card-background);
         width: 100%;
         height: 100%;
-        border: none;
-        border-color: transparent;
-        border-radius: 0px;
-        padding: 2%;
+        margin-top: 20px;
+        margin-bottom: 0px;
     }
 }
 
@@ -37,10 +38,10 @@
     justify-content: center;
 }
 
-.form-controls > .MuiButton-root .MuiButton-base {
+/* .form-controls > .MuiButton-root .MuiButton-base {
     padding-left: 10px;
     padding-right: 10px;
-}
+} */
 
 #submit {
     margin-bottom: 2%;

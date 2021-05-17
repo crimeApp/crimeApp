@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+/* import React, { useState } from "react";
 import traslate from "../../../assets/traslate/es.json";
-import Input from "../../../components/Input/input";
+import Input from "../../../components/Input/Input";
 import { Grid, Button } from "@material-ui/core";
 
-import "../../Form/Form.css";
+import "../Form.css";
 
-export default function PersonalDetails({ setForm, formData, navigation, isMobile }) {
+export default function PersonalDetails() {
   const { name, DNI } = formData;
 
   const { previous, next } = navigation;
@@ -88,3 +88,4 @@ export default function PersonalDetails({ setForm, formData, navigation, isMobil
     </>
   );
 }
+ */

@@ -15,14 +15,14 @@
 }
 
 @media (max-width: 750px) {
-    .layout-basic-header{
+    .layout-admin-header{
         position: sticky;
         top: 0;
         bottom: 10px;
         padding: 35px 10px;
     }
 
-    .layout-basic-content {
+    .layout-admin-content {
         height: 100%;
         padding: 0px;
     }
