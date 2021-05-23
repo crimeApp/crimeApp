@@ -43,6 +43,26 @@
         "TITLE":"Gracias por completar el formulario!", 
         "TEXT": "Todos los datos ya han sido guardados por requerimientos legales si quiere que la denuncia sea tratada legalmente.",
         "BUTTON-TEXT": "Volver a Inicio"
-    }
+    },
+
+    "GENDER": {"MAN": "hombre", "WOMAN": "mujer"},
+    "HEIGHT": {"HIGH": "alto", "MEDIUM":"mediano", "SMALL":"bajo"},
+    "CLOTHING": {
+        "FORMAL": "formal", 
+        "CASUAL": "casual", 
+        "SPORTY": "deportiva", 
+        "WORK": "de trabajo", 
+        "SEMIFORMAL": "semiformal", 
+        "SCHOLAR": "escolar", 
+        "TIDY": "arreglado", 
+        "UNTIDY":"desprolija"
+    },
+  "PHYSICAL_BUILD": {
+      "THIN": "delgado", 
+      "NORMAL": "normal", 
+      "STRONG": "corpulento", 
+      "OBESE": "obeso", 
+      "ATHELTIC": "atletico"
+  }
 }
 

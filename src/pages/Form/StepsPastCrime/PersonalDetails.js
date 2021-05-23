@@ -1,67 +1,78 @@
-/* import React, { useState } from "react";
+import React from "react";
 import traslate from "../../../assets/traslate/es.json";
-import Input from "../../../components/Input/Input";
+import Input from '../../../components/Input/Input';
 import { Grid, Button } from "@material-ui/core";
 
 import "../Form.css";
 
-export default function PersonalDetails() {
-  const { name, DNI } = formData;
+/* const schemaRequest = yup.object().shape({
+  
+  victim_gender: yup
+      .mixed()
+      .transform((e) => e.toLowerCase())
+      .oneOf(TRASLATE.GENDER)
+      .optional(),
+  victim_dni: yup
+      .number()
+      .min(100000)
+      .max(99999999),
+  victim_age: yup
+      .number()
+      .max(100)
+      .min(1),
+  victim_height: yup
+      .mixed()
+      .transform((e) => e.toLowerCase())
+      .oneOf(TRASLATE.HEIGHT)
+      .required(),
+  victim_skin: yup
+      .mixed()
+      .transform((e) => e.toLowerCase())
+      .oneOf(TRASLATE.SKIN)
+      .optional(),
+  victim_clothing: yup
+      .mixed()
+      .transform((e) => e.toLowerCase())
+      .oneOf(TRASLATE.CLOTHING),
+  victim_physical: yup
+      .mixed()
+      .transform((e) => e.toLowerCase())
+      .oneOf(TRASLATE.PHYSICAL_BUILD),
+  stolen_items: yup
+      .mixed()
+      .transform((e) => e.map( i => i.toLowerCase()))
+      .notOneOf(["celular", "billetera", "documentacion", 
+      "dinero", "auto", "computadora", "notebook", "herramientas", 
+      "mochila", "cartera", "llaves", "motocicleta", "ropa", 
+      "objetos recien comprados", "alimento", "accesorios", 
+      "tarjetas debito/credito", "electrodomesticos", "muebles", 
+      "dolares", "joyeria", "objetos de valor personal", "reliquias", 
+      "maquinaria", "mascotas", "otros"])
+      .required(),
+  stolem_cash: yup
+      .number()
+      .required(),
+  */
 
-  const { previous, next } = navigation;
-
-  const [errors, setErrors] = useState({error: false, errorMessage: ""});
-  const [isValid, setValid] = useState(false);
-
-  const validatePersonalInfo = () => {
-    if (name === "") {
-      setErrors({name: 'Complete la casilla', DNI: ""});
-      setValid(false);
-    } 
-
-    if (DNI === "") {
-      setErrors({name: "", DNI: "Complete su casilla"});
-      setValid(false);
-    }
-
-    setValid(true);
-  };
-
-  const handleNext = (event) => {
-    validatePersonalInfo();
-    console.log(errors);
-
-    if(isValid){
-      next();
-    }
-  };
+export default function PersonalDetails({ formData, handleNext, handleBack, isMobile }) {
 
   return (
     <>
       <Grid item>
         <Input
-          size={isMobile? "s" : "m"}
-          error={errors.error}
           type='text'
           label={traslate.FORM.NAME}
           placeholder={traslate.FORM["NAME-PLACEHOLDER"]}
           name="name"
-          value={name}
-          onChange={setForm}
         />
       </Grid>
       <Grid item>
         <Input
-          size={isMobile? "s" : "m"}
-          error={errors.DNI}
           type='number'
           label={traslate.FORM.DNI}
           placeholder={traslate.FORM["DNI-PLACEHOLDER"]}
           name="DNI"
-          value={DNI}
-          onChange={setForm}
         />
-        {errors.error && <p className="error-message">{errors.errorMessage}</p>}
       </Grid>
 
       <Grid item className="form-controls">
@@ -73,7 +84,7 @@ export default function PersonalDetails() {
           spacing={4}
         >
           <Grid item>
-            <Button variant="contained" color="primary" onClick={previous}>
+            <Button variant="contained" color="primary" onClick={''}>
               {traslate["COMMON"]["BACK"]}
             </Button>
           </Grid>
@@ -88,4 +99,4 @@ export default function PersonalDetails() {
     </>
   );
 }
- */
+ 

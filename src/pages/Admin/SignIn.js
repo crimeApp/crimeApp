@@ -1,9 +1,10 @@
 import React from 'react';
+import LayoutAdmin from '../../layouts/LayoutAdmin';
 
 export default function AdminSignIn(){
     return(
-        <div>
-            <h1>Estamos en SignIn</h1>
-        </div>
+        <LayoutAdmin>
+            <h1>Estamos en AdminSignIn</h1>
+        </LayoutAdmin>
     );
 }

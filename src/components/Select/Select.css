@@ -10,11 +10,11 @@
     color: var(--black);
     font-size: var(--font-size-normal);
     font-weight: var(--weight-bold);
-    height: var(--label-normal-size);
+    margin-bottom: 5px;
 }
 
 .select-content{
-    height: var(--height-small);
+    height: 25px;
     font-weight: var(--weight-regular);
     font-size: var(--font-size-normal);
     border-radius: var(--border-normal);

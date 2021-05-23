@@ -1,6 +1,6 @@
 import React from "react";
 import traslate from "../../../assets/traslate/es.json";
-import Input from "../../../components/Input/Input";
+import Input from '../../../components/Input/Input';
 
 import {
   Grid,
@@ -9,24 +9,65 @@ import {
 
 import "../Form.css";
 
-export default function TheftDetails() {
-  const { name } = formData;
-  const { previous, next } = navigation;
+/*
+  place_description: yup
+      .mixed()
+      .transform((e) => e.toLowerCase())
+      .oneOf(["parque", "calle", "parada de colectivo", "centro comercial", 
+      "en propiedad privada", "supermercado", "en el trabajo", 
+      "en el estacionamiento", "otros"]),
+  accompaniment: yup
+      .mixed()
+      .transform((e) => e.toLowerCase())
+      .oneOf(["sin compania pero con gente alrededor", "acompaniado pero sin gente alrededor", 
+      "acompaniado y con gente al rededor", "sin compania y sin gente alrededor"]),
+  geopoint: yup.object({
+      lat: yup.number().min(0).max(90),
+      lng: yup.number().min(0).max(180)
+  }),
+  thief_perfil: yup
+      .mixed()
+      .transform((e) => e.toLowerCase())
+      .oneOf(["violento", "amable", "tranquilo", "agresivo", "cauteloso", "desconfiado", 
+      "indiferente", "visiblemente intoxicado", "carismaticos", "no recuerdo"] )
+      .required(),
+  thief_age: yup
+      .mixed()
+      .transform((e) => e.toLowerCase())
+      .oneOf(["menor de edad", "18-25", "25-35", "35-45", "mas de 50"])
+      .required(),
+  thief_height: yup
+      .mixed()
+      .transform((e) => e.toLowerCase())
+      .oneOf(TRASLATE.HEIGHT)
+      .required(),
+  thief_skin: yup
+      .mixed()
+      .transform((e) => e.toLowerCase())
+      .oneOf(TRASLATE.SKIN)
+      .required(),
+  thief_clothin: yup
+      .mixed()
+      .transform((e) => e.toLowerCase())
+      .oneOf(TRASLATE.CLOTHING)
+      .required(),
+  thief_physical: yup
+      .mixed()
+      .transform((e) => e.toLowerCase())
+      .oneOf(TRASLATE.PHYSICAL_BUILD),
+  complaint: yup.boolean(),
+  arrested: yup.boolean()
+}); */
 
-  const handleNext = (event) => {
-   
-  };
+export default function TheftDetails({ formData, handleNext, handleBack, isMobile }) {
 
   return (
-    <>
+    <form>
     <Grid item>
       <Input
-        size={isMobile? "s" : "m"}
         title={traslate.FORM.NAME}
         placeholder={traslate.FORM["NAME-PLACEHOLDER"]}
-        name="name"
-        value={name}
-        onChange={setForm}
+        
       />
     </Grid>
 
@@ -44,7 +85,7 @@ export default function TheftDetails() {
               disabled
               variant="contained"
               color="primary"
-              onClick={previous}
+              onClick={handleBack}
             >
               {traslate["COMMON"]["BACK"]}
             </Button>
@@ -62,6 +103,6 @@ export default function TheftDetails() {
           </Grid>
         </Grid>
         </Grid>
-    </>
+    </form>
   );
 }

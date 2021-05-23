@@ -1,7 +1,6 @@
 @import '../index.css';
 
 .layout-admin-header{
-    position: sticky;
     top: 0;
     bottom: 20px;
     padding: 35px 10px;
