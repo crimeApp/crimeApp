@@ -2,6 +2,9 @@
 
 .form-wrap {
     width: 100%;
+    height: auto;
+    max-width: 1600px;
+    min-height: fit-content;
     border-radius: var(--border-big);
     background-color: var(--card-background);
 }
@@ -11,11 +14,32 @@
     margin-bottom: 10vh;
 }
 
+.form-content{
+    width: 100%;
+    height: auto;
+    overflow-y: hidden;
+    align-items: center;
+}
+
+@media (max-width: 750px) {
+    .form-background {
+        background-color: var(--card-background);
+        width: 100%;
+        height: 100%;
+        margin-top: 20px;
+        margin-bottom: 0px;
+    }
+}
+
+.input-container{
+    width: fit-content;
+}
+
 .input-label{
     color: var(--black);
     font-size: var(--font-size-normal);
     font-weight: var(--weight-bold);
-    margin-bottom: 5px;
+    margin-bottom: 2vh;
 }
 
 .input-content {
@@ -38,41 +62,6 @@ input:focus{
 
 .error {
     border: red 1px solid;
-}
-
-@media (max-width: 750px) {
-    .form-background {
-        background-color: var(--card-background);
-        width: 100%;
-        height: 100%;
-        margin-top: 20px;
-        margin-bottom: 0px;
-    }
-}
-
-.form-content{
-    width: 100%;
-    min-width: 250px;
-    display: flex;
-    flex-direction: column;
-}
-
-.form-controls {
-    width: 100%;
-    display: inline-block;
-    padding-top: 40px;
-    padding-bottom: 20px;
-    align-items: center;
-    justify-content: center;
-}
-
-/* .form-controls > .MuiButton-root .MuiButton-base {
-    padding-left: 10px;
-    padding-right: 10px;
-} */
-
-#submit {
-    margin-bottom: 2%;
 }
 
 .error-message {

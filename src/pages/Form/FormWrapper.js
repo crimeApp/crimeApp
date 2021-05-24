@@ -16,7 +16,8 @@ export default function FormWrapper({ title, subtitle, children, loading }) {
         <Grid item xs={10}>
           <FormStepper value={loading} />
         </Grid>
-        <Grid item xs={10} container className="p-top-3">{children}</Grid>
+        <Grid item xs={10} className="p-top-3 m-bottom-3">{children}</Grid>
+        
       </Grid>
     </Grid>
   );
