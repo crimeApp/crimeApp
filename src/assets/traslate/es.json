@@ -20,13 +20,21 @@
         "SUBTITLE": "Toda la informacion que se registre quedara completamente anonima. El objetivo es tener datos para analizar la delincuencia en Cordoba.",
         
         "THEFTINFO": {
+            "THIEFINFO": "Información del Robo",
             "THEFT": "Tipo de robo, huerto, agresión.",
             "TIMEFRACTION": "Ingrese franja horaria",
-            "DATE": "Ingrese fecha"
+            "DATE": "Ingrese fecha",
+            "STOLEN-CAPITAL": "Capital robado",
+            "STOLEN-CAPITAL-PLACEHOLDER": "Ingrese cantidad aproximada",
+            "STOLEN-OBJECTS": "Objetos robados",
+            "STOLEN-OBJECTS-PLACEHOLDER": "Seleccione los objetos robados",
+            "PLACE-DESCRIPTION": "Descripcion del lugar",
+            "COMPANY": "Con quien te encontrabas?", 
+            "LOCATION": "Ubicación"
         },
-
+        
         "PERSONALINFO": {
-            "VICTIMINFO": "Información Personal",
+            "PERSONALINFO": "Información Personal",
             "NAME": "Nombre",
             "NAME-PLACEHOLDER": "Ingrese su nombre.",
             "DNI": "DNI",
@@ -47,8 +55,20 @@
         
         "THEFTDETAILS": {
             "THIEFINFO": "Información del Agresor",
-            "THIEFINFO-PLACEHOLDER": "Describa los rasgos fisicos que recuerde.",
-            "LOCATION": "Ubicación"
+            "PROFILE": "Perfil del agresor",
+            "PROFILE-PLACEHOLDER": "Como lo trato el agresor",
+            "AGE": "Edad aproximada",
+            "AGE-PLACEHOLDER": "Ingrese su edad.",
+            "GENDER": "Genero",
+            "GENDER-PLACEHOLDER": "Ingrese su genero.",
+            "SKIN": "Tonalidad de piel",
+            "SKIN-PLACEHOLDER": "Ingrese su tono de piel.",
+            "CLOTHING": "Vestimenta",
+            "CLOTHING-PLACEHOLDER": "Ingrese su vestimenta.",
+            "HEIGHT": "Altura",
+            "HEIGHT-PLACEHOLDER": "Ingrese su altura.",
+            "PHYSICAL": "Fisico",
+            "PHYSICAL-PLACEHOLDER": "Ingrese su tipo de fisico."
         }
        
     },

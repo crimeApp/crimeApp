@@ -26,9 +26,7 @@ const PersonalInfovalidation = Yup.object({
 export default function PersonalDetails({ formData, handleNext, handleBack }) {
   return (
     <Grid container direction="column" justify="center" alignItems="center">
-      <Grid item xs={10} className='form-subtitle'>
-        <h4>{traslate['FORM']['PERSONALINFO']['VICTIMINFO']}</h4>
-      </Grid>
+      <h4 className='form-subtitle'>{traslate["FORM"]['PERSONALINFO']['PERSONALINFO']}</h4>
         <Formik
           initialValues={{
             victim_name: "",
@@ -49,10 +47,10 @@ export default function PersonalDetails({ formData, handleNext, handleBack }) {
           }}
         >
           {({ errors, touched }) => (
-            <Form>
+            <Form className='form-content'>
               {/* Victim name */}
 
-              <Grid item xs={12} className="input-container m-top-2">
+              <Grid item xs={10} className="input-container m-top-2">
                 <label className={"input-label"}>
                   {traslate.FORM["PERSONALINFO"]["NAME"]}
                 </label>
@@ -69,7 +67,7 @@ export default function PersonalDetails({ formData, handleNext, handleBack }) {
 
               {/* Victim DNI */}
 
-              <Grid item xs={12} className="input-container m-top-2">
+              <Grid item xs={10} className="input-container m-top-2">
                 <label className={"input-label"}>
                   {traslate.FORM["PERSONALINFO"]["DNI"]}
                 </label>
@@ -86,7 +84,7 @@ export default function PersonalDetails({ formData, handleNext, handleBack }) {
 
               {/* Victim gender */}
 
-              <Grid item xs={12} className="input-container m-top-2">
+              <Grid item xs={10} className="input-container m-top-2">
                 <label className={"input-label"}>
                   {traslate.FORM["PERSONALINFO"]["GENDER"]}
                 </label>
@@ -111,7 +109,7 @@ export default function PersonalDetails({ formData, handleNext, handleBack }) {
 
               {/* Victim age */}
 
-              <Grid item xs={12} className="input-container m-top-2">
+              <Grid item xs={10} className="input-container m-top-2">
                 <label className={"input-label"}>
                   {traslate.FORM.PERSONALINFO["AGE"]}
                 </label>

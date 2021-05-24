@@ -8,15 +8,15 @@ export default function FormWrapper({ title, subtitle, children, loading }) {
     <Grid container justify="center" className="p-top-3 form-background">
       <Grid container className="form-wrap"  justify="center" alignItems="center">
         <Grid item xs={10}>
-          <h2 className="m-top-3 p-top-3">{title}</h2>
+          <h2>{title}</h2>
+          <h4>Toda la informacion que se registre quedara completamente anonima. El objetivo es tener datos para analizar la delincuencia en Cordoba.</h4>
           </Grid>
-        <Grid item xs={10}>
-          <h4>{subtitle}</h4>
-        </Grid>
         <Grid item xs={10}>
           <FormStepper value={loading} />
         </Grid>
-        <Grid item xs={12} className="p-top-3 m-bottom-3 form-content">{children}</Grid>
+        <Grid item xs={10} className="p-top-2 m-bottom-3">
+          {children}
+        </Grid>
         
       </Grid>
     </Grid>

@@ -76,11 +76,6 @@ export default function MenuTop() {
               justify="space-between"
               alignItems="center"
             >
-              <img
-                alt="CrimeApp"
-                src={require("../../assets/CrimeApp-mobile.png").default}
-              />
-
               <BottomNavigation
                 value={value}
                 showLabels

@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import traslate from "../../assets/traslate/es.json";
 import FormWrapper from "./FormWrapper";
+
 import TheftInfo from "./StepsPastCrime/TheftInfo";
+import StolenItems from "./StepsPastCrime/StolenItems";
 import PersonalDetails from "./StepsPastCrime/PersonalDetails";
 import PersonalDetails2 from "./StepsPastCrime/PersonalDetails2";
 import TheftDetails from "./StepsPastCrime/TheftDetails";
@@ -33,8 +35,7 @@ export default function PastCrime() {
       return (
         <FormWrapper
           title={traslate["FORM"]["TITLE-PASTCRIME"]}
-          subtitle={traslate["FORM"]["SUBTITLE"]}
-          loading={30}
+          loading={10}
         >
           <TheftInfo
             formData={formData}
@@ -47,10 +48,9 @@ export default function PastCrime() {
       return (
         <FormWrapper
           title={traslate["FORM"]["TITLE-PASTCRIME"]}
-          subtitle={traslate["FORM"]["SUBTITLE"]}
-          loading={60}
+          loading={20}
         >
-          <PersonalDetails
+          <StolenItems
             formData={formData}
             handleNext={handleNext}
             handleBack={handleBack}
@@ -62,8 +62,22 @@ export default function PastCrime() {
       return (
         <FormWrapper
           title={traslate["FORM"]["TITLE-PASTCRIME"]}
+          loading={30}
+        >
+          <PersonalDetails
+            formData={formData}
+            handleNext={handleNext}
+            handleBack={handleBack}
+            isMobile={isMobile}
+          />
+        </FormWrapper>
+      );
+    case 4:
+      return (
+        <FormWrapper
+          title={traslate["FORM"]["TITLE-PASTCRIME"]}
           subtitle={traslate["FORM"]["SUBTITLE"]}
-          loading={60}
+          loading={40}
         >
           <PersonalDetails2
             formData={formData}
@@ -73,32 +87,23 @@ export default function PastCrime() {
           />
         </FormWrapper>
       );
-      case 4:
-        return (
-          <FormWrapper
-            title={traslate["FORM"]["TITLE-PASTCRIME"]}
-            subtitle={traslate["FORM"]["SUBTITLE"]}
-            loading={90}
-          >
-            <TheftDetails
-              formData={formData}
-              handleNext={handleNext}
-              handleBack={handleBack}
-              isMobile={isMobile}
-            />
-          </FormWrapper>
-        );
     case 5:
       return (
-        <Review
-          loading={100}
-          formData={formData}
-          handleNext={handleNext}
-          handleBack={handleBack}
-          isMobile={isMobile}
-        />
+        <FormWrapper
+          title={traslate["FORM"]["TITLE-PASTCRIME"]}
+          loading={50}
+        >
+          <TheftDetails
+            formData={formData}
+            handleNext={handleNext}
+            handleBack={handleBack}
+            isMobile={isMobile}
+          />
+        </FormWrapper>
       );
     case 6:
+      return <Review formData={formData} isMobile={isMobile} />;
+    case 7:
       return <Submit formData={formData} isMobile={isMobile} />;
     default:
       break;
