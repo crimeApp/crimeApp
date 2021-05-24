@@ -3,6 +3,7 @@ import traslate from "../../assets/traslate/es.json";
 import FormWrapper from "./FormWrapper";
 import TheftInfo from "./StepsPastCrime/TheftInfo";
 import PersonalDetails from "./StepsPastCrime/PersonalDetails";
+import PersonalDetails2 from "./StepsPastCrime/PersonalDetails2";
 import TheftDetails from "./StepsPastCrime/TheftDetails";
 import Review from "./Review";
 import Submit from "./Submit";
@@ -62,9 +63,9 @@ export default function PastCrime() {
         <FormWrapper
           title={traslate["FORM"]["TITLE-PASTCRIME"]}
           subtitle={traslate["FORM"]["SUBTITLE"]}
-          loading={90}
+          loading={60}
         >
-          <TheftDetails
+          <PersonalDetails2
             formData={formData}
             handleNext={handleNext}
             handleBack={handleBack}
@@ -72,7 +73,22 @@ export default function PastCrime() {
           />
         </FormWrapper>
       );
-    case 4:
+      case 4:
+        return (
+          <FormWrapper
+            title={traslate["FORM"]["TITLE-PASTCRIME"]}
+            subtitle={traslate["FORM"]["SUBTITLE"]}
+            loading={90}
+          >
+            <TheftDetails
+              formData={formData}
+              handleNext={handleNext}
+              handleBack={handleBack}
+              isMobile={isMobile}
+            />
+          </FormWrapper>
+        );
+    case 5:
       return (
         <Review
           loading={100}
@@ -82,7 +98,7 @@ export default function PastCrime() {
           isMobile={isMobile}
         />
       );
-    case 5:
+    case 6:
       return <Submit formData={formData} isMobile={isMobile} />;
     default:
       break;

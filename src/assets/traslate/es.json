@@ -26,6 +26,7 @@
         },
 
         "PERSONALINFO": {
+            "VICTIMINFO": "Información Personal",
             "NAME": "Nombre",
             "NAME-PLACEHOLDER": "Ingrese su nombre.",
             "DNI": "DNI",

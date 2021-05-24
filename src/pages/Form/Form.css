@@ -3,8 +3,8 @@
 .form-wrap {
     width: 100%;
     height: auto;
-    max-width: 1600px;
-    min-height: fit-content;
+    max-width: 1000px;
+    overflow-y: hidden;
     border-radius: var(--border-big);
     background-color: var(--card-background);
 }
@@ -16,9 +16,14 @@
 
 .form-content{
     width: 100%;
-    height: auto;
+    min-width: fit-content;
     overflow-y: hidden;
-    align-items: center;
+}
+
+.form-subtitle{
+    color: var(--gray);
+    font-size: var(--font-size-normal);
+    font-weight: var(--weight-bold);
 }
 
 @media (max-width: 750px) {

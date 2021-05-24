@@ -30,57 +30,28 @@ const physical_options = [
   `${traslate["PHYSICAL_BUILD"]["OBESE"]}`,
   `${traslate["PHYSICAL_BUILD"]["ATHELTIC"]}`];
 
-const TheftDetailvalidation = Yup.object({
-  place_description: Yup
-      .mixed()
-      .transform((e) => e.toLowerCase())
-      .oneOf(["parque", "calle", "parada de colectivo", "centro comercial", 
-      "en propiedad privada", "supermercado", "en el trabajo", 
-      "en el estacionamiento", "otros"]),
-  accompaniment: Yup
-      .mixed()
-      .transform((e) => e.toLowerCase())
-      .oneOf(["sin compania pero con gente alrededor", "acompaniado pero sin gente alrededor", 
-      "acompaniado y con gente al rededor", "sin compania y sin gente alrededor"]),
-  geopoint: Yup.object({
-      lat: Yup.number().min(0).max(90),
-      lng: Yup.number().min(0).max(180)
-  }),
-  thief_perfil: Yup
-      .mixed()
-      .transform((e) => e.toLowerCase())
-      .oneOf(["violento", "amable", "tranquilo", "agresivo", "cauteloso", "desconfiado", 
-      "indiferente", "visiblemente intoxicado", "carismaticos", "no recuerdo"] )
-      .required(),
-  thief_age: Yup
-      .mixed()
-      .transform((e) => e.toLowerCase())
-      .oneOf(["menor de edad", "18-25", "25-35", "35-45", "mas de 50"])
-      .required(),
-  thief_height: Yup
-      .mixed()
-      .transform((e) => e.toLowerCase())
-      .oneOf(height_options)
-      .required(),
-  thief_skin: Yup
-      .mixed()
-      .transform((e) => e.toLowerCase())
-      .oneOf()
-      .required(["menor de edad", "18-25", "25-35", "35-45", "mas de 50"]),
-  thief_clothing: Yup
-      .mixed()
-      .transform((e) => e.toLowerCase())
-      .oneOf(clothing_options)
-      .required(),
-  thief_physical: Yup
-      .mixed()
-      .transform((e) => e.toLowerCase())
-      .oneOf(physical_options),
-  complaint: Yup.boolean(),
-  arrested: Yup.boolean()
+const gender_options = [`${traslate["GENDER"]["MAN"]}`, `${traslate["GENDER"]["WOMAN"]}`];
+
+const PersonalInfovalidation = Yup.object({
+  
+  victim_height: Yup.string()
+    .transform((e) => e.toLowerCase())
+    .oneOf(height_options),
+  victim_skin: Yup.string()
+    .transform((e) => e.toLowerCase())
+    .oneOf(gender_options)
+    .optional(),
+  victim_clothing: Yup.string()
+    .transform((e) => e.toLowerCase())
+    .oneOf(clothing_options)
+    .optional(),
+  victim_physical: Yup.string()
+    .transform((e) => e.toLowerCase())
+    .oneOf(physical_options)
+    .optional(),
 });
 
-export default function TheftDetails({ formData, handleNext, handleBack }) {
+export default function PersonalDetails2({ formData, handleNext, handleBack }) {
   return (
     <Grid container direction="column" justify="center" alignItems="center" className='form-content'>
       <Grid item xs={10} className='form-subtitle'>
@@ -88,12 +59,18 @@ export default function TheftDetails({ formData, handleNext, handleBack }) {
       </Grid>
         <Formik
           initialValues={{
-            
+            victim_height: "",
+            victim_skin: "",
+            victim_clothing: "",
+            victim_pyshical: "",
           }}
-          validationSchema={TheftDetailvalidation}
+          validationSchema={PersonalInfovalidation}
           onSubmit={(values) => {
             formData = formData = {
-              
+              victim_height: values.victim_height,
+              victim_skin: values.victim_skin,
+              victim_clothing: values.victim_clothing,
+              victim_pyshical: values.victim_pyshical,
             };
             console.log(formData);
             handleNext();
@@ -225,7 +202,3 @@ export default function TheftDetails({ formData, handleNext, handleBack }) {
     </Grid>
   );
 }
-
- 
-
-

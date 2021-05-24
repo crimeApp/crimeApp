@@ -77,7 +77,7 @@ const houroptions = [
 
 export default function TheftInfo({ formData, handleNext }) {
   return (
-    <Grid container direction="column" justify="center" alignItems="center">
+    <Grid container direction="column" justify="center" alignItems="center" className="form-content">
       <Formik
         initialValues={{
           type: "",
@@ -96,7 +96,7 @@ export default function TheftInfo({ formData, handleNext }) {
         }}
       >
         {({ errors, touched }) => (
-          <Form className="form-content">
+          <Form >
             <Grid item xs={10} className="input-container p-top-1">
               <label className={"input-label"}>
                 {traslate.FORM.THEFTINFO.THEFT}
