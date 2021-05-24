@@ -128,7 +128,7 @@ export default function TheftInfo({ formData, handleNext }) {
               <label className={"input-label"}>
                 {traslate.FORM.THEFTINFO.TIMEFRACTION}
               </label>
-              <Field name="hour" as="select"className={`input-content ${errors.hour ? "error" : ""}`}>
+              <Field name="hour" as="select" className={`input-content ${errors.hour ? "error" : ""}`}>
                 <option value={houroptions[0].value}>
                   {houroptions[0].label}
                 </option>

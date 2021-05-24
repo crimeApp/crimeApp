@@ -15,10 +15,10 @@ export default function MenuList() {
     setClicked(null);
   };
 
-  const list = (clicked) => (
+  const list = () => (
     <div>
       <List className='list'>
-        {[`${traslate["MENU"]["COMMENTS"]}`, `${traslate["MENU"]["REPORTS"]}`].map((text) => (
+        {[`${traslate["MENU"]["COMMENTS"]}`, `${traslate["MENU"]["REPORTS"]}`, `${traslate["MENU"]["TITLE"]}`].map((text) => (
           <ListItem button key={text}>
             <ListItemText primary={text} />
           </ListItem>
@@ -29,8 +29,8 @@ export default function MenuList() {
 
   return (
     <div>
-      <Button className='' aria-haspopup="true" onClick={handleClick}>
-            <MenuIcon/>
+      <Button aria-haspopup="true" onClick={handleClick}>
+            <MenuIcon color="primary"/>
       </Button>
 
       <Drawer
