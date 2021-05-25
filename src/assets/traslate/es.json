@@ -8,7 +8,9 @@
         "CONFIRM": "Confirmar",
         "CANCEL": "Cancelar", 
         "NEXT": "Siguiente", 
-        "BACK": "Atrás"
+        "BACK": "Atrás",
+        "LOADING": "Cargando los datos...",
+        "ERROR": "Uf! Parece que hubo un error. Intente de nuevo."
     },
     "SELECT": {
         "PLACEHOLDER": "Seleccione una de las opciones."

@@ -17,7 +17,25 @@ export default function PastCrime() {
   const formData = {
     type: "",
     time: "",
-    date: ""
+    date: "",
+    place_description: "",
+    accompaniment: "",
+    stolen_cash: "",
+    stolen_items: "",
+    victim_height: "",
+    victim_skin: "",
+    victim_clothing: "",
+    victim_pyshical: "",
+    victim_name: "",
+    victim_dni: "",
+    victim_gender: "",
+    victim_age: "",
+    thief_profile: "",
+    thief_age: "",
+    thief_height: "",
+    thief_skin: "",
+    thief_clothing: "",
+    thief_pyshical: ""
   };
 
   const [step, setStep] = useState(1);
@@ -30,11 +48,16 @@ export default function PastCrime() {
     setStep(step - 1);
   };
 
+  const returnToStep = (step) => {
+    setStep(step);
+  };
+
   switch (step) {
     case 1:
       return (
         <FormWrapper
           title={traslate["FORM"]["TITLE-PASTCRIME"]}
+          subtitle={traslate["FORM"]["SUBTITLE"]}
           loading={10}
         >
           <TheftInfo
@@ -48,6 +71,7 @@ export default function PastCrime() {
       return (
         <FormWrapper
           title={traslate["FORM"]["TITLE-PASTCRIME"]}
+          subtitle={""}
           loading={20}
         >
           <StolenItems
@@ -62,6 +86,7 @@ export default function PastCrime() {
       return (
         <FormWrapper
           title={traslate["FORM"]["TITLE-PASTCRIME"]}
+          subtitle={""}
           loading={30}
         >
           <PersonalDetails
@@ -76,7 +101,7 @@ export default function PastCrime() {
       return (
         <FormWrapper
           title={traslate["FORM"]["TITLE-PASTCRIME"]}
-          subtitle={traslate["FORM"]["SUBTITLE"]}
+          subtitle={""}
           loading={40}
         >
           <PersonalDetails2
@@ -91,6 +116,7 @@ export default function PastCrime() {
       return (
         <FormWrapper
           title={traslate["FORM"]["TITLE-PASTCRIME"]}
+          subtitle={""}
           loading={50}
         >
           <TheftDetails
@@ -102,9 +128,31 @@ export default function PastCrime() {
         </FormWrapper>
       );
     case 6:
-      return <Review formData={formData} isMobile={isMobile} />;
+      return (
+        <FormWrapper
+          title={traslate["FORM"]["TITLE-PASTCRIME"]}
+          subtitle={"Revise si los datos son correctos."}
+          hideprogress={true}
+        >
+          <Review
+            formData={formData}
+            handleBack={handleBack}
+            handleNext={handleNext}
+            handleEdit={returnToStep}
+            isMobile={isMobile}
+          />
+        </FormWrapper>
+      );
     case 7:
-      return <Submit formData={formData} isMobile={isMobile} />;
+      return (
+        <FormWrapper
+          title={traslate["CONFIRMATION-DIALOG"]["TITLE"]}
+          subtitle={traslate["CONFIRMATION-DIALOG"]["TEXT"]}
+          hideprogress={true}
+        >
+          <Submit formData={formData} />
+        </FormWrapper>
+      );
     default:
       break;
   }

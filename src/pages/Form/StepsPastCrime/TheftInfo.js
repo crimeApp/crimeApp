@@ -204,7 +204,7 @@ export default function TheftInfo({ formData, handleNext }) {
               {errors.type && touched.type ? <p className={'error-message'}>{errors.type}</p> : null}
             </Grid>
 
-            <Grid item xs={10} className="input-container m-top-2">
+            <Grid item xs={10} className="input-container m-top-1">
               <label className={"input-label"}>
                 {traslate.FORM.THEFTINFO.TIMEFRACTION}
               </label>
@@ -226,7 +226,7 @@ export default function TheftInfo({ formData, handleNext }) {
               {errors.hour && touched.hour ? <p className={'error-message'}>{errors.hour}</p> : null}
             </Grid>
 
-            <Grid item xs={10} className="input-container m-top-2">
+            <Grid item xs={10} className="input-container m-top-1">
               <label className={"input-label"}>
                 {traslate.FORM.THEFTINFO.DATE}
               </label>
@@ -234,7 +234,7 @@ export default function TheftInfo({ formData, handleNext }) {
               {errors.date && touched.date ? <p className={'error-message'}>{errors.date}</p> : null}
             </Grid>
 
-            <Grid item xs={10} className="input-container  m-top-2">
+            <Grid item xs={10} className="input-container  m-top-1">
               <label className={"input-label"}>
                 {traslate.FORM.THEFTINFO['COMPANY']}
               </label>
@@ -256,7 +256,7 @@ export default function TheftInfo({ formData, handleNext }) {
               {errors.accompaniment && touched.accompaniment ? <p className={'error-message'}>{errors.accompaniment}</p> : null}
             </Grid>
 
-            <Grid item xs={10} className="input-container  m-top-2">
+            <Grid item xs={10} className="input-container  m-top-1">
               <label className={"input-label"}>
                 {traslate.FORM.THEFTINFO['PLACE-DESCRIPTION']}
               </label>
@@ -297,7 +297,7 @@ export default function TheftInfo({ formData, handleNext }) {
               variant="contained" 
               color="primary" 
               type="submit"
-              className={'m-top-2'}>
+              className={'m-top-1'}>
                 {traslate["COMMON"]["NEXT"]}
               </Button>
           </Form>
