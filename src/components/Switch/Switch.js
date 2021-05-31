@@ -78,7 +78,7 @@ export default function CostumizedSwitch(props) {
   const { labelText } = props;
   const [state, setState] = useState({
     checkedA: true,
-    checkedB: true,
+    checkedB: false,
   });
 
   const handleChange = (event) => {

@@ -8,7 +8,6 @@ html {
   width: 100%;
   height: 100%;
   overflow-x: hidden;
-  overflow-y: hidden;
   margin: 0;
   
   background-color: var(--light-gray) !important;
@@ -20,7 +19,6 @@ html {
     width: 100%;
     height: 100%;
     overflow-x: hidden;
-    overflow-y: hidden;
     margin: 0;
     font-family: "Poppins", sans-serif !important;
     background-color: var(--light-gray) !important;

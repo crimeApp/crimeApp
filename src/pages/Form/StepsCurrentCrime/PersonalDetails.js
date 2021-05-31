@@ -6,15 +6,12 @@ import * as Yup from "yup";
 
 import "../Form.css";
 
-const gender_options = [
-  `${traslate["GENDER"]["MAN"]}`,
-  `${traslate["GENDER"]["WOMAN"]}`,
-];
+const gender_options = [`${traslate["GENDER"]["MAN"]}`, `${traslate["GENDER"]["WOMAN"]}`];
 
 const PersonalInfovalidation = Yup.object({
   victim_name: Yup.string()
     .transform((e) => e.toLowerCase())
-    .optional(),
+    .required("Completar la casilla"),
   victim_dni: Yup.number()
     .min(100000)
     .max(99999999)
@@ -23,58 +20,46 @@ const PersonalInfovalidation = Yup.object({
     .transform((e) => e.toLowerCase())
     .oneOf(gender_options)
     .required("Elija una opcion"),
-  victim_age: Yup.number().max(100).min(12).required("Completar la casilla"),
+  victim_age: Yup.number().max(100).min(12).optional(),
 });
 
 export default function PersonalDetails({ formData, handleNext, handleBack }) {
   return (
     <Fragment>
-      <Formik
-        initialValues={{
-          victim_name: "",
-          victim_dni: "",
-          victim_gender: "",
-          victim_age: "",
-        }}
-        validationSchema={PersonalInfovalidation}
-        onSubmit={(values) => {
-          formData.victim_name = values.victim_name;
-          formData.victim_dni = values.victim_dni;
-          formData.victim_gender =  values.victim_gender;
-          formData.victim_age = values.victim_age;
-        
-          handleNext();
-        }}
-      >
-        {({ errors, touched }) => (
-          <Grid
-            container
-            direction="column"
-            justify="center"
-            alignItems="center"
-            className="form-content"
-          >
-            <h4 className="form-subtitle">
-              {traslate["FORM"]["PERSONALINFO"]["PERSONALINFO"]}
-            </h4>
-
-            <Form className="m-left-3 m-right-3">
+      <h4 className='form-subtitle'>{traslate["FORM"]['PERSONALINFO']['PERSONALINFO']}</h4>
+        <Formik
+          initialValues={{
+            victim_name: "",
+            victim_dni: "",
+            victim_gender: "",
+            victim_age: "",
+          }}
+          validationSchema={PersonalInfovalidation}
+          onSubmit={(values) => {
+            formData = formData = {
+              victim_dni: values.victim_dni,
+              victim_name: values.victim_name,
+              victim_gender: values.victim_gender,
+              victim_age: values.victim_age
+            };
+            console.log(formData);
+            handleNext();
+          }}
+        >
+          {({ errors, touched }) => (
+            <Grid container direction="column" justify="center" alignItems="center">
+            <Form className='form-content'>
               {/* Victim name */}
 
-              <Grid item xs={12} className="m-bottom-1 m-left-3">
+              <Grid item xs={10} className="input-container m-top-2">
                 <label className={"input-label"}>
                   {traslate.FORM["PERSONALINFO"]["NAME"]}
                 </label>
-              </Grid>
-              <Grid item xs={12} className="m-bottom-3 m-left-3">
                 <Field
                   name="victim_name"
                   type="string"
-                  placeholder={
-                    traslate.FORM["PERSONALINFO"]["NAME-PLACEHOLDER"]
-                  }
-                  className={`input-content ${errors.victim_name ? "error" : ""
-                    }`}
+                  placeholder={traslate.FORM["PERSONALINFO"]["NAME-PLACEHOLDER"]}
+                  className={`input-content ${errors.victim_name ? "error" : ""}`}
                 />
                 {errors.victim_name && touched.victim_name ? (
                   <p className={"error-message"}>{errors.victim_name}</p>
@@ -83,18 +68,15 @@ export default function PersonalDetails({ formData, handleNext, handleBack }) {
 
               {/* Victim DNI */}
 
-              <Grid item xs={12} className="m-bottom-1 m-left-3">
+              <Grid item xs={10} className="input-container m-top-2">
                 <label className={"input-label"}>
                   {traslate.FORM["PERSONALINFO"]["DNI"]}
                 </label>
-              </Grid>
-              <Grid item xs={12} className="m-bottom-3 m-left-3">
                 <Field
                   name="victim_dni"
                   type="number"
                   placeholder={traslate.FORM["PERSONALINFO"]["DNI-PLACEHOLDER"]}
-                  className={`input-content ${errors.victim_dni ? "error" : ""
-                    }`}
+                  className={`input-content ${errors.victim_dni ? "error" : ""}`}
                 />
                 {errors.victim_dni && touched.victim_dni ? (
                   <p className={"error-message"}>{errors.victim_dni}</p>
@@ -103,12 +85,10 @@ export default function PersonalDetails({ formData, handleNext, handleBack }) {
 
               {/* Victim gender */}
 
-              <Grid item xs={12} className="m-bottom-1 m-left-3">
+              <Grid item xs={10} className="input-container m-top-2">
                 <label className={"input-label"}>
                   {traslate.FORM["PERSONALINFO"]["GENDER"]}
                 </label>
-              </Grid>
-              <Grid item xs={12} className="m-bottom-3 m-left-3">
                 <Field
                   name="victim_gender"
                   type="string"
@@ -130,48 +110,49 @@ export default function PersonalDetails({ formData, handleNext, handleBack }) {
 
               {/* Victim age */}
 
-              <Grid item xs={12} className="m-bottom-1 m-left-3">
+              <Grid item xs={10} className="input-container m-top-2">
                 <label className={"input-label"}>
                   {traslate.FORM.PERSONALINFO["AGE"]}
                 </label>
-              </Grid>
-              <Grid item xs={12} className="m-bottom-3 m-left-3">
                 <Field
                   name="victim_age"
                   type="string"
                   placeholder={traslate.FORM["PERSONALINFO"]["AGE-PLACEHOLDER"]}
-                  className={`input-content ${errors.victim_age ? "error" : ""
-                    }`}
+                  className={`input-content ${errors.victim_age ? "error" : ""}`}
                 />
                 {errors.victim_age && touched.victim_age ? (
                   <p className={"error-message"}>{errors.victim_age}</p>
                 ) : null}
               </Grid>
 
-              <Grid item xs={12} className="m-top-1">
-                <div className='form-controls m-right-3 m-left-3'>
+              <Grid
+                container
+                className={"m-top-2"}
+                direction="row"
+                justify="center"
+                alignItems="center"
+                spacing={4}
+              >
+                <Grid item>
                   <Button
                     variant="contained"
                     color="primary"
                     onClick={handleBack}
-                    className='m-right-3 m-left-3'
                   >
                     {traslate["COMMON"]["BACK"]}
                   </Button>
+                </Grid>
 
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    type="submit"
-                    className='m-left-3'>
+                <Grid item>
+                  <Button variant="contained" color="primary" type="submit">
                     {traslate["COMMON"]["NEXT"]}
                   </Button>
-                </div>
+                </Grid>
               </Grid>
             </Form>
-          </Grid>
-        )}
-      </Formik>
+            </Grid>
+          )}
+        </Formik>
     </Fragment>
   );
 }

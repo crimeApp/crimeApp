@@ -2,7 +2,9 @@
     "MENU": {
          "COMMENTS": "Dejar un comentario", 
          "REPORTS": "Ver reportes.",
-         "TITLE": "DenunciaYa"
+         "MAP": "Ver mapa",
+         "CURRENTCRIME": "DenunciaYa",
+         "PASTCRIME": "Siniestros Antiguos"
         },
     "COMMON": {
         "CONFIRM": "Confirmar",
@@ -85,14 +87,14 @@
     "CLOTHING": {
         "FORMAL": "formal", 
         "CASUAL": "casual", 
-        "SPORTY": "deportiva", 
+        "SPORTY": "deportivo", 
         "WORK": "de trabajo", 
         "SEMIFORMAL": "semiformal", 
         "SCHOLAR": "escolar", 
         "TIDY": "arreglado", 
         "UNTIDY":"desprolija"
     },
-  "PHYSICAL_BUILD": {
+    "PHYSICAL_BUILD": {
       "THIN": "delgado", 
       "NORMAL": "normal", 
       "STRONG": "corpulento", 

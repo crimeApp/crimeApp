@@ -7,55 +7,44 @@ import {
   Divider,
   Accordion,
   List,
-  IconButton,
   ListItem,
-  ListItemSecondaryAction,
   ListItemText,
   AccordionSummary,
   AccordionDetails,
 } from "@material-ui/core";
-import { ExpandMore, Edit } from "@material-ui/icons";
+import { ExpandMore } from "@material-ui/icons";
 import MuiAlert from "@material-ui/lab/Alert";
 import "./Form.css";
-
-function generate(element) {
-  return [0, 1, 2].map((value) =>
-    React.cloneElement(element, {
-      key: value,
-    })
-  );
-}
 
 function Alert(props) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
 
-/*
-const formData = {
-    type: "",
-    time: "",
-    date: "",
-    place_description: "",
-    accompaniment: "",
-    stolen_cash: "",
-    stolen_items: "",
-    victim_height: "",
-    victim_skin: "",
-    victim_clothing: "",
-    victim_pyshical: "",
-    victim_name: "",
-    victim_dni: "",
-    victim_gender: "",
-    victim_age: "",
-    thief_profile: "",
-    thief_age: "",
-    thief_height: "",
-    thief_skin: "",
-    thief_clothing: "",
-    thief_pyshical: ""
-  }; */
+const Review = ({ formData, handleBack }) => {
+  const {
+    type,
+    hour,
+    date,
+    place_description,
+    accompaniment,
+    stolen_cash,
+    stolen_items,
+    victim_height,
+    victim_clothing,
+    victim_pyshical,
+    victim_name,
+    victim_dni,
+    victim_gender,
+    victim_age,
+    thief_profile,
+    thief_age,
+    thief_height,
+    thief_clothing,
+    thief_physical,
+  } = formData;
 
-const Review = ({ formData, handleBack, handleNext, returnToStep }) => {
+  const url = "https://us-west2-crimen-app-ucc.cloudfunctions.net/app"
+
   const [isLoading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [expanded, setExpanded] = useState(false);
@@ -69,10 +58,7 @@ const Review = ({ formData, handleBack, handleNext, returnToStep }) => {
     setLoading(true);
 
     try {
-      let response = await axios.post(
-        "http://demo0725191.mockable.io/post_data",
-        { posted_data: "example" }
-      );
+      const response = await axios.post(url + "/old-sinister", formData );
       console.log("Returned data:", response);
       setTimeout(setLoading(false), 3000);
     } catch (e) {
@@ -85,7 +71,7 @@ const Review = ({ formData, handleBack, handleNext, returnToStep }) => {
     }
   }
 
-  const loadingMessage = <Alert>{traslate["COMMON"]["LOADING"]}</Alert>
+  const loadingMessage = <Alert>{traslate["COMMON"]["LOADING"]}</Alert>;
 
   const errorMessage = (
     <Alert severity="error">{traslate["COMMON"]["ERROR"]}</Alert>
@@ -100,7 +86,7 @@ const Review = ({ formData, handleBack, handleNext, returnToStep }) => {
       className="review-content"
     >
       <Grid item>
-        <Divider/>
+        <Divider />
       </Grid>
       <Grid item className="review-content">
         <Accordion
@@ -113,22 +99,39 @@ const Review = ({ formData, handleBack, handleNext, returnToStep }) => {
             aria-controls="panel1bh-content"
             id="panel1bh-header"
           >
-            <ListItem button>
+            <ListItem button className="list-item m-top-1">
               <h3>{traslate["FORM"]["THEFTINFO"]["THIEFINFO"]}</h3>
             </ListItem>
           </AccordionSummary>
           <AccordionDetails>
-            <List dense>
-              {generate(
-                <ListItem button>
-                  <ListItemText primary="Single-line item" />
-                  <ListItemSecondaryAction>
-                    <IconButton edge="end" aria-label="edit" onClick={returnToStep}>
-                      <Edit />
-                    </IconButton>
-                  </ListItemSecondaryAction>
-                </ListItem>
-              )}
+            <List>
+              <ListItem button className="list-item m-top-1">
+                <ListItemText primary={`Tipo de siniestro: ${type}`} />
+              </ListItem>
+
+              <ListItem button className="list-item m-top-1">
+                <ListItemText primary={`Franja horaria: ${hour}`} />
+              </ListItem>
+
+              <ListItem button className="list-item m-top-1">
+                <ListItemText primary={`Fecha: ${date}`} />
+              </ListItem>
+
+              <ListItem button className="list-item m-top-1">
+                <ListItemText primary={`Lugar del hecho: ${place_description}`} />
+              </ListItem>
+
+              <ListItem button className="list-item m-top-1">
+                <ListItemText primary={`Acompañamiento: ${accompaniment}`} />
+              </ListItem>
+
+              <ListItem button className="list-item m-top-1">
+                <ListItemText primary={`Dinero robado: ${stolen_cash}`} />
+              </ListItem>
+
+              <ListItem button className="list-item m-top-1">
+                <ListItemText primary={`Objetos robados: ${stolen_items}`} />
+              </ListItem>
             </List>
           </AccordionDetails>
         </Accordion>
@@ -142,22 +145,39 @@ const Review = ({ formData, handleBack, handleNext, returnToStep }) => {
             aria-controls="panel2bh-content"
             id="panel2bh-header"
           >
-            <ListItem button>
+            <ListItem button className="list-ite">
               <h3>{traslate["FORM"]["PERSONALINFO"]["PERSONALINFO"]}</h3>
             </ListItem>
           </AccordionSummary>
           <AccordionDetails>
-            <List dense>
-              {generate(
-                <ListItem button>
-                  <ListItemText primary="Single-line item" />
-                  <ListItemSecondaryAction>
-                    <IconButton edge="end" aria-label="delete">
-                      <Edit />
-                    </IconButton>
-                  </ListItemSecondaryAction>
-                </ListItem>
-              )}
+            <List>
+              <ListItem button className="list-item m-top-1">
+                <ListItemText primary={`Altura: ${victim_height}`} />
+              </ListItem>
+
+              <ListItem button className="list-item m-top-1">
+                <ListItemText primary={`Vestimenta: ${victim_clothing}`} />
+              </ListItem>
+
+              <ListItem button className="list-item m-top-1">
+                <ListItemText primary={`Género: ${victim_gender}`} />
+              </ListItem>
+
+              <ListItem button className="list-item m-top-1">
+                <ListItemText primary={`Nombre: ${victim_name}`} />
+              </ListItem>
+
+              <ListItem button className="list-item m-top-1">
+                <ListItemText primary={`Contextura física: ${victim_pyshical}`} />
+              </ListItem>
+
+              <ListItem button className="list-item m-top-1">
+                <ListItemText primary={`DNI: ${victim_dni}`} />
+              </ListItem>
+
+              <ListItem button className="list-item m-top-1">
+                <ListItemText primary={`Edad: ${victim_age}`} />
+              </ListItem>
             </List>
           </AccordionDetails>
         </Accordion>
@@ -172,22 +192,31 @@ const Review = ({ formData, handleBack, handleNext, returnToStep }) => {
             aria-controls="panel3a-content"
             id="panel3a-header"
           >
-            <ListItem button>
+            <ListItem button className="list-ite">
               <h3>{traslate["FORM"]["THEFTDETAILS"]["THIEFINFO"]}</h3>
             </ListItem>
           </AccordionSummary>
           <AccordionDetails>
-            <List dense>
-              {generate(
-                <ListItem button>
-                  <ListItemText primary="Single-line item" />
-                  <ListItemSecondaryAction>
-                    <IconButton edge="end" aria-label="delete">
-                      <Edit />
-                    </IconButton>
-                  </ListItemSecondaryAction>
-                </ListItem>
-              )}
+            <List>
+              <ListItem button className="list-item m-top-1">
+                <ListItemText primary={`Perfil del agresor: ${thief_profile}`} />
+              </ListItem>
+
+              <ListItem button className="list-item m-top-1">
+                <ListItemText primary={`Edad aproximada: ${thief_age}`} />
+              </ListItem>
+
+              <ListItem button className="list-item m-top-1">
+                <ListItemText primary={`Altura: ${thief_height}`} />
+              </ListItem>
+
+              <ListItem button className="list-item m-top-1">
+                <ListItemText primary={`Vestimenta: ${thief_clothing}`} />
+              </ListItem>
+
+              <ListItem button className="list-item m-top-1">
+                <ListItemText primary={`Fisico: ${thief_physical}`} />
+              </ListItem>
             </List>
           </AccordionDetails>
         </Accordion>

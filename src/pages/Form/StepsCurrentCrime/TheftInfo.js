@@ -160,12 +160,14 @@ const TheftInfo = ({ formData, handleNext }) => {
         }}
         validationSchema={TheftInfovalidation}
         onSubmit={(values) => {
-          formData.type = values.type;
-          formData.hour = values.hour;
-          formData.date =  values.date;
-          formData.place_description = values.place_description;
-          formData.accompaniment = values.accompaniment;
-        
+          formData = {
+            type: values.type,
+            hour: values.hour,
+            date: values.date,
+            place_description: values.place_description,
+            accompaniment: values.accompaniment,
+          };
+          console.log(formData);
           handleNext();
         }}
       >
@@ -175,24 +177,25 @@ const TheftInfo = ({ formData, handleNext }) => {
             direction="column"
             justify="center"
             alignItems="center"
+            className='form-content'
           >
             <h4 className="form-subtitle">
               {traslate["FORM"]["THEFTINFO"]["THIEFINFO"]}
             </h4>
             <Form className="m-left-3 m-right-3">
-              <Grid item xs={12} className="m-bottom-1 p-left-3">
+              <Grid item xs={12} className="m-left-3">
                 <label className={"input-label"}>
                   {traslate.FORM.THEFTINFO.THEFT}
                 </label>
               </Grid>
-              <Grid item xs={12} className="m-bottom-3 p-left-3">
+              <Grid item xs={12} className="m-bottom-3 m-left-3">
                 <Field
                   name="type"
                   as="select"
                   className={`input-content ${errors.type ? "error" : ""}`}
                 >
                   {type_options.map((type) => (
-                    <option key={type.value} value={type.value}>{type.label}</option>
+                    <option value={type.value}>{type.label}</option>
                   ))}
                 </Field>
                 {errors.type && touched.type ? (
@@ -201,19 +204,19 @@ const TheftInfo = ({ formData, handleNext }) => {
                   </p>
                 ) : null}
               </Grid>
-              <Grid item xs={12} className="p-left-3">
+              <Grid item xs={12} className="m-left-3">
                 <label className={"input-label"}>
                   {traslate.FORM.THEFTINFO.TIMEFRACTION}
                 </label>
               </Grid>
-              <Grid item xs={12} className="m-bottom-3 p-left-3">
+              <Grid item xs={12} className="m-bottom-3 m-left-3">
                 <Field
                   name="hour"
                   as="select"
                   className={`input-content ${errors.hour ? "error" : ""}`}
                 >
                   {hour_options.map((hour) => (
-                    <option key={hour.value} value={hour.value}>{hour.label}</option>
+                    <option value={hour.value}>{hour.label}</option>
                   ))}
                 </Field>
 
@@ -224,12 +227,12 @@ const TheftInfo = ({ formData, handleNext }) => {
                 ) : null}
               </Grid>
 
-              <Grid item xs={12} className="p-left-3">
+              <Grid item xs={12} className="m-left-3">
                 <label className={"input-label"}>
                   {traslate.FORM.THEFTINFO.DATE}
                 </label>
               </Grid>
-              <Grid item xs={12} className="m-bottom-3 p-left-3">
+              <Grid item xs={12} className="m-bottom-3 m-left-3">
                 <Field
                   name="date"
                   type="date"
@@ -242,13 +245,13 @@ const TheftInfo = ({ formData, handleNext }) => {
                 ) : null}
               </Grid>
 
-              <Grid item xs={12} className="p-left-3">
+              <Grid item xs={12} className="m-left-3">
                 <label className={"input-label"}>
                   {traslate.FORM.THEFTINFO["COMPANY"]}
                 </label>
               </Grid>
 
-              <Grid item xs={12} className="m-bottom-3 p-left-3">
+              <Grid item xs={12} className="m-bottom-3 m-left-3">
                 <Field
                   name="accompaniment"
                   as="select"
@@ -256,7 +259,7 @@ const TheftInfo = ({ formData, handleNext }) => {
                     }`}
                 >
                   {company_options.map((company) => (
-                    <option key={company.value} value={company.value}>{company.label}</option>
+                    <option value={company[1].value}>{company[1].label}</option>
                   ))}
                 </Field>
                 {errors.accompaniment && touched.accompaniment ? (
@@ -266,12 +269,12 @@ const TheftInfo = ({ formData, handleNext }) => {
                 ) : null}
               </Grid>
 
-              <Grid item xs={12} className="p-left-3">
+              <Grid item xs={12} className="m-left-3">
                 <label className="input-label">
                   {traslate.FORM.THEFTINFO["PLACE-DESCRIPTION"]}
                 </label>
               </Grid>
-              <Grid item xs={12} className="m-bottom-3 p-left-3">
+              <Grid item xs={12} className="m-bottom-3 m-left-3">
                 <Field
                   name="place_description"
                   as="select"
@@ -279,7 +282,7 @@ const TheftInfo = ({ formData, handleNext }) => {
                     }`}
                 >
                   {place_options.map((place) => (
-                    <option key={place.value} value={place.value}>{place.label}</option>
+                    <option value={place.value}>{place.label}</option>
                   ))}
                 </Field>
 
@@ -290,15 +293,16 @@ const TheftInfo = ({ formData, handleNext }) => {
                 ) : null}
               </Grid>
 
-              <Grid item xs={10} className="m-top-1 m-left-3">
-                <Button
-                  variant="contained"
-                  color="primary"
-                  type="submit"
-                  className="m-top-1 m-left-3"
-                >
-                  {traslate["COMMON"]["NEXT"]}
-                </Button>
+              <Grid item xs={10} className="m-top-1">
+                  <div className='form-controls m-right-3 m-left-3'>  
+                    <Button 
+                      variant="contained" 
+                      color="primary" 
+                      type="submit" 
+                      className='m-left-3'>
+                      {traslate["COMMON"]["NEXT"]}
+                    </Button>
+                  </div>
               </Grid>
             </Form>
           </Grid>

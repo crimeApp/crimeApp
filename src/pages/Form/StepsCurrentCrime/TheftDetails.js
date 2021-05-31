@@ -2,7 +2,6 @@ import React, { Fragment } from "react";
 import traslate from "../../../assets/traslate/es.json";
 import { Grid, Button } from "@material-ui/core";
 import { Formik, Form, Field } from "formik";
-import CustomSwitch from '../../../components/Switch';
 import * as Yup from "yup";
 
 import "../Form.css";
@@ -94,7 +93,8 @@ const TheftDetailvalidation = Yup.object({
       "No recuerdo",
     ])
     .required("Elija una de las opciones"),
-  thief_height: Yup.mixed().oneOf(["alto", "mediano", "bajo", "no recuerdo"]),
+  thief_height: Yup.mixed().oneOf(["Alto", "Mediano", "Bajo", "No recuerdo"]),
+  thief_skin: Yup.mixed().optional(),
   thief_clothing: Yup.mixed().oneOf(clothing_validation),
   thief_physical: Yup.mixed().oneOf(physical_validation),
   complaint: Yup.boolean().optional(),
@@ -104,19 +104,34 @@ const TheftDetailvalidation = Yup.object({
 export default function TheftDetails({ formData, handleNext, handleBack }) {
   return (
     <Fragment>
+      <h4 className="form-subtitle">
+        {traslate["FORM"]["THEFTDETAILS"]["THIEFINFO"]}
+      </h4>
       <Formik
         initialValues={{
-          formData
+          thief_profile: "",
+          thief_age: "",
+          thief_height: "",
+          thief_skin: "",
+          thief_clothing: "",
+          thief_pyshical:
+            "" /* 
+            thief_complaint: false,
+            thief_arrested: false */,
         }}
         validationSchema={TheftDetailvalidation}
         onSubmit={(values) => {
-          formData.thief_profile = values.thief_profile;
-          formData.thief_age = values.thief_age;
-          formData.thief_height =  values.thief_height;
-          formData.thief_clothing = values.thief_clothing;
-          formData.thief_physical = values.thief_physical;
-          formData.complaint = values.complaint;
-          formData.arrested = values.arrested;
+          if (values) {
+            formData = {
+              thief_profile: values.thief_profile,
+              thief_age: values.thief_age,
+              thief_height: values.thief_height,
+              thief_skin: values.thief_skin,
+              thief_clothing: values.thief_clothing,
+              thief_pyshical: values.thief_pyshical,
+            };
+          }
+          console.log(formData);
           handleNext();
         }}
       >
@@ -126,22 +141,17 @@ export default function TheftDetails({ formData, handleNext, handleBack }) {
             direction="column"
             justify="center"
             alignItems="center"
-            className="form-content"
           >
-            <h4 className="form-subtitle">
-              {traslate["FORM"]["THEFTDETAILS"]["THIEFINFO"]}
-            </h4>
-
             <Form className="m-left-3 m-right-3">
               {/* Thief profile */}
 
-              <Grid item xs={12} className="m-left-3">
+              <Grid item xs={12} className="p-left-3">
                 <label className={"input-label"}>
                   {traslate.FORM.THEFTDETAILS["PROFILE"]}
                 </label>
               </Grid>
 
-              <Grid item xs={12} className="m-bottom-1 m-left-3">
+              <Grid item xs={12} className="m-bottom-1 p-left-3">
                 <Field
                   name="thief_profile"
                   type="string"
@@ -153,9 +163,30 @@ export default function TheftDetails({ formData, handleNext, handleBack }) {
                     errors.thief_profile ? "error" : ""
                   }`}
                 >
-                  {profile_options.map((profile) => (
-                    <option key={profile.value} value={profile.value}>{profile.label}</option>
-                  ))}
+                  <option value={profile_options[0].value}>
+                    {profile_options[0].label}
+                  </option>
+                  <option value={profile_options[1].value}>
+                    {profile_options[1].label}
+                  </option>
+                  <option value={profile_options[2].value}>
+                    {profile_options[2].label}
+                  </option>
+                  <option value={profile_options[3].value}>
+                    {profile_options[3].label}
+                  </option>
+                  <option value={profile_options[4].value}>
+                    {profile_options[4].label}
+                  </option>
+                  <option value={profile_options[5].value}>
+                    {profile_options[5].label}
+                  </option>
+                  <option value={profile_options[6].value}>
+                    {profile_options[6].label}
+                  </option>
+                  <option value={profile_options[7].value}>
+                    {profile_options[7].label}
+                  </option>
                 </Field>
                 {errors.thief_profile && touched.thief_profile ? (
                   <p className="error-message m-bottom-1 m-top-1">
@@ -166,12 +197,12 @@ export default function TheftDetails({ formData, handleNext, handleBack }) {
 
               {/* Thief age */}
 
-              <Grid item xs={12} className="m-left-3">
+              <Grid item xs={12} className="p-left-3">
                 <label className={"input-label"}>
                   {traslate.FORM.THEFTDETAILS["AGE"]}
                 </label>
               </Grid>
-              <Grid item xs={12} className="m-bottom-1 m-left-3">
+              <Grid item xs={12} className="m-bottom-3 p-left-3">
                 <Field
                   name="thief_age"
                   type="string"
@@ -180,7 +211,7 @@ export default function TheftDetails({ formData, handleNext, handleBack }) {
                   className={`input-content ${errors.thief_age ? "error" : ""}`}
                 >
                   {age_options.map((age_option) => (
-                    <option key={age_option.value} value={age_option.value}>{age_option.label}</option>
+                    <option value={age_option.value}>{age_option.label}</option>
                   ))}
                 </Field>
                 {errors.thief_age && touched.thief_age ? (
@@ -192,12 +223,12 @@ export default function TheftDetails({ formData, handleNext, handleBack }) {
 
               {/* Thief height */}
 
-              <Grid item xs={12} className="m-left-3">
+              <Grid item xs={12} className="p-left-3">
                 <label className={"input-label"}>
                   {traslate.FORM.THEFTDETAILS["HEIGHT"]}
                 </label>
               </Grid>
-              <Grid item xs={12} className="m-bottom-1 m-left-3">
+              <Grid item xs={12} className="m-bottom-3 p-left-3">
                 <Field
                   name="thief_height"
                   type="string"
@@ -209,9 +240,9 @@ export default function TheftDetails({ formData, handleNext, handleBack }) {
                     errors.thief_height ? "error" : ""
                   }`}
                 >
-                  {height_options.map((height) => (
-                    <option key={height.value} value={height.value}>
-                      {height.label}
+                  {height_options.map((heightoption) => (
+                    <option value={heightoption.value}>
+                      {heightoption.label}
                     </option>
                   ))}
                 </Field>
@@ -222,12 +253,39 @@ export default function TheftDetails({ formData, handleNext, handleBack }) {
                 ) : null}
               </Grid>
 
-              <Grid item xs={12} className="m-left-3">
+              <Grid item xs={12} className="input-container m-top-2">
+                <label className={"input-label"}>
+                  {traslate.FORM.THEFTDETAILS["SKIN"]}
+                </label>
+                <Field
+                  name="thief_skin"
+                  type="string"
+                  as="select"
+                  placeholder={
+                    traslate.FORM["THEFTDETAILS"]["GENDER-PLACEHOLDER"]
+                  }
+                  className={`input-content ${
+                    errors.thief_skin ? "error" : ""
+                  }`}
+                >
+                  <option value={traslate["GENDER"]["WOMAN"]}>
+                    {traslate["GENDER"]["WOMAN"]}
+                  </option>
+                  <option value={traslate["GENDER"]["MAN"]}>
+                    {traslate["GENDER"]["MAN"]}
+                  </option>
+                </Field>
+                {errors.thief_skin && touched.thief_skin ? (
+                  <p className={"error-message"}>{errors.thief_skin}</p>
+                ) : null}
+              </Grid>
+
+              <Grid item xs={12} className="p-left-3">
                 <label className={"input-label"}>
                   {traslate.FORM.THEFTDETAILS["CLOTHING"]}
                 </label>
               </Grid>
-              <Grid item xs={12} className="m-bottom-1 m-left-3">
+              <Grid item xs={12} className="m-bottom-3 p-left-3">
                 <Field
                   name="thief_clothing"
                   type="string"
@@ -237,7 +295,7 @@ export default function TheftDetails({ formData, handleNext, handleBack }) {
                   }`}
                 >
                   {clothing_options.map((clothing) => (
-                    <option key={clothing.value} value={clothing.value}>{clothing.label}</option>
+                    <option value={clothing.value}>{clothing.label}</option>
                   ))}
                 </Field>
 
@@ -248,69 +306,53 @@ export default function TheftDetails({ formData, handleNext, handleBack }) {
                 ) : null}
               </Grid>
 
-              <Grid item xs={12} className="m-left-3">
+              <Grid item xs={12} className="p-left-3">
                 <label className={"input-label"}>
                   {traslate.FORM.THEFTDETAILS["PHYSICAL"]}
                 </label>
               </Grid>
-              <Grid item xs={12} className="m-bottom-1 m-left-3">
+              <Grid item xs={12} className="m-bottom-3 p-left-3">
                 <Field
-                  name="thief_physical"
+                  name="thief_pyshical"
                   type="string"
                   as="select"
                   className={`input-content ${
-                    errors.thief_physical ? "error" : ""
+                    errors.thief_pyshical ? "error" : ""
                   }`}
                 >
                   {physical_options.map((physical) => (
-                    <option key={physical.value} value={physical.value}>{physical.label}</option>
+                    <option value={physical.value}>{physical.label}</option>
                   ))}
                 </Field>
-                {errors.thief_physical && touched.thief_physical ? (
+                {errors.thief_pyshical && touched.thief_pyshical ? (
                   <p className="error-message m-bottom-1 m-top-1">
                     {errors.thief_pyshical}
                   </p>
                 ) : null}
               </Grid>
 
-             <Grid item xs={12} className="m-bottom-1 m-left-3">
-              <Field
-                name="thief_complaint"
-                type="checkbox"
-                component={CustomSwitch}
-                labelText={'Se hizo una denuncia?' }
-              />
-              </Grid>
-
-              <Grid item xs={12} className="m-bottom-2 m-left-3">
-              <Field
-                name="thief_arrested"
-                type="checkbox"
-                component={CustomSwitch}
-                labelText={'Fue arrestado?'}
-              />
-              </Grid> 
-
-              <Grid item xs={12} className="m-top-1">
-                <div className="form-controls m-right-3 m-left-3">
+              <Grid
+                container
+                className={"m-top-2"}
+                direction="row"
+                justify="center"
+                alignItems="center"
+              >
+                <Grid item>
                   <Button
                     variant="contained"
                     color="primary"
                     onClick={handleBack}
-                    className="m-right-3 m-left-3"
                   >
                     {traslate["COMMON"]["BACK"]}
                   </Button>
+                </Grid>
 
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    type="submit"
-                    className="m-left-3"
-                  >
+                <Grid item>
+                  <Button variant="contained" color="primary" type="submit">
                     {traslate["COMMON"]["NEXT"]}
                   </Button>
-                </div>
+                </Grid>
               </Grid>
             </Form>
           </Grid>

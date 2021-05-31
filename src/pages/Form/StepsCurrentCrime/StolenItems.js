@@ -50,7 +50,7 @@ const StolenItemsvalidation = Yup.object({
     ])
     .required("Completar la casilla"),
   stolen_cash: Yup.number()
-    .min(1)
+    .min(100000)
     .max(99999999)
     .required("Completar la casilla"),
   /*  geopoint: Yup.object({
@@ -61,6 +61,9 @@ const StolenItemsvalidation = Yup.object({
 export default function StolenItems({ formData, handleNext, handleBack }) {
   return (
     <Fragment>
+      <h4 className="form-subtitle">
+        {traslate["FORM"]["THEFTINFO"]["THIEFINFO"]}
+      </h4>
       <Formik
         initialValues={{
           stolen_cash: "",
@@ -68,8 +71,11 @@ export default function StolenItems({ formData, handleNext, handleBack }) {
         }}
         validationSchema={StolenItemsvalidation}
         onSubmit={(values) => {
-          formData.stolen_cash = values.stolen_cash;
-          formData.stolen_items = values.stolen_items;
+          formData = formData = {
+            stolen_cash: values.stolen_cash,
+            stolen_items: values.stolen_items,
+          };
+          console.log(formData);
           handleNext();
         }}
       >
@@ -79,23 +85,21 @@ export default function StolenItems({ formData, handleNext, handleBack }) {
             direction="column"
             justify="center"
             alignItems="center"
-            className="form-content"
           >
-            <h4 className="form-subtitle">
-              {traslate["FORM"]["THEFTINFO"]["THIEFINFO"]}
-            </h4>
             <Form className="m-left-3 m-right-3">
+              {/* Stolen cash */}
+
               <Grid item xs={12} className="p-left-3">
                 <label className={"input-label"}>
                   {traslate.FORM["THEFTINFO"]["STOLEN-CAPITAL"]}
                 </label>
               </Grid>
-              <Grid item xs={12} className="m-bottom-3 p-left-3">
+              <Grid item xs={12} className="m-bottom-1 p-left-3">
                 <Field
                   name="stolen_cash"
                   type="string"
                   placeholder={
-                    traslate.FORM["THEFTINFO"]["STOLEN-CAPITAL-PLACEHOLDER"] 
+                    traslate.FORM["THEFTINFO"]["STOLEN-CAPITAL-PLACEHOLDER"]
                   }
                   className={`input-content ${
                     errors.stolen_cash ? "error" : ""
@@ -108,13 +112,14 @@ export default function StolenItems({ formData, handleNext, handleBack }) {
                 ) : null}
               </Grid>
 
+              {/* Stolen Items */}
+
               <Grid item xs={12} className="p-left-3">
                 <label className={"input-label"}>
                   {traslate.FORM["THEFTINFO"]["STOLEN-OBJECTS"]}
                 </label>
               </Grid>
-
-              <Grid item xs={12} className="m-bottom-3 m-left-3">
+              <Grid item xs={12} className="m-bottom-1 p-left-3">
                 <Field
                   name="stolen_items"
                   type="string"
@@ -127,7 +132,7 @@ export default function StolenItems({ formData, handleNext, handleBack }) {
                   }`}
                 >
                   {item_options.map((item) => (
-                    <option key={item.value} value={item.value}>{item.label}</option>
+                    <option value={item.value}>{item.label}</option>
                   ))}
                 </Field>
 
@@ -137,25 +142,30 @@ export default function StolenItems({ formData, handleNext, handleBack }) {
                   </p>
                 ) : null}
               </Grid>
-              <Grid item xs={10} className="m-top-1">
-                  <div className='form-controls m-right-3 m-left-3'>
-                    <Button
-                      variant="contained"
-                      color="primary"
-                      onClick={handleBack}
-                      className='m-right-3 m-left-3'
-                    >
-                      {traslate["COMMON"]["BACK"]}
-                    </Button>
-                  
-                    <Button 
-                      variant="contained" 
-                      color="primary" 
-                      type="submit" 
-                      className='m-left-3'>
-                      {traslate["COMMON"]["NEXT"]}
-                    </Button>
-                  </div>
+
+              <Grid
+                container
+                className="m-top-2"
+                direction="row"
+                justify="center"
+                alignItems="center"
+                spacing={4}
+              >
+                <Grid item>
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    onClick={handleBack}
+                  >
+                    {traslate["COMMON"]["BACK"]}
+                  </Button>
+                </Grid>
+
+                <Grid item>
+                  <Button variant="contained" color="primary" type="submit">
+                    {traslate["COMMON"]["NEXT"]}
+                  </Button>
+                </Grid>
               </Grid>
             </Form>
           </Grid>

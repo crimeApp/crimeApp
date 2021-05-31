@@ -50,20 +50,39 @@ export default function MenuTop() {
       <AppBar position="fixed" m={0} className={classes.appbar}>
         <BrowserView>
           <Toolbar>
+            <img
+              alt="CrimeApp"
+              src={require("../../assets/CrimeApp.png").default}
+            />
+
             <Grid
               container
               direction="row"
-              justify="space-between"
+              justify="flex-end"
               alignItems="center"
+              spacing={4}
             >
-              <img
-                alt="CrimeApp"
-                src={require("../../assets/CrimeApp.png").default}
-              />
-
-              <Button variant="contained" color="primary" size="large" href='/pastcrimeform'>
-                {traslate["MENU"]["TITLE"]}
+              <Button
+                variant="contained"
+                color="primary"
+                size="large"
+                href="/pastcrimeform"
+                className="m-right-3"
+              >
+                {traslate["MENU"]["PASTCRIME"]}
               </Button>
+
+              <Button
+                variant="contained"
+                color="primary"
+                size="large"
+                href="/currentcrimeform"
+                className="m-right-3"
+              >
+                {traslate["MENU"]["CURRENTCRIME"]}
+              </Button>
+
+              <MenuList className="m-right-2" />
             </Grid>
           </Toolbar>
         </BrowserView>
@@ -73,13 +92,13 @@ export default function MenuTop() {
             <Grid
               container
               direction="row"
-              justify="space-between"
+              justify="flex-end"
               alignItems="center"
             >
               <BottomNavigation
                 value={value}
                 showLabels
-                onChange={(event, newValue) => {
+                onChange={(newValue) => {
                   setValue(newValue);
                 }}
               >
@@ -88,13 +107,33 @@ export default function MenuTop() {
                   color="primary"
                   component={Link}
                   to="/pastcrimeform"
-                  label={traslate["MENU"]["TITLE"]}
+                  label={traslate["MENU"]["CURRENTCRIME"]}
+                  value="currentcrimeform"
+                  className="m-right-2"
+                  icon={<AnnouncementOutlinedIcon color="primary" />}
+                />
+              </BottomNavigation>
+
+              <BottomNavigation
+                value={value}
+                showLabels
+                onChange={(newValue) => {
+                  setValue(newValue);
+                }}
+              >
+                <BottomNavigationAction
+                  variant="contained"
+                  color="primary"
+                  component={Link}
+                  to="/pastcrimeform"
+                  className="m-right-3"
+                  label={traslate["MENU"]["PASTCRIME"]}
                   value="pastcrimeform"
                   icon={<AnnouncementOutlinedIcon color="primary" />}
                 />
               </BottomNavigation>
 
-              <MenuList className={classes.menuButton} />
+              <MenuList className="m-right-1" />
             </Grid>
           </Toolbar>
         </MobileView>

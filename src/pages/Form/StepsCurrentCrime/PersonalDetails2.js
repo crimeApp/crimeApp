@@ -20,12 +20,12 @@ const clothing_validation = [
 const clothing_options = [
   { label: "Formal", value: "formal" },
   { label: "Casual", value: "casual" },
-  { label: "Deportivo", value: "deportivo" },
-  { label: "Trabajo", value: "trabajo" },
-  { label: "Semiinformal", value: "semiinformal" },
-  { label: "Escolar", value: "escolar" },
-  { label: "Limpio", value: "limpio" },
-  { label: "Desalineado", value: "desalineado" },
+  { label: "Deportivo", value: "Deportivo" },
+  { label: "Trabajo", value: "Trabajo" },
+  { label: "Semiinformal", value: "Semiinformal" },
+  { label: "Escolar", value: "Escolar" },
+  { label: "Limpio", value: "Limpio" },
+  { label: "Desalineado", value: "Desalineado" },
 ];
 
 const height_options = [
@@ -51,7 +51,9 @@ const physical_validation = [
 ];
 
 const PersonalInfovalidation = Yup.object({
-  victim_height: Yup.mixed().oneOf(["alto", "mediano", "bajo", "no recuerdo"]),
+  victim_height: Yup.string()
+    .transform((e) => e.toLowerCase())
+    .oneOf(["menor de edad", "18-25", "25-35", "35-45", "mas de 50"]),
   victim_skin: Yup.string()
     .transform((e) => e.toLowerCase())
     .optional(),
@@ -66,41 +68,45 @@ const PersonalInfovalidation = Yup.object({
 export default function PersonalDetails2({ formData, handleNext, handleBack }) {
   return (
     <Fragment>
+      <h4 className="form-subtitle">
+        {traslate["FORM"]["PERSONALINFO"]["PERSONALINFO"]}
+      </h4>
       <Formik
-          initialValues={{
+        initialValues={{
           victim_height: "",
+          victim_skin: "",
           victim_clothing: "",
           victim_pyshical: "",
         }}
         validationSchema={PersonalInfovalidation}
         onSubmit={(values) => {
-          formData.victim_height = values.victim_height;
-          formData.victim_clothing = values.victim_clothing;
-          formData.victim_pyshical =  values.victim_pyshical;
-        
+          if (values) {
+            formData = formData = {
+              victim_height: values.victim_height,
+              victim_skin: values.victim_skin,
+              victim_clothing: values.victim_clothing,
+              victim_pyshical: values.victim_pyshical,
+            };
+          }
+
           handleNext();
         }}
       >
         {({ errors, touched }) => (
-          <Grid
-            container
-            direction="column"
-            justify="center"
-            alignItems="center"
-            className="form-content"
-          >
-            <h4 className="form-subtitle">
-              {traslate["FORM"]["PERSONALINFO"]["PERSONALINFO"]}
-            </h4>
-            
-            <Form className="m-left-3 m-right-3">
+          <Form className="form-content">
+            <Grid
+              container
+              direction="column"
+              justify="center"
+              alignItems="center"
+              className="form-content"
+            >
+              {/* Victim height */}
 
-              <Grid item xs={12} className="m-bottom-1 m-left-3">
-                 <label className={"input-label"}>
+              <Grid item xs={12} className="input-container m-top-2">
+                <label className={"input-label"}>
                   {traslate.FORM.PERSONALINFO["HEIGHT"]}
                 </label>
-              </Grid>
-              <Grid item xs={12} className="m-bottom-3 m-left-3">
                 <Field
                   name="victim_height"
                   type="string"
@@ -112,9 +118,9 @@ export default function PersonalDetails2({ formData, handleNext, handleBack }) {
                     errors.victim_height ? "error" : ""
                   }`}
                 >
-                  {height_options.map((height) => (
-                    <option key={height.value} value={height.value}>
-                      {height.label}
+                  {height_options.map((heightoption) => (
+                    <option value={heightoption.value}>
+                      {heightoption.label}
                     </option>
                   ))}
                 </Field>
@@ -123,12 +129,36 @@ export default function PersonalDetails2({ formData, handleNext, handleBack }) {
                 ) : null}
               </Grid>
 
-              <Grid item xs={12} className="m-bottom-1 m-left-3">
-               <label className={"input-label"}>
+              {/* Victim skin */}
+              <Grid item xs={12} className="input-container m-top-2">
+                <label className={"input-label"}>
+                  {traslate.FORM.PERSONALINFO["SKIN"]}
+                </label>
+                <Field
+                  name="victim_skin"
+                  type="string"
+                  as="select"
+                  placeholder={
+                    traslate.FORM["PERSONALINFO"]["SKIN-PLACEHOLDER"]
+                  }
+                  className={`input-content ${
+                    errors.victim_skin ? "error" : ""
+                  }`}
+                >
+                  <option value={height_options[0]}>{height_options[0]}</option>
+                  <option value={height_options[0]}>{height_options[0]}</option>
+                </Field>
+                {errors.victim_skin && touched.victim_skin ? (
+                  <p className={"error-message"}>{errors.victim_skin}</p>
+                ) : null}
+              </Grid>
+
+              {/* Victim clothing */}
+
+              <Grid item xs={12} className="input-container m-top-2">
+                <label className={"input-label"}>
                   {traslate.FORM.PERSONALINFO["CLOTHING"]}
                 </label>
-              </Grid>
-              <Grid item xs={12} className="m-bottom-3 m-left-3">
                 <Field
                   name="victim_clothing"
                   type="string"
@@ -141,18 +171,22 @@ export default function PersonalDetails2({ formData, handleNext, handleBack }) {
                   }`}
                 >
                   {clothing_options.map((clothing) => (
-                    <option key={clothing.value} value={clothing.value}>{clothing.label}</option>
+                    <option value={clothing.value}>{clothing.label}</option>
                   ))}
                 </Field>
+
+                {errors.victim_clothing && touched.victim_clothing ? (
+                  <p className={"error-message"}>{errors.victim_clothing}</p>
+                ) : null}
               </Grid>
 
-              <Grid item xs={12} className="m-bottom-1 m-left-3">
+              {/* Victim pyshical */}
+
+              <Grid item xs={12} className="input-container m-top-2">
                 <label className={"input-label"}>
                   {traslate.FORM.PERSONALINFO["PHYSICAL"]}
                 </label>
-              </Grid>
-              <Grid item xs={12} className="m-bottom-3 m-left-3">
-               <Field
+                <Field
                   name="victim_pyshical"
                   type="string"
                   as="select"
@@ -164,7 +198,7 @@ export default function PersonalDetails2({ formData, handleNext, handleBack }) {
                   }`}
                 >
                   {physical_options.map((physical) => (
-                    <option key={physical.value} value={physical.value}>{physical.label}</option>
+                    <option value={physical.value}>{physical.label}</option>
                   ))}
                 </Field>
                 {errors.victim_pyshical && touched.victim_pyshical ? (
@@ -172,28 +206,32 @@ export default function PersonalDetails2({ formData, handleNext, handleBack }) {
                 ) : null}
               </Grid>
 
-              <Grid item xs={12} className="m-top-1">
-                <div className='form-controls m-right-3 m-left-3'>
+              <Grid
+                container
+                className={"m-top-2"}
+                direction="row"
+                justify="center"
+                alignItems="center"
+                spacing={4}
+              >
+                <Grid item>
                   <Button
                     variant="contained"
                     color="primary"
                     onClick={handleBack}
-                    className='m-right-3 m-left-3'
                   >
                     {traslate["COMMON"]["BACK"]}
                   </Button>
+                </Grid>
 
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    type="submit"
-                    className='m-left-3'>
+                <Grid item>
+                  <Button variant="contained" color="primary" type="submit">
                     {traslate["COMMON"]["NEXT"]}
                   </Button>
-                </div>
+                </Grid>
               </Grid>
-            </Form>
-          </Grid>
+            </Grid>
+          </Form>
         )}
       </Formik>
     </Fragment>

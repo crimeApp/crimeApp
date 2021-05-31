@@ -2,45 +2,45 @@ import React, { useState } from "react";
 import traslate from "../../assets/traslate/es.json";
 import FormWrapper from "./FormWrapper";
 
-import TheftInfo from "./StepsPastCrime/TheftInfo";
-import StolenItems from "./StepsPastCrime/StolenItems";
-import PersonalDetails from "./StepsPastCrime/PersonalDetails";
-import PersonalDetails2 from "./StepsPastCrime/PersonalDetails2";
-import TheftDetails from "./StepsPastCrime/TheftDetails";
+import TheftInfo from "./StepsCurrentCrime/TheftInfo";
+import StolenItems from "./StepsCurrentCrime/StolenItems";
+import PersonalDetails from "./StepsCurrentCrime/PersonalDetails";
+import PersonalDetails2 from "./StepsCurrentCrime/PersonalDetails2";
+import TheftDetails from "./StepsCurrentCrime/TheftDetails";
 import Review from "./Review";
-import Submit from "./Submit";
+import Submit from "./Submit"; 
 
 import "./Form.css";
+import { isMobile } from "react-device-detect";
 
-export default function PastCrime() {
-  const [formData, setData] = useState({
+export default function CurrentCrime() {
+  const formData = {
     type: "",
-    hour: "",
+    time: "",
     date: "",
     place_description: "",
     accompaniment: "",
     stolen_cash: "",
     stolen_items: "",
+    victim_height: "",
+    victim_skin: "",
+    victim_clothing: "",
+    victim_pyshical: "",
     victim_name: "",
     victim_dni: "",
     victim_gender: "",
     victim_age: "",
-    victim_height: "",
-    victim_clothing: "",
-    victim_pyshical: "",
     thief_profile: "",
     thief_age: "",
     thief_height: "",
+    thief_skin: "",
     thief_clothing: "",
-    thief_physical: "",
-    thief_complaint: false,
-    thief_arrested: false,
-  });
+    thief_pyshical: ""
+  };
 
   const [step, setStep] = useState(1);
 
   const handleNext = (e) => {
-    console.log(formData);
     setStep(step + 1);
   };
 
@@ -48,7 +48,7 @@ export default function PastCrime() {
     setStep(step - 1);
   };
 
-  const handleEdit = (step) => {
+  const returnToStep = (step) => {
     setStep(step);
   };
 
@@ -56,20 +56,21 @@ export default function PastCrime() {
     case 1:
       return (
         <FormWrapper
-          title={traslate["FORM"]["TITLE-PASTCRIME"]}
+          title={traslate["FORM"]["TITLE"]}
           subtitle={traslate["FORM"]["SUBTITLE"]}
           loading={10}
         >
           <TheftInfo
             formData={formData}
             handleNext={handleNext}
+            isMobile={isMobile}
           />
         </FormWrapper>
       );
     case 2:
       return (
         <FormWrapper
-          title={traslate["FORM"]["TITLE-PASTCRIME"]}
+          title={traslate["FORM"]["TITLE"]}
           subtitle={""}
           loading={20}
         >
@@ -77,14 +78,14 @@ export default function PastCrime() {
             formData={formData}
             handleNext={handleNext}
             handleBack={handleBack}
-
+            isMobile={isMobile}
           />
         </FormWrapper>
       );
     case 3:
       return (
         <FormWrapper
-          title={traslate["FORM"]["TITLE-PASTCRIME"]}
+          title={traslate["FORM"]["TITLE"]}
           subtitle={""}
           loading={30}
         >
@@ -92,14 +93,14 @@ export default function PastCrime() {
             formData={formData}
             handleNext={handleNext}
             handleBack={handleBack}
-
+            isMobile={isMobile}
           />
         </FormWrapper>
       );
     case 4:
       return (
         <FormWrapper
-          title={traslate["FORM"]["TITLE-PASTCRIME"]}
+          title={traslate["FORM"]["TITLE"]}
           subtitle={""}
           loading={40}
         >
@@ -107,14 +108,14 @@ export default function PastCrime() {
             formData={formData}
             handleNext={handleNext}
             handleBack={handleBack}
-
+            isMobile={isMobile}
           />
         </FormWrapper>
       );
     case 5:
       return (
         <FormWrapper
-          title={traslate["FORM"]["TITLE-PASTCRIME"]}
+          title={traslate["FORM"]["TITLE"]}
           subtitle={""}
           loading={50}
         >
@@ -122,14 +123,14 @@ export default function PastCrime() {
             formData={formData}
             handleNext={handleNext}
             handleBack={handleBack}
-
+            isMobile={isMobile}
           />
         </FormWrapper>
       );
     case 6:
       return (
         <FormWrapper
-          title={traslate["FORM"]["TITLE-PASTCRIME"]}
+          title={traslate["FORM"]["TITLE"]}
           subtitle={"Revise si los datos son correctos."}
           hideprogress={true}
         >
@@ -137,8 +138,8 @@ export default function PastCrime() {
             formData={formData}
             handleBack={handleBack}
             handleNext={handleNext}
-            handleEdit={handleEdit}
-
+            handleEdit={returnToStep}
+            isMobile={isMobile}
           />
         </FormWrapper>
       );
