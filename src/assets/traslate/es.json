@@ -28,6 +28,7 @@
             "THEFT": "Tipo de robo, huerto, agresión.",
             "TIMEFRACTION": "Ingrese franja horaria",
             "DATE": "Ingrese fecha",
+            "DATE-PLACEHOLDER": "dd-mm-aa",
             "STOLEN-CAPITAL": "Capital robado",
             "STOLEN-CAPITAL-PLACEHOLDER": "Ingrese cantidad aproximada",
             "STOLEN-OBJECTS": "Objetos robados",

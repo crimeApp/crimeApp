@@ -13,7 +13,7 @@ import Submit from "./Submit";
 import "./Form.css";
 
 export default function PastCrime() {
-  const [formData, setData] = useState({
+  const formData = {
     type: "",
     hour: "",
     date: "",
@@ -35,7 +35,7 @@ export default function PastCrime() {
     thief_physical: "",
     thief_complaint: false,
     thief_arrested: false,
-  });
+  };
 
   const [step, setStep] = useState(1);
 

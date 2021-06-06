@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import traslate from "../../../assets/traslate/es.json";
 import { Grid, Button } from "@material-ui/core";
 import "../Form.css";
@@ -45,19 +45,19 @@ const place_options = [
 const company_options = [
   {
     label: "Solo/a, gente alrededor",
-    value: "companianogentesi",
+    value: "solo/a, gente alrededor",
   },
   {
     label: "Acompañado, gente alrededor",
-    value: "acompaniado y con gente al rededor",
+    value: "acompañado, gente alrededor",
   },
   {
-    label: "Solo/a, sin gente",
-    value: "sin compania y sin gente alrededor",
+    label: "Solo/a, no gente",
+    value: "solo/a, no gente alrededor",
   },
   {
-    label: "Acompañado, sin gente alrededor",
-    value: "acompaniado pero sin gente alrededor",
+    label: "Acompañado, no gente alrededor",
+    value: "acompañado, no gente alrededor",
   },
 ];
 
@@ -139,15 +139,17 @@ const TheftInfovalidation = Yup.object({
   accompaniment: Yup.mixed()
     .transform((e) => e.toLowerCase())
     .oneOf([
-      "sin compania pero con gente alrededor",
-      "acompaniado y con gente al rededor",
-      "sin compania y sin gente alrededor",
-      "acompaniado pero sin gente alrededor",
+      "solo/a, gente alrededor",
+      "acompañado, gente alrededor",
+      "solo/a, no gente alrededor",
+      "acompañado, no gente alrededor",
     ])
     .required("Completar la casilla"),
 });
 
 const TheftInfo = ({ formData, handleNext }) => {
+  const [focused, setFocused] = useState(false);
+  
   return (
     <Fragment>
       <Formik
@@ -162,11 +164,14 @@ const TheftInfo = ({ formData, handleNext }) => {
         onSubmit={(values) => {
           formData.type = values.type;
           formData.hour = values.hour;
-          formData.date =  values.date;
+          formData.date = values.date;
           formData.place_description = values.place_description;
           formData.accompaniment = values.accompaniment;
-        
+
           handleNext();
+        }}
+        onFocus={(e)=>{
+          setFocused(!focused);
         }}
       >
         {({ errors, touched }) => (
@@ -192,7 +197,9 @@ const TheftInfo = ({ formData, handleNext }) => {
                   className={`input-content ${errors.type ? "error" : ""}`}
                 >
                   {type_options.map((type) => (
-                    <option key={type.value} value={type.value}>{type.label}</option>
+                    <option key={type.value} value={type.value}>
+                      {type.label}
+                    </option>
                   ))}
                 </Field>
                 {errors.type && touched.type ? (
@@ -213,7 +220,9 @@ const TheftInfo = ({ formData, handleNext }) => {
                   className={`input-content ${errors.hour ? "error" : ""}`}
                 >
                   {hour_options.map((hour) => (
-                    <option key={hour.value} value={hour.value}>{hour.label}</option>
+                    <option key={hour.value} value={hour.value}>
+                      {hour.label}
+                    </option>
                   ))}
                 </Field>
 
@@ -233,7 +242,9 @@ const TheftInfo = ({ formData, handleNext }) => {
                 <Field
                   name="date"
                   type="date"
+                  //type={`${focused? "date" : "text"}`}
                   className={`input-content ${errors.date ? "error" : ""}`}
+                  placeholder={traslate.FORM["THEFTINFO"]["DATE-PLACEHOLDER"]}
                 />
                 {errors.date && touched.date ? (
                   <p className="error-message m-bottom-1 m-top-1">
@@ -252,11 +263,14 @@ const TheftInfo = ({ formData, handleNext }) => {
                 <Field
                   name="accompaniment"
                   as="select"
-                  className={`input-content ${errors.accompaniment ? "error" : ""
-                    }`}
+                  className={`input-content ${
+                    errors.accompaniment ? "error" : ""
+                  }`}
                 >
                   {company_options.map((company) => (
-                    <option key={company.value} value={company.value}>{company.label}</option>
+                    <option key={company.value} value={company.value}>
+                      {company.label}
+                    </option>
                   ))}
                 </Field>
                 {errors.accompaniment && touched.accompaniment ? (
@@ -275,11 +289,14 @@ const TheftInfo = ({ formData, handleNext }) => {
                 <Field
                   name="place_description"
                   as="select"
-                  className={`input-content ${errors.accompaniment ? "error" : ""
-                    }`}
+                  className={`input-content ${
+                    errors.accompaniment ? "error" : ""
+                  }`}
                 >
                   {place_options.map((place) => (
-                    <option key={place.value} value={place.value}>{place.label}</option>
+                    <option key={place.value} value={place.value}>
+                      {place.label}
+                    </option>
                   ))}
                 </Field>
 
@@ -306,6 +323,6 @@ const TheftInfo = ({ formData, handleNext }) => {
       </Formik>
     </Fragment>
   );
-}
+};
 
 export default TheftInfo;

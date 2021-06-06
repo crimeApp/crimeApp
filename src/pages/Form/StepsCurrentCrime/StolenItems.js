@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import traslate from "../../../assets/traslate/es.json";
 import { Grid, Button } from "@material-ui/core";
+import ShowMap from '../../../components/Map';
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 
@@ -53,9 +54,10 @@ const StolenItemsvalidation = Yup.object({
     .min(100000)
     .max(99999999)
     .required("Completar la casilla"),
-  /*  geopoint: Yup.object({
-      lat: Yup.number().min(0).max(90),
-      lng: Yup.number().min(0).max(180) */
+  geopoint: Yup.object({
+    lat: Yup.number().min(0).max(90),
+    lng: Yup.number().min(0).max(180),
+  })
 });
 
 export default function StolenItems({ formData, handleNext, handleBack }) {
@@ -141,6 +143,15 @@ export default function StolenItems({ formData, handleNext, handleBack }) {
                     {errors.stolen_items}
                   </p>
                 ) : null}
+              </Grid>
+
+              <Grid item xs={12} className="p-left-3">
+                <label className={"input-label"}>
+                  Ubicacion
+                </label>
+              </Grid>
+              <Grid item xs={12} className="m-bottom-1 input-content">
+                  <ShowMap/>
               </Grid>
 
               <Grid

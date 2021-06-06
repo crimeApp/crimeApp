@@ -7,7 +7,7 @@ export default function FormWrapper({ title, subtitle, hideprogress, children, l
   return (
     <Grid container justify="center" className="p-top-3 form-background">
       <Grid container direction='column' className="form-wrap"  justify="center" alignItems="center">
-        <Grid item xs={10}>
+        <Grid item xs={10} className="form-wrap-titles">
           <h2>{title}</h2>
           <h4>{subtitle}</h4>
         </Grid>

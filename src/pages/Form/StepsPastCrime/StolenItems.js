@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import traslate from "../../../assets/traslate/es.json";
 import { Grid, Button } from "@material-ui/core";
+import ShowMap from '../../../components/Map';
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 
@@ -84,22 +85,23 @@ export default function StolenItems({ formData, handleNext, handleBack }) {
             <h4 className="form-subtitle">
               {traslate["FORM"]["THEFTINFO"]["THIEFINFO"]}
             </h4>
-            <Form className="m-left-3 m-right-3">
-              <Grid item xs={12} className="p-left-3">
+            <Form className="m-left-4 m-right-4">
+              <Grid item xs={9} className="m-left-4">
                 <label className={"input-label"}>
                   {traslate.FORM["THEFTINFO"]["STOLEN-CAPITAL"]}
                 </label>
               </Grid>
-              <Grid item xs={12} className="m-bottom-3 p-left-3">
+              <Grid item xs={9} className="m-bottom-3 m-left-4">
                 <Field
                   name="stolen_cash"
                   type="string"
                   placeholder={
-                    traslate.FORM["THEFTINFO"]["STOLEN-CAPITAL-PLACEHOLDER"] 
+                    traslate.FORM["THEFTINFO"]["STOLEN-CAPITAL-PLACEHOLDER"]
                   }
-                  className={`input-content ${
-                    errors.stolen_cash ? "error" : ""
-                  }`}
+                  className={`input-content ${errors.stolen_cash ? "error" : ""
+                    }`}
+                  onfocus="(this.type='date')"
+                  onblur="(this.type='text')"
                 />
                 {errors.stolen_cash && touched.stolen_cash ? (
                   <p className="error-message m-bottom-1 m-top-1">
@@ -108,13 +110,13 @@ export default function StolenItems({ formData, handleNext, handleBack }) {
                 ) : null}
               </Grid>
 
-              <Grid item xs={12} className="p-left-3">
+              <Grid item xs={9} className="m-left-4">
                 <label className={"input-label"}>
                   {traslate.FORM["THEFTINFO"]["STOLEN-OBJECTS"]}
                 </label>
               </Grid>
 
-              <Grid item xs={12} className="m-bottom-3 m-left-3">
+              <Grid item xs={9} className="m-bottom-3 m-left-4">
                 <Field
                   name="stolen_items"
                   type="string"
@@ -122,9 +124,8 @@ export default function StolenItems({ formData, handleNext, handleBack }) {
                   placeholder={
                     traslate.FORM["THEFTINFO"]["STOLEN-OBJECTS-PLACEHOLDER"]
                   }
-                  className={`input-content ${
-                    errors.stolen_items ? "error" : ""
-                  }`}
+                  className={`input-content ${errors.stolen_items ? "error" : ""
+                    }`}
                 >
                   {item_options.map((item) => (
                     <option key={item.value} value={item.value}>{item.label}</option>
@@ -137,25 +138,36 @@ export default function StolenItems({ formData, handleNext, handleBack }) {
                   </p>
                 ) : null}
               </Grid>
-              <Grid item xs={10} className="m-top-1">
-                  <div className='form-controls m-right-3 m-left-3'>
-                    <Button
-                      variant="contained"
-                      color="primary"
-                      onClick={handleBack}
-                      className='m-right-3 m-left-3'
-                    >
-                      {traslate["COMMON"]["BACK"]}
-                    </Button>
-                  
-                    <Button 
-                      variant="contained" 
-                      color="primary" 
-                      type="submit" 
-                      className='m-left-3'>
-                      {traslate["COMMON"]["NEXT"]}
-                    </Button>
-                  </div>
+
+              <Grid item xs={9} className="p-left-3">
+                <label className={"input-label"}>
+                  Ubicacion
+                </label>
+              </Grid>
+                <div className="m-right-1">
+                  <ShowMap />
+                </div>
+
+
+              <Grid item xs={6} className="m-top-1">
+                <div className='form-controls m-right-4 m-left-4'>
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    onClick={handleBack}
+                    className='m-right-3 m-left-3'
+                  >
+                    {traslate["COMMON"]["BACK"]}
+                  </Button>
+
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    type="submit"
+                    className='m-left-3'>
+                    {traslate["COMMON"]["NEXT"]}
+                  </Button>
+                </div>
               </Grid>
             </Form>
           </Grid>

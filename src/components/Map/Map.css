@@ -1,0 +1,14 @@
+@import '../../index.css';
+
+#mapid { 
+    height: 300px;
+    width: 600px;
+ }
+
+ @media (max-width: 750px) {
+    #mapid { 
+        height: 250px;
+        width: 350px;
+     }
+    
+ }

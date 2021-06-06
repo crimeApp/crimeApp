@@ -1,116 +1,139 @@
-@import '../../index.css';
+@import "../../index.css";
 
 .form-wrap {
-    width: 100%;
-    min-width: fit-content;
-    height: 80%;
-    max-width: 1000px;
-    border-radius: var(--border-big);
-    background-color: var(--card-background);
+  width: 100%;
+  min-width: fit-content;
+  height: 80%;
+  max-width: 1000px;
+  border-radius: var(--border-big);
+  background-color: var(--card-background);
 }
 
 .form-background {
-    margin-top: 2vh;
+  margin-top: 2vh;
 }
 
-.form-content{
-    width: 100%;
-    min-width: fit-content;
-    margin-left: auto;
-    margin-right: auto;
+.form-content {
+  width: 100%;
+  min-width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.form-controls{
-    display: inline-flex;
-    flex-direction: row;
-    flex-grow: 1;
-    align-self: center;
-    align-items: center;
+.form-controls {
+  display: inline-flex;
+  flex-direction: row;
+  flex-grow: 1;
+  align-self: center;
+  align-items: center;
+  margin-left: auto;
 }
 
-.form-subtitle{
-    color: var(--gray);
-    font-size: var(--font-size-normal);
-    font-weight: var(--weight-bold);
+.form-subtitle {
+  color: var(--gray);
+  font-size: var(--font-size-normal);
+  font-weight: var(--weight-bold);
 }
 
-.input-label{
-    color: var(--black);
-    font-size: var(--font-size-normal);
-    font-weight: var(--weight-bold);
+.input-label {
+  color: var(--black);
+  font-size: var(--font-size-normal);
+  font-weight: var(--weight-bold);
 }
 
 .input-content {
-    height: fit-content;
-    width: 90%;
-    font-weight: var(--weight-regular);
-    font-size: var(--font-size-normal);
-    border-radius: var(--border-normal);
-    outline: 0px;
-    border: none;
-    text-justify: initial;
-    padding-left: 2%;
-    text-align: justify;
-    color: var(--black);
-    border-color: transparent;
-    background:  var(--grey);
+  height: fit-content;
+  width: 90%;
+  max-width: 350px;
+  padding-left: 1%;
+  font-weight: var(--weight-regular);
+  font-size: var(--font-size-normal);
+  border-radius: var(--border-normal);
+  outline: 0px;
+  border: none;
+  text-justify: inter-word;
+  text-align: justify;
+  color: var(--black);
+  border-color: transparent;
+  background: var(--grey);
 }
 
-input:focus{
-    outline: none;
+input:focus {
+  outline: none;
 }
 
 .error {
-    border: red 1px solid;
+  border: red 1px solid;
 }
 
 .error-message {
-    color: red;
+  color: red;
 }
 
-.review-content{
-    height: fit-content;
-    min-height: 5vh;
-    border: 1px var(--grey);
-    border-radius: var(--border-normal);
+.review-content {
+  height: fit-content;
+  min-height: 5vh;
+  border: 1px var(--grey);
+  border-radius: var(--border-normal);
 }
 
-.list-item{
-    height: fit-content;
-    width: 100%;
+.list-item {
+  height: fit-content;
+  width: 100%;
 }
 
 @media (max-width: 750px) {
-    .form-background {
-        background-color: var(--card-background);
-        width: 100%;
-        height: 100%;
-        margin-top: 20px;
-        margin-bottom: 0px;
-    }
+  .form-background {
+    background-color: var(--card-background);
+    width: 100%;
+    height: 100%;
+    margin-top: 20px;
+    margin-bottom: 0px;
+  }
 
-    .form-wrap {
-        max-width: 1000px;
-        overflow-y: hidden;
-        background-color: var(--card-background);
-    }
+  .form-wrap {
+    max-width: 1000px;
+    overflow-y: hidden;
+    background-color: var(--card-background);
+  }
 
-    .input-content {
-        height: 10%;
-        min-width: fit-content;
-        width: 50%;
-        min-width: fit-content;
-        font-weight: var(--weight-regular);
-        font-size: var(--font-size-normal);
-        border-radius: var(--border-normal);
-        outline: 0px;
-        border: none;
-        text-align: start;
-        color: var(--black);
-        border-color: transparent;
-        background:  var(--grey);
-    }
+  .form-wrap-titles {
+    color: var(--black);
+    font-size: var(--font-size-small);
+    font-weight: var(--weight-bold);
+  }
+
+  .form-subtitle {
+    color: var(--gray);
+    font-size: var(--font-size-small);
+    font-weight: var(--weight-bold);
+  }
+
+  .input-label {
+    color: var(--black);
+    font-size: var(--font-size-small);
+    font-weight: var(--weight-bold);
+  }
+
+  .input-content {
+    height: 10%;
+    width: 80%;
+    font-weight: var(--weight-regular);
+    font-size: var(--font-size-small);
+    border-radius: var(--border-normal);
+    outline: 0px;
+    border: none;
+    padding-left: 1%;
+    text-justify: inter-word;
+    text-align: justify;
+    color: var(--black);
+    border-color: transparent;
+    background: var(--grey);
+  }
+
+  .error-message {
+    color: red;
+    font-size: var(--font-size-small);
+  }
+
 }
-
-
-
