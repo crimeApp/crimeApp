@@ -1,7 +1,7 @@
-import React, { Fragment } from "react";
+import React, { useEffect, useState, Fragment } from "react";
 import traslate from "../../../assets/traslate/es.json";
 import { Grid, Button } from "@material-ui/core";
-import ShowMap from '../../../components/Map';
+import ShowMap from '../../../components/Map/MapView';
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 
@@ -61,6 +61,28 @@ const StolenItemsvalidation = Yup.object({
 });
 
 export default function StolenItems({ formData, handleNext, handleBack }) {
+  const [state, setState] = useState({
+    longitude: 0,
+    latitude: 0,
+  });
+
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(
+      function (position) {
+        setState({
+          longitude: position.coords.longitude,
+          latitude: position.coords.latitude,
+        });
+      },
+      function (error) {
+        console.error("Error Code = " + error.code + " - " + error.message);
+      },
+      {
+        enableHighAccuracy: true,
+      }
+    );
+  }, []);
+
   return (
     <Fragment>
       <h4 className="form-subtitle">
@@ -103,9 +125,8 @@ export default function StolenItems({ formData, handleNext, handleBack }) {
                   placeholder={
                     traslate.FORM["THEFTINFO"]["STOLEN-CAPITAL-PLACEHOLDER"]
                   }
-                  className={`input-content ${
-                    errors.stolen_cash ? "error" : ""
-                  }`}
+                  className={`input-content ${errors.stolen_cash ? "error" : ""
+                    }`}
                 />
                 {errors.stolen_cash && touched.stolen_cash ? (
                   <p className="error-message m-bottom-1 m-top-1">
@@ -129,9 +150,8 @@ export default function StolenItems({ formData, handleNext, handleBack }) {
                   placeholder={
                     traslate.FORM["THEFTINFO"]["STOLEN-OBJECTS-PLACEHOLDER"]
                   }
-                  className={`input-content ${
-                    errors.stolen_items ? "error" : ""
-                  }`}
+                  className={`input-content ${errors.stolen_items ? "error" : ""
+                    }`}
                 >
                   {item_options.map((item) => (
                     <option value={item.value}>{item.label}</option>
@@ -151,7 +171,9 @@ export default function StolenItems({ formData, handleNext, handleBack }) {
                 </label>
               </Grid>
               <Grid item xs={12} className="m-bottom-1 input-content">
-                  <ShowMap/>
+                <p>Latitude: {state.latitude}</p>
+                <p>longitude: {state.longitude}</p>
+                <ShowMap />
               </Grid>
 
               <Grid
