@@ -36,6 +36,10 @@ nav {
   flex-direction: column;
 }
 
+.menu-logo {
+  width: 80px !important;
+}
+
 .side-nav-container {
   position: fixed;
   left: 0;
@@ -74,7 +78,7 @@ nav {
 
 .side-nav-animatable, .side-nav-visible .side-nav {
   transition: transform 0.33s cubic-bezier(0,0,0.3,1);
- }
+}
 
 .side-nav-visible, .side-nav{
   pointer-events: auto;
@@ -83,4 +87,10 @@ nav {
 
 .side-nav-visible:before {
   opacity: 1;
+}
+
+@media screen and (min-width: 690px) {
+  .menu-logo {
+    width: 120px !important;
+  }
 }

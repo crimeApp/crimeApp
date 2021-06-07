@@ -1,7 +1,6 @@
 import React, {  Fragment } from "react";
 import traslate from "../../../assets/traslate/es.json";
 import { Grid, Button } from "@material-ui/core";
-import ShowMap from '../../../components/Map/MapView';
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 
@@ -146,9 +145,9 @@ export default function StolenItems({ formData, handleNext, handleBack }) {
 
               </Grid>
             
-                 <div className="m-right-1">
+{/*                  <div className="m-right-1">
                   <ShowMap />
-                  </div> 
+                  </div>  */}
 
 
               <Grid item xs={6} className="m-top-1">

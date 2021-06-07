@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 
-interface windowsState {
+/* interface windowsState {
     width: number | undefined,
     height: number | undefined,
     // Material UI Breackpoint xs < 600
@@ -14,11 +14,11 @@ interface windowsState {
     lg: boolean | undefined,
     // Material UI Breackpoint xl > 1980
     xl: boolean | undefined
-}
+} */
 
 const useWindowSize = () => {
 
-    const [windowSize, setWindowSize] = useState<windowsState>({
+    const [windowSize, setWindowSize] = useState({
         width: undefined,
         height: undefined,
         xs: undefined,
