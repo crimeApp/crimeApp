@@ -1,7 +1,6 @@
 import React, { useEffect, useState, Fragment } from "react";
 import traslate from "../../../assets/traslate/es.json";
 import { Grid, Button } from "@material-ui/core";
-import ShowMap from '../../../components/Map/MapView';
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 
@@ -165,7 +164,7 @@ export default function StolenItems({ formData, handleNext, handleBack }) {
                 ) : null}
               </Grid>
 
-              <Grid item xs={12} className="p-left-3">
+              {/* <Grid item xs={12} className="p-left-3">
                 <label className={"input-label"}>
                   Ubicacion
                 </label>
@@ -174,7 +173,7 @@ export default function StolenItems({ formData, handleNext, handleBack }) {
                 <p>Latitude: {state.latitude}</p>
                 <p>longitude: {state.longitude}</p>
                 <ShowMap />
-              </Grid>
+              </Grid> */}
 
               <Grid
                 container

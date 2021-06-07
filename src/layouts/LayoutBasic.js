@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
-import MenuTop from '../components/Menu/MenuTop';
+import MenuTop from '../components/Menu/MenuTop.jsx';
+import { Grid } from "@material-ui/core";
 import './LayoutBasic.css';
 
 export default function LayoutBasic({ children }){
@@ -9,11 +10,9 @@ export default function LayoutBasic({ children }){
             <div className="layout-basic-header">
                 <MenuTop/>
             </div>
-            
-            <div className="layout-basic-content">
+            <Grid className="layout-basic-content" container justify="center">
                 {children}
-            </div>
-            
+            </Grid>
         </Fragment>
     );
 }
