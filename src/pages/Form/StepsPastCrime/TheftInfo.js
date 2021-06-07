@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment } from "react";
 import traslate from "../../../assets/traslate/es.json";
 import { Grid, Button } from "@material-ui/core";
 import "../Form.css";
@@ -148,17 +148,17 @@ const TheftInfovalidation = Yup.object({
 });
 
 const TheftInfo = ({ formData, handleNext }) => {
-  const [focused, setFocused] = useState(false);
-  
+  const { type, hour, date,  place_description, accompaniment } = formData;
+
   return (
     <Fragment>
       <Formik
         initialValues={{
-          type: "",
-          hour: "",
-          date: "",
-          place_description: "",
-          accompaniment: "",
+          type: type,
+          hour: hour,
+          date: date,
+          place_description: place_description,
+          accompaniment: accompaniment,
         }}
         validationSchema={TheftInfovalidation}
         onSubmit={(values) => {
@@ -167,11 +167,7 @@ const TheftInfo = ({ formData, handleNext }) => {
           formData.date = values.date;
           formData.place_description = values.place_description;
           formData.accompaniment = values.accompaniment;
-
           handleNext();
-        }}
-        onFocus={(e)=>{
-          setFocused(!focused);
         }}
       >
         {({ errors, touched }) => (

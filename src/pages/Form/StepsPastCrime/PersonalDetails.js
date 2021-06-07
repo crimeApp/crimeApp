@@ -7,8 +7,9 @@ import * as Yup from "yup";
 import "../Form.css";
 
 const gender_options = [
-  `${traslate["GENDER"]["MAN"]}`,
-  `${traslate["GENDER"]["WOMAN"]}`,
+  { label: "Hombre", value: "hombre" },
+  { label: "Mujer", value: "mujer" },
+  { label: "Prefiero no decir", value: "indefinido" },
 ];
 
 const PersonalInfovalidation = Yup.object({
@@ -21,7 +22,7 @@ const PersonalInfovalidation = Yup.object({
     .required("Completar la casilla"),
   victim_gender: Yup.string()
     .transform((e) => e.toLowerCase())
-    .oneOf(gender_options)
+    .oneOf(["hombre", "mujer", "indefinido"])
     .required("Elija una opcion"),
   victim_age: Yup.number().max(100).min(12).required("Completar la casilla"),
 });
@@ -116,12 +117,10 @@ export default function PersonalDetails({ formData, handleNext, handleBack }) {
                   className={`input-content ${errors.victim_gender ? "error" : ""
                     }`}
                 >
-                  <option value={traslate["GENDER"]["WOMAN"]}>
-                    {traslate["GENDER"]["WOMAN"]}
-                  </option>
-                  <option value={traslate["GENDER"]["MAN"]}>
-                    {traslate["GENDER"]["MAN"]}
-                  </option>
+                  {gender_options.map((gender) => (
+                    <option key={gender.value} value={gender.value}>{gender.label}</option>
+                  ))}
+                 
                 </Field>
                 {errors.victim_gender && touched.victim_gender ? (
                   <p className={"error-message"}>{errors.victim_gender}</p>

@@ -10,23 +10,18 @@ import "../Form.css";
 const clothing_options = [
   { label: "Formal", value: "formal" },
   { label: "Casual", value: "casual" },
-  { label: "Deportivo", value: "Deportivo" },
-  { label: "Trabajo", value: "Trabajo" },
-  { label: "Semiinformal", value: "Semiinformal" },
-  { label: "Escolar", value: "Escolar" },
-  { label: "Limpio", value: "Limpio" },
-  { label: "Desalineado", value: "Desalineado" },
+  { label: "Deportivo", value: "deportivo" },
+  { label: "Trabajo", value: "trabajo" },
+  { label: "Semiinformal", value: "semiformal" },
+  { label: "Escolar", value: "escolar" },
+  { label: "Arreglado", value: "arreglado" },
+  { label: "Desalineado", value: "desalineado" },
 ];
 
-const clothing_validation = [
-  `${traslate["CLOTHING"]["FORMAL"]}`,
-  `${traslate["CLOTHING"]["CASUAL"]}`,
-  `${traslate["CLOTHING"]["SPORTY"]}`,
-  `${traslate["CLOTHING"]["WORK"]}`,
-  `${traslate["GENDER"]["SEMIFORMAL"]}`,
-  `${traslate["CLOTHING"]["SCHOLAR"]}`,
-  `${traslate["CLOTHING"]["TIDY"]}`,
-  `${traslate["CLOTHING"]["UNTIDY"]}`,
+const gender_options = [
+  { label: "Hombre", value: "hombre" },
+  { label: "Mujer", value: "mujer" },
+  { label: "Prefiero no decir", value: "indefinido" },
 ];
 
 const height_options = [
@@ -39,16 +34,8 @@ const physical_options = [
   { label: "Flaco", value: "flaco" },
   { label: "Normal", value: "normal" },
   { label: "Obeso", value: "obeso" },
-  { label: "Atletico", value: "Atletico" },
-  { label: "Corpulento", value: "Corpulento" },
-];
-
-const physical_validation = [
-  `${traslate["PHYSICAL_BUILD"]["THIN"]}`,
-  `${traslate["PHYSICAL_BUILD"]["NORMAL"]}`,
-  `${traslate["PHYSICAL_BUILD"]["STRONG"]}`,
-  `${traslate["PHYSICAL_BUILD"]["OBESE"]}`,
-  `${traslate["PHYSICAL_BUILD"]["ATHELTIC"]}`,
+  { label: "Atletico", value: "atletico" },
+  { label: "Corpulento", value: "corpulento" },
 ];
 
 const profile_options = [
@@ -95,8 +82,23 @@ const TheftDetailvalidation = Yup.object({
     ])
     .required("Elija una de las opciones"),
   thief_height: Yup.mixed().oneOf(["alto", "mediano", "bajo", "no recuerdo"]),
-  thief_clothing: Yup.mixed().oneOf(clothing_validation),
-  thief_physical: Yup.mixed().oneOf(physical_validation),
+  thief_clothing: Yup.mixed().oneOf([
+    "formal",
+    "casual",
+    "deportivo",
+    "trabajo",
+    "semiformal",
+    "escolar",
+    "arreglado",
+    "desalineado"
+  ]),
+  thief_physical: Yup.mixed().oneOf([
+    "delgado",
+    "casual",
+    "corpulento",
+    "obeso",
+    "atletico"
+  ]),
   complaint: Yup.boolean().optional(),
   arrested: Yup.boolean().optional(),
 });
@@ -112,6 +114,7 @@ export default function TheftDetails({ formData, handleNext, handleBack }) {
         onSubmit={(values) => {
           formData.thief_profile = values.thief_profile;
           formData.thief_age = values.thief_age;
+          formData.thief_gender = values.thief_gender;
           formData.thief_height =  values.thief_height;
           formData.thief_clothing = values.thief_clothing;
           formData.thief_physical = values.thief_physical;
@@ -187,6 +190,29 @@ export default function TheftDetails({ formData, handleNext, handleBack }) {
                   <p className="error-message m-bottom-1 m-top-1">
                     {errors.thief_age}
                   </p>
+                ) : null}
+              </Grid>
+
+              <Grid item xs={12} className="m-bottom-1 m-left-3">
+                <label className={"input-label"}>
+                  {traslate.FORM["THEFTDETAILS"]["GENDER"]}
+                </label>
+              </Grid>
+              <Grid item xs={12} className="m-bottom-3 m-left-3">
+                <Field
+                  name="thief_gender"
+                  type="string"
+                  as="select"
+                  className={`input-content ${errors.thief_gender ? "error" : ""
+                    }`}
+                >
+                  {gender_options.map((gender) => (
+                    <option key={gender.value} value={gender.value}>{gender.label}</option>
+                  ))}
+                 
+                </Field>
+                {errors.thief_gender && touched.thief_gender ? (
+                  <p className={"error-message"}>{errors.thief_gender}</p>
                 ) : null}
               </Grid>
 

@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import traslate from "../../assets/traslate/es.json";
 import FormWrapper from "./FormWrapper";
-
 import TheftInfo from "./StepsPastCrime/TheftInfo";
 import StolenItems from "./StepsPastCrime/StolenItems";
 import PersonalDetails from "./StepsPastCrime/PersonalDetails";
@@ -12,30 +11,35 @@ import Submit from "./Submit";
 
 import "./Form.css";
 
-export default function PastCrime() {
-  const formData = {
-    type: "",
-    hour: "",
-    date: "",
-    place_description: "",
-    accompaniment: "",
-    stolen_cash: "",
-    stolen_items: "",
-    victim_name: "",
-    victim_dni: "",
-    victim_gender: "",
-    victim_age: "",
-    victim_height: "",
-    victim_clothing: "",
-    victim_pyshical: "",
-    thief_profile: "",
-    thief_age: "",
-    thief_height: "",
-    thief_clothing: "",
-    thief_physical: "",
-    thief_complaint: false,
-    thief_arrested: false,
+  const data= {
+        type: "",
+        hour: "",
+        date: "",
+        place_description: "",
+        accompaniment: "",
+        stolen_cash: "",
+        stolen_items: "",
+        victim_name: "",
+        victim_dni: "",
+        victim_gender: "",
+        victim_age: "",
+        victim_height: "",
+        victim_clothing: "",
+        victim_pyshical: "",
+        thief_profile: "",
+        thief_age: "",
+        thief_height: "",
+        thief_clothing: "",
+        thief_physical: "",
+        thief_complaint: false,
+        thief_arrested: false,
   };
+
+
+const formContext = React.createContext(data);
+
+export default function PastCrime() {
+  const formData =  useContext(formContext);
 
   const [step, setStep] = useState(1);
 

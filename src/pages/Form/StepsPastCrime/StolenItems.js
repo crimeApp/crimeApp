@@ -102,8 +102,6 @@ export default function StolenItems({ formData, handleNext, handleBack }) {
                   }
                   className={`input-content ${errors.stolen_cash ? "error" : ""
                     }`}
-                  onfocus="(this.type='date')"
-                  onblur="(this.type='text')"
                 />
                 {errors.stolen_cash && touched.stolen_cash ? (
                   <p className="error-message m-bottom-1 m-top-1">

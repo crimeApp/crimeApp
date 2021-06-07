@@ -6,17 +6,6 @@ import * as Yup from "yup";
 
 import "../Form.css";
 
-const clothing_validation = [
-  `${traslate["CLOTHING"]["FORMAL"]}`,
-  `${traslate["CLOTHING"]["CASUAL"]}`,
-  `${traslate["CLOTHING"]["SPORTY"]}`,
-  `${traslate["CLOTHING"]["WORK"]}`,
-  `${traslate["GENDER"]["SEMIFORMAL"]}`,
-  `${traslate["CLOTHING"]["SCHOLAR"]}`,
-  `${traslate["CLOTHING"]["TIDY"]}`,
-  `${traslate["CLOTHING"]["UNTIDY"]}`,
-];
-
 const clothing_options = [
   { label: "Formal", value: "formal" },
   { label: "Casual", value: "casual" },
@@ -42,14 +31,6 @@ const physical_options = [
   { label: "Corpulento", value: "Corpulento" },
 ];
 
-const physical_validation = [
-  `${traslate["PHYSICAL_BUILD"]["THIN"]}`,
-  `${traslate["PHYSICAL_BUILD"]["NORMAL"]}`,
-  `${traslate["PHYSICAL_BUILD"]["STRONG"]}`,
-  `${traslate["PHYSICAL_BUILD"]["OBESE"]}`,
-  `${traslate["PHYSICAL_BUILD"]["ATHELTIC"]}`,
-];
-
 const PersonalInfovalidation = Yup.object({
   victim_height: Yup.mixed().oneOf(["alto", "mediano", "bajo", "no recuerdo"]),
   victim_skin: Yup.string()
@@ -57,10 +38,25 @@ const PersonalInfovalidation = Yup.object({
     .optional(),
   victim_clothing: Yup.string()
     .transform((e) => e.toLowerCase())
-    .oneOf(clothing_validation),
+    .oneOf([
+      "formal",
+      "casual",
+      "deportivo",
+      "trabajo",
+      "semiformal",
+      "escolar",
+      "arreglado",
+      "desalineado"
+    ]),
   victim_physical: Yup.string()
     .transform((e) => e.toLowerCase())
-    .oneOf(physical_validation),
+    .oneOf([
+      "delgado",
+      "casual",
+      "corpulento",
+      "obeso",
+      "atletico"
+    ]),
 });
 
 export default function PersonalDetails2({ formData, handleNext, handleBack }) {
