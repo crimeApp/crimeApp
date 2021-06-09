@@ -60,13 +60,14 @@ const PersonalInfovalidation = Yup.object({
 });
 
 export default function PersonalDetails2({ formData, handleNext, handleBack }) {
+  const { victim_height, victim_clothing, victim_pyshical} = formData;
   return (
     <Fragment>
       <Formik
           initialValues={{
-          victim_height: "",
-          victim_clothing: "",
-          victim_pyshical: "",
+          victim_height: victim_height,
+          victim_clothing: victim_clothing,
+          victim_pyshical: victim_pyshical,
         }}
         validationSchema={PersonalInfovalidation}
         onSubmit={(values) => {

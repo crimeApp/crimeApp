@@ -148,7 +148,7 @@ const TheftInfovalidation = Yup.object({
 });
 
 const TheftInfo = ({ formData, handleNext }) => {
-  const { type, hour, date,  place_description, accompaniment } = formData;
+  const { type, hour, date, place_description, accompaniment } = formData;
 
   return (
     <Fragment>
@@ -259,9 +259,8 @@ const TheftInfo = ({ formData, handleNext }) => {
                 <Field
                   name="accompaniment"
                   as="select"
-                  className={`input-content ${
-                    errors.accompaniment ? "error" : ""
-                  }`}
+                  className={`input-content ${errors.accompaniment ? "error" : ""
+                    }`}
                 >
                   {company_options.map((company) => (
                     <option key={company.value} value={company.value}>
@@ -285,9 +284,8 @@ const TheftInfo = ({ formData, handleNext }) => {
                 <Field
                   name="place_description"
                   as="select"
-                  className={`input-content ${
-                    errors.accompaniment ? "error" : ""
-                  }`}
+                  className={`input-content ${errors.accompaniment ? "error" : ""
+                    }`}
                 >
                   {place_options.map((place) => (
                     <option key={place.value} value={place.value}>

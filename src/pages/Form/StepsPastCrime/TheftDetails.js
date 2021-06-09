@@ -104,11 +104,26 @@ const TheftDetailvalidation = Yup.object({
 });
 
 export default function TheftDetails({ formData, handleNext, handleBack }) {
+  const { 
+    thief_profile,
+    thief_age,
+    thief_height,
+    thief_clothing,
+    thief_physical,
+    thief_complaint,
+    thief_arrested } = formData;
+
   return (
     <Fragment>
       <Formik
         initialValues={{
-          formData
+          thief_profile: thief_profile,
+          thief_age: thief_age,
+          thief_height: thief_height,
+          thief_clothing: thief_clothing,
+          thief_physical: thief_physical,
+          thief_complaint: thief_complaint,
+          thief_arrested: thief_arrested 
         }}
         validationSchema={TheftDetailvalidation}
         onSubmit={(values) => {

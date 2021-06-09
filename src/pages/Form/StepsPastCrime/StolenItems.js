@@ -60,18 +60,27 @@ const StolenItemsvalidation = Yup.object({
 });
 
 export default function StolenItems({ formData, handleNext, handleBack }) {
-
+  const { stolen_cash, stolen_items, geopoint } = formData;
+  const { lat, lng } = geopoint;
   return (
     <Fragment>
       <Formik
         initialValues={{
-          stolen_cash: "",
-          stolen_items: "",
+          stolen_cash: stolen_cash,
+          stolen_items: stolen_items,
+          geopoint: {
+            lat: lat,
+            lng: lng
+          }
         }}
         validationSchema={StolenItemsvalidation}
         onSubmit={(values) => {
           formData.stolen_cash = values.stolen_cash;
           formData.stolen_items = values.stolen_items;
+          formData.geopoint = {
+            lat: values.lat,
+            lng: values.lng
+          }
           handleNext();
         }}
       >

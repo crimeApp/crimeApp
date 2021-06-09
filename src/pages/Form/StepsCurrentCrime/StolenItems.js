@@ -1,4 +1,4 @@
-import React, { useEffect, useState, Fragment } from "react";
+import React, { Fragment } from "react";
 import traslate from "../../../assets/traslate/es.json";
 import { Grid, Button } from "@material-ui/core";
 import { Formik, Form, Field } from "formik";
@@ -60,27 +60,6 @@ const StolenItemsvalidation = Yup.object({
 });
 
 export default function StolenItems({ formData, handleNext, handleBack }) {
-  const [state, setState] = useState({
-    longitude: 0,
-    latitude: 0,
-  });
-
-  useEffect(() => {
-    navigator.geolocation.getCurrentPosition(
-      function (position) {
-        setState({
-          longitude: position.coords.longitude,
-          latitude: position.coords.latitude,
-        });
-      },
-      function (error) {
-        console.error("Error Code = " + error.code + " - " + error.message);
-      },
-      {
-        enableHighAccuracy: true,
-      }
-    );
-  }, []);
 
   return (
     <Fragment>
@@ -164,17 +143,7 @@ export default function StolenItems({ formData, handleNext, handleBack }) {
                 ) : null}
               </Grid>
 
-              {/* <Grid item xs={12} className="p-left-3">
-                <label className={"input-label"}>
-                  Ubicacion
-                </label>
-              </Grid>
-              <Grid item xs={12} className="m-bottom-1 input-content">
-                <p>Latitude: {state.latitude}</p>
-                <p>longitude: {state.longitude}</p>
-                <ShowMap />
-              </Grid> */}
-
+              
               <Grid
                 container
                 className="m-top-2"
